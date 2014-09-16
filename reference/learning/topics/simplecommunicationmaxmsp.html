@@ -1,0 +1,490 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>SimpleCommunicationMaxMSP \ Learning \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Topics" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../../index.html"><img src="../../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav">
+					<a href="../../index.html">Framework</a> (<a href="../../alpha.html">A-Z</a>) \ 
+					<a href="../../libraries/index.html">Libraries</a> \ 
+					<a href="../../environment/index.html">Environment</a> \ 
+					<a href="../../learning/index.html" class="active">Learning</a> \
+					<a href="../../hardware/index.html">Hardware</a> 
+				</div>
+				<div class="navBar learning_local" id="subNav">
+					 
+ Examples: 					<a href="../../learning/basics/index.html">Basics</a>, 
+					<a href="../../learning/libraries/index.html">Library</a>, 
+					<a href="../../learning/topics/index.html" class="active">Topics</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 
+<div class="examples-nav-div">
+<table width="480" border="0"><tr><td align="left"><table>
+<tr><td><a href="http://wiring.org.co/learning/tutorials/isadora/index.html">
+				<img src="../../img/back_off.gif" alt="Wiring & Isadora (Tutorial)" /></a></td><td>
+<select name="nav" size="1" class="inputnav" onChange="javascript:gogo(this)">
+	<optgroup label="Motors">
+		<option value="dcmotor.html">DC Motor</option>
+		<option value="steppermotor.html">Stepper motor: TEAC</option>
+		<option value="vibrationmotor.html">Vibration motor</option>
+		<option value="picoboticsservo.html">Picobotics servo controller</option>
+		<option value="../libraries/servomotor.html">Servo moving</option>
+		<option value="../libraries/servomultiple.html">Multiple servos</option>
+		<option value="../libraries/servoanaloginput.html">Servo & potentiometer</option>
+		<option value="../libraries/steppermove.html">Stepper move</option>
+	</optgroup>
+	<optgroup label="Code mixing">
+		<option value="wiringandc.html">Mixing Wiring and "C" code</option>
+	</optgroup>
+	<optgroup label="Ethernet">
+		<option value="ethernetlantronix.html">Ethernet: Lantronix XPORT</option>
+	</optgroup>
+	<optgroup label="Other software">
+		<option value="wiringosc.html">Wiring hardware + OSC</option>
+		<option value="switchesprocessing.html">Switches & Processing</option>
+		<option value="lightprocessing.html">Light sensor & Processing</option>
+		<option value="servoprocessing.html">Servo motor & Processing</option>
+		<option value="motorprocessing.html">DC motor & Processing</option>
+		<option value="http://wiring.org.co/learning/tutorials/isadora/index.html">Wiring & Isadora (Tutorial)</option>
+		<option value="simplecommunicationmaxmsp.html" selected="selected">Send data to MaxMSP</option>
+		<option value="serialreadmaxmsp.html">Receive data from MaxMSP</option>
+		<option value="allanaloginputsmaxmsp.html">Reading all analog inputs & MaxMSP</option>
+	</optgroup>
+	<optgroup label="Other hardware">
+		<option value="readingnunchuck.html">Reading Nintendo Nunchuck</option>
+	</optgroup>
+	<optgroup label="Power regulators">
+		<option value="power5lm7805.html">Power regulators 5V: LM7805</option>
+		<option value="power33ld33v.html">Power regulators 3.3V: LD33V</option>
+		<option value="power33lm7833.html">Power regulators 3.3V: LM7833</option>
+	</optgroup>
+	<optgroup label="Sensing current">
+		<option value="../basics/lowcurrentacs712.html">Low current sensor: Sparkfun ACS712</option>
+		<option value="../basics/currentacs712.html">Current sensor: Sparkfun ACS712</option>
+	</optgroup>
+	<optgroup label="Proximity">
+		<option value="../libraries/ultrasonicsfr.html">Ultrasonic ranger: SFR08/SFR10</option>
+		<option value="../basics/sfr0405ranger.html">Ultrasonic ranger: SFR04/SFR05</option>
+		<option value="../basics/parallaxping.html">Distance (proximity) sensor: Parallax ping</option>
+		<option value="../basics/rangersharp.html">Infrared ranger (distance/presence): SHARP GP2D12/120</option>
+		<option value="../basics/phototransistor.html">Phototransistor</option>
+		<option value="../basics/rangerleds.html">Infrared ranger & LEDs</option>
+		<option value="../basics/switch.html">Switch (button)</option>
+		<option value="../basics/hallsensor.html">Hall effect sensor</option>
+		<option value="../libraries/qslidetouch.html">Touch sensor</option>
+	</optgroup>
+	<optgroup label="Sensing the environment">
+		<option value="../basics/magneticfield.html">Magnetic field sensor: micromag 3-axis</option>
+		<option value="../basics/humiditytemperaturesht15.html">Humidity & Temperature: Sparkfun SHT15</option>
+		<option value="../basics/humiditytemperaturesht11.html">Humidity & Temperature: Parallax SHT11</option>
+		<option value="../basics/photoresistor.html">Photoresistor</option>
+		<option value="../basics/airqualitymq135.html">Air quality sensor: MQ135</option>
+		<option value="../basics/phototransistor.html">Phototransistor</option>
+		<option value="../basics/microphone.html">Microphone (sound sensor)</option>
+		<option value="../basics/electretmicrophone.html">Electret Microphone: Sparkfun</option>
+		<option value="../basics/ambientlighttemt6000.html">Ambient light sensor: Sparkfun TEMT6000</option>
+		<option value="../basics/inverselight.html">Light sensor & LED</option>
+		<option value="../libraries/bmp085.html">Temperature and barometric pressure: Sparkfun BOSCH BMP085</option>
+		<option value="../libraries/tmp102sparkfun.html">Temperature: Sparkfun tmp102</option>
+		<option value="../libraries/barometricpressuresensor.html">Barometric pressure: SCP1000</option>
+	</optgroup>
+	<optgroup label="Force">
+		<option value="../basics/forceresistor.html">Force Resistor</option>
+		<option value="../basics/piezofilm.html">PiezoFilm (touch/vibration): MSIUSA piezo film</option>
+		<option value="../basics/airpressure.html">Air pressure: Motorola</option>
+		<option value="../basics/stretchlight.html">Stretch sensor & LEDs</option>
+	</optgroup>
+	<optgroup label="Location/acceleration">
+		<option value="../basics/potentiometer.html">Potentiometer</option>
+		<option value="../basics/accelerometer.html">Accelerometer ADXL335: Sparkfun</option>
+		<option value="../basics/gyroadxrs610.html">ADXRS610 Gyroscope: Sparkfun</option>
+		<option value="../basics/gyroidg500.html">IDG500 Gyroscope: Sparkfun</option>
+		<option value="../basics/gyroidg1215.html">IDG1215 Gyroscope: Sparkfun</option>
+		<option value="../basics/gyroixz500.html">IXZ500 Gyroscope: Sparkfun</option>
+		<option value="../basics/gyrolisy300al.html">LISY300AL Gyroscope: Sparkfun</option>
+		<option value="../libraries/gyromlx90609.html">MLX90609 Gyroscope: Sparkfun</option>
+		<option value="../basics/potentiometerled.html">Potentiometer & LED</option>
+		<option value="../libraries/digitalpotentiometer.html">Digital potentiometer: AD5171</option>
+		<option value="../libraries/hmc6352sparkfun.html">Compass heading: HMC6352 sparkfun</option>
+		<option value="../libraries/hmc6343sparkfun.html">Compass heading with tilt compensation: HMC6343 sparkfun</option>
+		<option value="../libraries/encoderread.html">Encoder read</option>
+		<option value="../libraries/basicpositioning.html">Basic positioning</option>
+		<option value="../libraries/coursetodestination.html">Course to destination</option>
+		<option value="../libraries/determiningspeed.html">Determining speed</option>
+		<option value="../libraries/distancetodestination.html">Distance to destination</option>
+	</optgroup>
+	<optgroup label="Displays">
+		<option value="../basics/ledswing.html">LED swing</option>
+		<option value="../basics/numericdisplay.html">7 Segment led numerical LED display</option>
+		<option value="../basics/shiftregister.html">Shift Register: 74LS595</option>
+		<option value="../basics/rgbbackpack.html">RGB LED matrix: Sparkfun RGB LED backpack</option>
+		<option value="../libraries/hellomatrix.html">Hello Matrix</option>
+		<option value="../libraries/spriteanimation.html">Sprite animation</option>
+		<option value="../libraries/printdata.html">Printing data to parallel LCD display</option>
+	</optgroup>
+</select>
+
+</td><td><a class="next" href="serialreadmaxmsp.html">
+				<img src="../../img/next_off.gif" alt="Receive data from MaxMSP" /></a></td></tr></table></td></tr></table></div>
+
+<p class="ref-notice">This example is for Wiring version 1.0 build 0100+. If you have a previous version, use the examples included with your software. <em>If you see any errors or have comments, please <a href="http://forum.wiring.co/index.php/board,13.0.html">let us know</a>.</em></p>
+
+
+<div class="example">Simple Serial communication by BARRAGAN http://barraganstudio.com <br />
+<br />
+ Demonstrates how to print data to the serial port. The data is received by MaxMSP. The MaxMSP patch is included below as text. Copy the text of the patch open a new patch in MaxMSP and paste.</p>
+<p></p>
+
+<p class="doc">
+<pre class="code">
+<span class='keyword1'>byte</span> value = 0;
+
+<span class='keyword1'>void</span> <span class='keyword2'>setup</span>()
+{
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>begin</span>(9600);
+}
+
+<span class='keyword1'>void</span> <span class='keyword2'>loop</span>()
+{
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>write</span>(value);
+  value = value + 1;
+  <span class='keyword2'>delay</span>(100);
+}
+
+<span class='comment'>/* MaxMSP patch copy, go to Max open a <span class='keyword1'>new</span> patch and paste
+
+{
+  <span class='literal'>"boxes"</span> : [     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "comment",
+        "text" : "number object to see the data coming from the board",
+        <span class='literal'>"patching_rect"</span> : [ 150.0, 367.0, 293.0, 20.0 ],
+        "id" : "obj-21",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 0,
+        <span class='literal'>"fontsize"</span> : 12.0
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "number",
+        <span class='literal'>"patching_rect"</span> : [ 54.0, 366.0, 50.0, 20.0 ],
+        "id" : "obj-20",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 2,
+        <span class='literal'>"fontsize"</span> : 12.0,
+        "outlettype" : [ "<span class='keyword1'>int</span>", "bang" ]
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "comment",
+        "text" : "toggle object to open/close the serial and start/<span class='keyword2'>stop</span> the patch",
+        <span class='literal'>"linecount"</span> : 3,
+        <span class='literal'>"patching_rect"</span> : [ 97.0, 25.0, 150.0, 48.0 ],
+        "id" : "obj-18",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 0,
+        <span class='literal'>"fontsize"</span> : 12.0
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "toggle",
+        <span class='literal'>"patching_rect"</span> : [ 54.0, 44.0, 20.0, 20.0 ],
+        "id" : "obj-17",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 1,
+        "outlettype" : [ "<span class='keyword1'>int</span>" ]
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "comment",
+        "text" : "select object with two options, to trigger messages, close and port ",
+        <span class='literal'>"linecount"</span> : 2,
+        <span class='literal'>"patching_rect"</span> : [ 220.0, 114.0, 227.0, 34.0 ],
+        "id" : "obj-16",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 0,
+        <span class='literal'>"fontsize"</span> : 12.0
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "newobj",
+        "text" : "select 0 1",
+        <span class='literal'>"patching_rect"</span> : [ 147.0, 121.0, 62.0, 20.0 ],
+        "id" : "obj-15",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 3,
+        <span class='literal'>"fontsize"</span> : 12.0,
+        "outlettype" : [ "bang", "bang", "" ]
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "comment",
+        "text" : "Queue-based metronome",
+        <span class='literal'>"patching_rect"</span> : [ 127.0, 89.0, 150.0, 20.0 ],
+        "id" : "obj-14",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 0,
+        <span class='literal'>"fontsize"</span> : 12.0
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "newobj",
+        "text" : "qmetro 10",
+        <span class='literal'>"patching_rect"</span> : [ 54.0, 102.0, 65.0, 20.0 ],
+        "id" : "obj-13",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 2,
+        <span class='literal'>"numoutlets"</span> : 1,
+        <span class='literal'>"fontsize"</span> : 12.0,
+        "outlettype" : [ "bang" ]
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "comment",
+        "text" : "The serial object, port at 9600bps",
+        <span class='literal'>"patching_rect"</span> : [ 150.0, 324.0, 188.0, 20.0 ],
+        "id" : "obj-11",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 0,
+        <span class='literal'>"fontsize"</span> : 12.0
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "message",
+        "text" : "close",
+        <span class='literal'>"patching_rect"</span> : [ 193.0, 269.0, 39.0, 18.0 ],
+        "id" : "obj-10",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 2,
+        <span class='literal'>"numoutlets"</span> : 1,
+        <span class='literal'>"fontsize"</span> : 12.0,
+        "outlettype" : [ "" ]
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "comment",
+        "text" : "<span class='keyword2'>add</span> some message boxes and type their names <span class='keyword1'>for</span> the basic communication, \"<span class='keyword2'>print</span>\" (will <span class='keyword2'>print</span> a list of serial ports), \"port a\" (to open the serial port) and \"close\" to close the serial port",
+        <span class='literal'>"linecount"</span> : 6,
+        <span class='literal'>"patching_rect"</span> : [ 257.0, 185.0, 175.0, 89.0 ],
+        "id" : "obj-9",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 0,
+        <span class='literal'>"fontsize"</span> : 12.0
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "message",
+        "text" : "<span class='keyword2'>print</span>",
+        <span class='literal'>"patching_rect"</span> : [ 193.0, 187.0, 34.0, 18.0 ],
+        "id" : "obj-8",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 2,
+        <span class='literal'>"numoutlets"</span> : 1,
+        <span class='literal'>"fontsize"</span> : 12.0,
+        "outlettype" : [ "" ]
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "message",
+        "text" : "port a",
+        <span class='literal'>"patching_rect"</span> : [ 193.0, 222.0, 41.0, 18.0 ],
+        "id" : "obj-7",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 2,
+        <span class='literal'>"numoutlets"</span> : 1,
+        <span class='literal'>"fontsize"</span> : 12.0,
+        "outlettype" : [ "" ]
+      }
+
+    }
+,     {
+      <span class='literal'>"box"</span> :       {
+        "maxclass" : "newobj",
+        "text" : "serial a 9600",
+        <span class='literal'>"patching_rect"</span> : [ 54.0, 325.0, 79.0, 20.0 ],
+        "id" : "obj-4",
+        "fontname" : "Arial",
+        <span class='literal'>"numinlets"</span> : 1,
+        <span class='literal'>"numoutlets"</span> : 2,
+        <span class='literal'>"fontsize"</span> : 12.0,
+        "outlettype" : [ "<span class='keyword1'>int</span>", "" ]
+      }
+
+    }
+ ],
+  <span class='literal'>"lines"</span> : [     {
+      <span class='literal'>"patchline"</span> :       {
+        "source" : [ "obj-17", 0 ],
+        "destination" : [ "obj-13", 0 ],
+        <span class='literal'>"hidden"</span> : 0,
+        <span class='literal'>"midpoints"</span> : [ 63.5, 82.5, 63.5, 82.5 ]
+      }
+
+    }
+,     {
+      <span class='literal'>"patchline"</span> :       {
+        "source" : [ "obj-17", 0 ],
+        "destination" : [ "obj-15", 0 ],
+        <span class='literal'>"hidden"</span> : 0,
+        <span class='literal'>"midpoints"</span> : [ 63.5, 92.0, 156.5, 92.0 ]
+      }
+
+    }
+,     {
+      <span class='literal'>"patchline"</span> :       {
+        "source" : [ "obj-15", 1 ],
+        "destination" : [ "obj-7", 0 ],
+        <span class='literal'>"hidden"</span> : 0,
+        <span class='literal'>"midpoints"</span> : [ 178.0, 219.0, 202.5, 219.0 ]
+      }
+
+    }
+,     {
+      <span class='literal'>"patchline"</span> :       {
+        "source" : [ "obj-7", 0 ],
+        "destination" : [ "obj-4", 0 ],
+        <span class='literal'>"hidden"</span> : 0,
+        <span class='literal'>"midpoints"</span> : [ 202.5, 255.0, 63.5, 255.0 ]
+      }
+
+    }
+,     {
+      <span class='literal'>"patchline"</span> :       {
+        "source" : [ "obj-10", 0 ],
+        "destination" : [ "obj-4", 0 ],
+        <span class='literal'>"hidden"</span> : 0,
+        <span class='literal'>"midpoints"</span> : [ 202.5, 309.0, 63.5, 309.0 ]
+      }
+
+    }
+,     {
+      <span class='literal'>"patchline"</span> :       {
+        "source" : [ "obj-4", 0 ],
+        "destination" : [ "obj-20", 0 ],
+        <span class='literal'>"hidden"</span> : 0,
+        <span class='literal'>"midpoints"</span> : [  ]
+      }
+
+    }
+,     {
+      <span class='literal'>"patchline"</span> :       {
+        "source" : [ "obj-13", 0 ],
+        "destination" : [ "obj-4", 0 ],
+        <span class='literal'>"hidden"</span> : 0,
+        <span class='literal'>"midpoints"</span> : [  ]
+      }
+
+    }
+,     {
+      <span class='literal'>"patchline"</span> :       {
+        "source" : [ "obj-15", 0 ],
+        "destination" : [ "obj-10", 0 ],
+        <span class='literal'>"hidden"</span> : 0,
+        <span class='literal'>"midpoints"</span> : [ 156.5, 255.0, 202.5, 255.0 ]
+      }
+
+    }
+,     {
+      <span class='literal'>"patchline"</span> :       {
+        "source" : [ "obj-8", 0 ],
+        "destination" : [ "obj-4", 0 ],
+        <span class='literal'>"hidden"</span> : 0,
+        <span class='literal'>"midpoints"</span> : [ 202.5, 207.0, 63.5, 207.0 ]
+      }
+
+    }
+ ]
+}
+
+*/</span>
+</pre>
+
+
+</div>
+
+
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

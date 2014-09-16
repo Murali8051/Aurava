@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Examples: Library \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Library" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../../index.html"><img src="../../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav">
+					<a href="../../index.html">Framework</a> (<a href="../../alpha.html">A-Z</a>) \ 
+					<a href="../../libraries/index.html">Libraries</a> \ 
+					<a href="../../environment/index.html">Environment</a> \ 
+					<a href="../../learning/index.html" class="active">Learning</a> \
+					<a href="../../hardware/index.html">Hardware</a> 
+				</div>
+				<div class="navBar learning_local" id="subNav">
+					 
+ Examples: 					<a href="../../learning/basics/index.html">Basics</a>, 
+					<a href="../../learning/libraries/index.html" class="active">Library</a>, 
+					<a href="../../learning/topics/index.html">Topics</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 <h1><img src="../images/header-libraries.gif" alt="Library Examples. The libraries built for Wiring extend the software beyond the basic I/O." /></h1>
+
+<div class="ref-col">
+<p><br /><b>Wire</b><br /><br />	<a href="digitalpotentiometer.html">Digital potentiometer: AD5171</a><br />
+	<a href="masterreader.html">Master reader</a><br />
+	<a href="masterwriter.html">Master writer</a><br />
+	<a href="slavereceiver.html">Slave receiver</a><br />
+	<a href="slavesender.html">Slave sender</a><br />
+	<a href="ultrasonicsfr.html">Ultrasonic ranger: SFR08/SFR10</a><br />
+	<a href="hmc6352sparkfun.html">Compass heading: HMC6352 sparkfun</a><br />
+	<a href="hmc6343sparkfun.html">Compass heading with tilt compensation: HMC6352 sparkfun</a><br />
+	<a href="realtimeclock.html">Real time clock: DS1307 sparkfun</a><br />
+	<a href="bmp085.html">Temperature and barometric pressure: Sparkfun BOSCH BMP085</a><br />
+	<a href="tmp102sparkfun.html">Temperature: Sparkfun tmp102</a><br />
+<p><br /><b>SPI</b><br /><br />	<a href="barometricpressuresensor.html">Barometric pressure: SCP1000</a><br />
+	<a href="gyromlx90609.html">MLX90609 Gyroscope: Sparkfun</a><br />
+<p><br /><b>Servo</b><br /><br />	<a href="servomotor.html">Servo moving</a><br />
+	<a href="servomultiple.html">Multiple servos</a><br />
+	<a href="servoanaloginput.html">Servo & potentiometer</a><br />
+<p><br /><b>Matrix</b><br /><br />	<a href="hellomatrix.html">Hello Matrix</a><br />
+	<a href="spriteanimation.html">Sprite animation</a><br />
+<p><br /><b>LiquidCrystal</b><br /><br />	<a href="printdata.html">Printing data to parallel LCD display</a><br />
+<p><br /><b>Encoder</b><br /><br />	<a href="encoderread.html">Encoder read</a><br />
+<p><br /><b>EEPROM</b><br /><br />	<a href="storedata.html">Storing data</a><br />
+<p><br /><b>EEPROMVar</b><br /><br />	<a href="helloeepromvar.html">EEPROM data variables</a><br />
+<p><br /><b>Firmata</b><br /><br />	<a href="allinputsfirmata.html">All inputs</a><br />
+	<a href="analogfirmata.html">Analog inputs</a><br />
+	<a href="echostring.html">Strings accept and echoing</a><br />
+	<a href="i2cfirmata.html">Wire & Firmata</a><br />
+	<a href="oldstandardfirmata.html">Old Standard protocol</a><br />
+	<a href="servofirmata.html">Servo & Firmata</a><br />
+	<a href="simpleanalogfirmata.html">Analog input/output pins</a><br />
+	<a href="simpledigitalfirmata.html">Digital input/output pins</a><br />
+	<a href="standardfirmata.html">Standard protocol</a><br />
+<p><br /><b>NewSoftSerial</b><br /><br />	<a href="newsoftserialtest.html">Software serial port test</a><br />
+	<a href="twonsstest.html">Two ports</a><br />
+</div><div class="ref-col"><p><br /><b>Stepper</b><br /><br />	<a href="steppermove.html">Stepper move</a><br />
+<p><br /><b>NMEA</b><br /><br />	<a href="basicpositioning.html">Basic positioning</a><br />
+	<a href="coursetodestination.html">Course to destination</a><br />
+	<a href="determiningspeed.html">Determining speed</a><br />
+	<a href="distancetodestination.html">Distance to destination</a><br />
+	<a href="nmeasentence.html">NMEA Sentence</a><br />
+<p><br /><b>Button</b><br /><br />	<a href="button.html">Button object</a><br />
+	<a href="eventbutton.html">Event API for buttons</a><br />
+	<a href="pollingcomplexbutton.html">Button polling technique</a><br />
+<p><br /><b>Constrain</b><br /><br />	<a href="simpleconstrain.html">Constrained variables</a><br />
+<p><br /><b>FluentPrint</b><br /><br />	<a href="hellofluentprint.html">Hello fluent print</a><br />
+<p><br /><b>FSM</b><br /><br />	<a href="ledstatemachine.html">LED state machine</a><br />
+<p><br /><b>HashMap</b><br /><br />	<a href="hellohashmap.html">Hello Hashmap</a><br />
+<p><br /><b>Keypad</b><br /><br />	<a href="customkeypad.html">Custom Keypad</a><br />
+	<a href="dynamickeypad.html">Dynamic Keypad</a><br />
+	<a href="eventkeypad.html">Event Keypad</a><br />
+	<a href="hellokeypad.html">Hello Keypad</a><br />
+<p><br /><b>LED</b><br /><br />	<a href="blink.html">Blink</a><br />
+	<a href="loop.html">Loop</a><br />
+<p><br /><b>MenuBackend</b><br /><br />	<a href="hellomenu.html">Hello Menu</a><br />
+</div><div class="ref-col"><p><br /><b>OSC</b><br /><br />	<a href="helloosc.html">Hello OSC (Open Sound Control)</a><br />
+<p><br /><b>Messenger</b><br /><br />	<a href="basic_communication.html">Basic communication</a><br />
+	<a href="checkstring.html">Check string</a><br />
+	<a href="copystring.html">Copy string</a><br />
+<p><br /><b>Password</b><br /><br />	<a href="hellopassword.html">Hello Password</a><br />
+	<a href="passwordkeypad.html">Password Keypad</a><br />
+	<a href="serialmonitor.html">Serial Monitor</a><br />
+<p><br /><b>Potentiometer</b><br /><br />	<a href="potcontrol_led.html">PotControl LED</a><br />
+	<a href="potdemo.html">Pot Demo</a><br />
+<p><br /><b>Scheduler</b><br /><br />	<a href="delayedsignal.html">Delayed Signal</a><br />
+<p><br /><b>Supervisor</b><br /><br />	<a href="hellosupervisor.html">Hello Supervisor</a><br />
+<p><br /><b>TimedAction</b><br /><br />	<a href="hellotimedaction.html">Hello Timed Action</a><br />
+	<a href="threeexamplesatonce.html">Three Examples At Once</a><br />
+</div>
+
+
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title> Libraries \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Libraries" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../index.html"><img src="../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav_noSub">
+					<a href="../index.html">Framework</a> (<a href="../alpha.html">A-Z</a>) \ 
+					<a href="../libraries/index.html" class="active">Libraries</a> \ 
+					<a href="../environment/index.html">Environment</a> \ 
+					<a href="../learning/index.html">Learning</a> \
+					<a href="../hardware/index.html">Hardware</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 <h2><img src="images/header.gif" width="675" height="70" alt="Libraries. Extending Processing beyond graphics and image, libraries enable audio, video, and communicating with other devices." /></h2>
+
+<p class="libraries-top">
+The following libraries are included with the Wiring software. There are <strong><em>Core Libraries</em></strong> which are platform specific and <strong><em>Cross-platform Libraries</em></strong> which are platform independent. To add one to a project, select its name from the &quot;Import Library...&quot; option in the Sketch menu. These libraries are open source; the code is distributed with Wiring.</p>
+<p>&nbsp;</p>
+<p class="libraries-top"><img src="images/corelibraries.gif" alt="Core libraries" /></p>
+<div class="threecol">
+      <h5><a href="EEPROM/index.html">EEPROM</a> </h5>
+  <p>Basic Wiring I/O board internal EEPROM management library/</p>
+      <h5><a href="EEPROMVar/index.html">EEPROMVar</a> </h5>
+      <p> EEPROM variables management library.</p>
+      <h5><a href="Encoder/index.html">Encoder</a> </h5>
+      <p>Basic Encoder manipulation library.</p>
+      <h5><a href="http://www.firmata.org">Firmata</a> </h5>
+      <p>by Hans-Christoph Steiner and maintained by Paul Stoffregen. A generic protocol designed to communicate with Wiring from software on a host computer.</p>
+</div>
+<div class="threecol">
+      <h5><a href="LiquidCrystal/index.html">LiquidCrystal</a> </h5>
+      <p>Basic liquid crystal display (LCD) manipulation library (parallel communication, 8 bits).</p>
+      <h5><a href="Matrix/index.html">Matrix</a> </h5>
+      <p>Basic LED Matrix display manipulation library using MAX LED Matrix controllers.</p>
+      <h5><a href="http://arduiniana.org/libraries/newsoftserial/">NewSoftSerial</a>.</h5>
+      <p>by <a href="http://arduiniana.org/libraries/newsoftserial/">Mikal Hart</a>. Supports communication between Wiring and external hardware via software serial ports.</p>
+  <h5><a href="Servo/index.html">Servo</a> </h5>
+      <p>By Michael Margolis.
+        Servo motor manipulation library.</p>
+</div>
+<div class="threecol">
+  <h5><a href="SoftwareSerial/index.html">SoftwareSerial</a> </h5>
+  <p>Supports communication between Wiring and external hardware via software serial ports.</p>
+  <h5><a href="Wire/index.html">Wire</a></h5>
+  <p>Two Wire Interface for sending and receiving data over a net of devices or sensors.</p>
+  <h5><a href="SPI/index.html">SPI</a></h5>
+  <p>Serial Peripheral Interface Bus or SPI bus for sending and receiving data in a master/slave mode.</p>
+</div>
+</p>
+<p>&nbsp;</p></br>
+<h3 id="libraries"><img src="images/librariescrossplatform.gif" alt="Multi-platform Libraries" /></h3>
+<div class="threecol">
+  <h5><a href="Button/index.html">Button</a> </h5>
+      <p>A Hardware Abstraction Library for Buttons. It provides an easy way of handling buttons.</p>
+      <h5><a href="Constrain/index.html">Constrain</a>  </h5>
+  <p>Easy way of making constrained variables.</p>
+      <h5><a href="FluentPrint/index.html">FluentPrint</a>      </h5>
+      <p>A library that enable a fluent API for printing.</p>
+      <h5><a href="FSM/index.html">FSM</a> </h5>
+  <p>Provide an easy way of making finite state machines.</p>
+  <h5><a href="HashMap/index.html">HashMap </a> </h5>
+  <p>Implementation of a Hash Map data structure for the Wiring platform.</p>
+  <h5><a href="Keypad/index.html">Keypad </a> </h5>
+  <p>This library provides a simple interface for using matrix keypads.</p>
+</div>
+<div class="threecol">
+  <h5><a href="LED/index.html">LED</a></h5>
+  <p>This is a Hardware Abstraction Library for LEDs. Provide an easy way of handling LEDs in code.</p>
+  <h5><a href="MenuBackend/index.html">MenuBackend</a> and <a href="MenuItem/index.html">MenuItem</a></h5>
+<p>Provide an easy way of making menus.</p>
+  <h5><a href="Messenger/index.html">Messenger</a> </h5>
+  <p>by <a href="http://tof.danslchamp.org/">Thomas Ouellet Fredericks</a>. Messenger is a &quot;toolkit&quot; that facilitates the parsing of ASCII messages. Also in <a href="http://t-o-f.info/pmwiki/index.php?n=Arduino.Messenger">French</a>. <a href="http://www.arduino.cc/playground/Code/Messenger">Main site</a>.</p>
+  <h5><a href="NMEA/index.html">NMEA </a> </h5>
+  <p>by <a href="http://www.maartenlamers.com">Maarten Lamers</a>. Library for easy decoding of GPS data on the Wiring and Arduino hardware. <a href="http://www.maartenlamers.com/nmea/">Main site</a>.</p>
+  <h5><a href="OSC/index.html">OSC</a> </h5>
+  <p>Basic OSC (Open Sound Control) library.</p>
+  <h5><a href="Password/index.html">Password</a></h5>
+  <p>A library to easily simple password handling.</p>
+</div>
+<div class="threecol">
+  <h5><a href="Potentiometer/index.html">Potentiometer</a></h5>
+  <p>This is a Hardware Abstraction Library for Potentiometers. Provide an easy way of making/using potentiometers.</p>
+  <h5><a href="Scheduler/index.html">Scheduler</a> </h5>
+<p>Provide an easy way of scheduling function calls somewhere in the future.</p>
+  <h5><a href="SmoothInterpolate/index.html">SmoothInterpolate</a> </h5>
+  <p>Make it easy to interpolate smoothly from x to y in z steps (between each value).</p>
+  <h5><a href="Supervisor/index.html">Supervisor</a> </h5>
+  <p>Supervise a set of rules that automatically fire a handler for when the rule is broken.</p>
+  <h5><a href="Sprite/index.html">Sprite</a> </h5>
+  <p>Basic image sprite manipulation library for use in animations with an LED matrix.</p>
+  <h5><a href="Stepper/index.html">Stepper</a> </h5>
+  <p>Basic stepper motor manipulation library.</p>
+  <h5><a href="TimedAction/index.html">TimedAction</a> </h5>
+  <p>Provide an easy way of triggering functions at a set interval.</p>
+</div>
+</p>
+<p>&nbsp;</p></br>
+<p class="libraries"><img src="images/othersoftwarelibraries.gif" alt="Other software libraries" /></p>
+<div>
+  <h5><a href="FirmataProcessing/index.html">Wiring/Processing</a></h5>
+  <p>This library allows to control the Wiring I/O board from Processing without writing code in the Wiring IDE. It uses the Firmata protocol.</p>
+  <h5><a href="FirmataOpenframeworks/index.html">Wiring/OpenFrameworks</a></h5>
+  <p>This library allows to control the Wiring I/O board from Openframeworks without write code in the Wiring IDE. It uses the Firmata protocol.</p>
+  <h5><a href="http://www.embedded.arch.ethz.ch/Examples/ExampleWiringlib">WiringLib for Processing </a></h5>
+  <p>by Christoph Wartmann and Etienne Ribeiro
+    The library is in an early stage but is already useful for small applications in Processing. Interface sensors and motors without the need to program it in Wiring, directly in Processing or JAVA!.</p>
+</div>
+</p>
+<p>&nbsp;</p></br>
+<p class="libraries-bottom"><img src="images/contributedlibraries.gif" alt="Contributed libraries" /></p>
+<p class="libraries-bottom">Contributed libraries if standard (Wiring libraries style) must be downloaded separately and placed within the "libraries" folder of your Wiring sketchbook or follow the instructions in their respective site. To find the Wiring sketchbook location on your computer, open the Preferences window from the Wiring application and look for the "Sketchbook location" item at the top. Copy the contributed library's folder into the &quot;libraries&quot; folder at this location. <em>You will need to create the &quot;libraries&quot; folder if this is your first contributed library</em>. Follow the links below for more information about each library.<br />
+  <br />
+Contributed libraries are developed, documented, and maintained by members of the Wiring community. For feedback and support, please post to the <a href="http://forum.wiring.co">Forum</a>, for development discussions post to <a href="http://forum.wiring.co/index.php/board,12.0.html">Libraries Development</a>. </p>
+<p class="libraries-bottom">There is a wide number of libraries developed by the Arduino community, If the libraries use the standard set of commands of the Wiring Framework API they should work fine. Download and install as described above. Check out the <a href="http://www.arduino.cc/playground/Main/GeneralCodeLibrary">Arduino Playground Code Library.</a> For questions/help regarding third party libraries please post to <a href="http://forum.wiring.co/index.php/board,12.0.html">Libraries Development</a>. <br />
+  <!-- When run online, variables will be set, don't insert anything. -->
+  <!--#if expr="\"$DOCUMENT_ROOT\" = \"\"" -->
+</p>
+<div>
+  <h5>&nbsp;</h5>
+</div>
+
+<p>
+  <!--#else -->
+  <!--#include virtual="libraries.html" -->
+  <!--#endif -->
+</p>
+
+<p>&nbsp; </p>
+
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

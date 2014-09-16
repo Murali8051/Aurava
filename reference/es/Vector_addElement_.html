@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+	<head>
+		<title>Vector::addElement() \ Language (API) \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Language" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="index.html"><img src="img/wiring.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav_noSub">
+					<a href="index.html" class="active">Framework</a> (<a href="alpha.html">A-Z</a>) \ 
+					<a href="libraries/index.html">Librer&iacute;as</a> \ 
+					<a href="environment/index.html">Entorno</a> \ 
+					<a href="learning/index.html">Aprendiendo</a> \
+					<a href="hardware/index.html">Hardware</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 <p class="ref-notice">Referencia para la versi&oacute;n de Wiring 1.0 Build 0100+. Si tiene una versi&oacute;n previa, use la referencia incluida con su software. <em>Si encuentra errores o tiene comentarios, <a href="http://forum.wiring.co/index.php/board,13.0.html">no dude en contactarnos</a>.</em></p>
+
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="">
+		<th scope="row">Clase</th>
+		<td><p>Vector</p></td>
+	</tr>
+
+	<tr class="name-row">
+		<th scope="row">Nombre</th>
+		<td><h3>addElement()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Ejemplos</th>
+		<td><div class="example"><pre><span class='keyword1'>Vector</span> &lt; <span class='keyword1'>int</span> &gt; intVector;
+
+<span class='keyword1'>void</span> <span class='keyword2'>setup</span>() {
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>begin</span>(9600); 
+  <span class='keyword2'>pinMode</span>(<span class='literal2'>WLED</span>, <span class='literal2'>OUTPUT</span>);  <span class='comment'>//  enciende el LED incluido en la tarjeta</span>
+  <span class='keyword2'>digitalWrite</span>(<span class='literal2'>WLED</span>, <span class='literal2'>HIGH</span>);
+  
+  <span class='keyword1'>for</span> (<span class='keyword1'>int</span> i=0; i&lt;255; i++) {  <span class='comment'>// agrega 255 elementos de 0 a 254 </span>
+    intVector.<span class='keyword2'>addElement</span>(i);
+  }
+  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"The vector's <span class='keyword2'>capacity</span> is: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(intVector.<span class='keyword2'>capacity</span>(), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime la capacidad del vector</span>
+
+  <span class='keyword1'>if</span> (intVector.<span class='keyword2'>contains</span>(15) == <span class='keyword1'>true</span>) {  <span class='comment'>// revisa si contiene el n&amp;uacute;mero 15</span>
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"The vector <span class='keyword2'>contains</span> the element 15"</span>);
+  }
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"The vector's first element is: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(intVector.<span class='keyword2'>firstElement</span>(), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el primer elemento del vector</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"The vector's index <span class='keyword1'>for</span> element 30 is: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(intVector.<span class='keyword2'>indexOf</span>(30), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el elemento en la posici&amp;oacute;n 30</span>
+  <span class='keyword1'>if</span> (intVector.<span class='keyword2'>isEmpty</span>() == <span class='keyword1'>false</span>) {  <span class='comment'>// revisa si el vector tiene elementos</span>
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"The vector has elements"</span>);
+  } 
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"The vector's last element is: "</span>);  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(intVector.<span class='keyword2'>lastElement</span>(), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el &amp;uacute;ltimo elemento del vector</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"The vector's last index of 10 is: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(intVector.<span class='keyword2'>lastIndexOf</span>(10), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el &amp;uacute;ltimo &amp;iacute;ndice del vector de 10</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"The vector's <span class='keyword2'>size</span> is: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(intVector.<span class='keyword2'>size</span>(), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el tama&amp;ntilde;o del vector</span>
+
+  <span class='keyword1'>if</span> (intVector.<span class='keyword2'>add</span>(255) == <span class='keyword1'>true</span>) {  <span class='comment'>// agrgrega un elemento</span>
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"the element was added and now the vector's last element is: "</span>);
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(intVector.<span class='keyword2'>lastElement</span>(), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el &amp;uactue;ltimo elemento del vector</span>
+  }
+
+  intVector.<span class='keyword2'>addElement</span>(256); <span class='comment'>// <span class='keyword2'>add</span> another element</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"now the vector's last element is: "</span>);  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(intVector.<span class='keyword2'>lastElement</span>(), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el &amp;uactue;ltimo elemento del vector</span>
+
+  intVector.<span class='keyword2'>insertElementAt</span>(0, 10);  <span class='comment'>// inserta 0 en el &amp;iacute;ndice 10</span>
+
+  <span class='keyword1'>int</span> t = intVector.<span class='keyword2'>elementAt</span>(10);  <span class='comment'>// obtiene el elemento en el &amp;iacute;ndice 10</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"t is: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(t, <span class='literal2'>DEC</span>);  <span class='comment'>// imprime su valor</span>
+
+  intVector.<span class='keyword2'>remove</span>(10);  <span class='comment'>// elimina el elemento de la posici&amp;oacute;n 10</span>
+  t = intVector.<span class='keyword2'>get</span>(10);  <span class='comment'>// obtiene el elemento de la posici&amp;oacute;n 10</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"t after <span class='keyword2'>remove</span> is: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(t, <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el elemento en la posici&amp;oacute;n 10</span>
+
+  intVector.<span class='keyword2'>removeElementAt</span>(10);  <span class='comment'>// elimina el elemento de la posici&amp;oacute;n 10</span>
+  t = intVector.<span class='keyword2'>get</span>(10);  <span class='comment'>// obtiene el elemento de la posici&amp;oacute;n 10</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"t after <span class='keyword2'>removeElementAt</span> is: "</span>);  <span class='comment'>// imprime el elemento en la posici&amp;oacute;n 10</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(t, <span class='literal2'>DEC</span>);
+
+  <span class='keyword1'>if</span> (intVector.<span class='keyword2'>removeElement</span>(23) ==<span class='keyword1'>true</span>) {  <span class='comment'>// elimina el elemento 23 del vector</span>
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"the element 23 was removed and the element value after <span class='keyword2'>remove</span> is: "</span>);
+  } 
+
+  intVector.<span class='keyword2'>setElementAt</span>(10, 5);  <span class='comment'>// Establece en el elemento en la posici&amp;oacute;n 5 el valor 10</span>
+  t = intVector.<span class='keyword2'>get</span>(5);  <span class='comment'>// obtiene el elemento de la posici&amp;oacute;n 10</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"element at index 5 is now: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(t, <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el elemento en la posici&amp;oacute;n 10</span>
+
+  intVector.<span class='keyword2'>clear</span>();  <span class='comment'>// elimina todos los elementos del vector</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"The vector's <span class='keyword2'>size</span> after <span class='keyword2'>clear</span> is: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(intVector.<span class='keyword2'>size</span>(), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime el tama&amp;ntilde;o del vector </span>
+}
+
+
+<span class='keyword1'>void</span> <span class='keyword2'>loop</span>() {
+
+}
+</pre></div><hr class="noShade" noshade="noshade" size="1" /><div class="example"><pre>
+</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Descripci&oacute;n</th>
+		<td>Agrega el elemento especificado al final del vector.</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Sintaxis</th>
+		<td><pre><span class='keyword2'>addElement</span>(<kbd>data</kbd>)
+</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Par&aacute;metros</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	<tr class="">
+		<th scope="row">data</th>
+		<td>int, long o char a adicionar</td>
+	</tr>
+</table></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Uso</th>
+		<td>Application</td>
+	</tr>
+</table>
+
+Updated on July 07, 2011 11:14:02pm PDT<br /><br />
+
+<!-- Creative Commons License -->
+
+<div class="license">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a>
+</div>
+<!--
+
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+   <dc:title>Wiring.org.co Reference</dc:title>
+   <dc:date>2004</dc:date>
+   <dc:description>Reference for the Wiring.org.co programming environment and language.</dc:description>
+   <dc:creator><Agent>
+      <dc:title>Hernando Barrag&aacute;n et al.</dc:title>
+   </Agent></dc:creator>
+   <dc:rights><Agent>
+      <dc:title>Hernando Barrag&aacute;n</dc:title>
+   </Agent></dc:rights>
+   <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+   <license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/" />
+</Work>
+
+<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.0/">
+   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+   <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+   <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" />
+   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+   <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+</License>
+
+</rdf:RDF>
+
+-->
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

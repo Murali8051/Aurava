@@ -1,0 +1,31 @@
+##############################################################
+
+AuravaLaunchpad.name=Aurava Launchpad
+AuravaLaunchpad.upload.protocol=aurava
+AuravaLaunchpad.upload.maximum_size=2048
+AuravaLaunchpad.build.mcu=msp430g2231
+AuravaLaunchpad.build.f_cpu=1000000  // not yet integrated
+AuravaLaunchpad.build.core=MSP430
+AuravaLaunchpad.build.hardware=Aurava Launchpad
+
+##############################################################
+
+AuravaFemto.name=Aurava Femto
+AuravaFemto.upload.protocol=aurava
+AuravaFemto.upload.maximum_size=16384
+AuravaFemto.build.mcu=msp430g2553
+AuravaFemto.build.f_cpu=1000000  // not yet integrated
+AuravaFemto.build.core=MSP430
+AuravaFemto.build.hardware=Aurava Femto
+
+##############################################################
+
+AuravaOtto.name=Aurava Otto
+AuravaOtto.upload.protocol=aurava
+AuravaOtto.upload.maximum_size=32256
+AuravaOtto.build.mcu=msp430g2231
+AuravaOtto.build.f_cpu=1000000  // not yet integrated
+AuravaOtto.build.core=MSP430
+AuravaOtto.build.hardware=Aurava Otto
+
+##############################################################

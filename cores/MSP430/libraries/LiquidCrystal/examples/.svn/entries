@@ -1,0 +1,58 @@
+10
+
+dir
+1250
+svn://aeon.uniandes.edu.co/wiring/tags/wiring-100release/firmware/cores/AVR8Bit/libraries/LiquidCrystal/examples
+svn://aeon.uniandes.edu.co/wiring
+
+
+
+2011-07-04T18:01:16.387198Z
+1220
+h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4cdc53cd-438c-44fd-908a-580a65d3b4bc
+
+Blink
+dir
+
+LCDtest
+dir
+
+Display
+dir
+
+SerialDisplay
+dir
+
+TextDirection
+dir
+
+Autoscroll
+dir
+
+setCursor
+dir
+
+HelloWorld
+dir
+
+Cursor
+dir
+
+Scroll
+dir
+

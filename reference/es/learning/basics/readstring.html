@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>ReadString \ Learning \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Basics" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../../index.html"><img src="../../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav">
+					<a href="../../index.html">Framework</a> (<a href="../../alpha.html">A-Z</a>) \ 
+					<a href="../../libraries/index.html">Librer&iacute;as</a> \ 
+					<a href="../../environment/index.html">Entorno</a> \ 
+					<a href="../../learning/index.html" class="active">Aprendiendo</a> \
+					<a href="../../hardware/index.html">Hardware</a> 
+				</div>
+				<div class="navBar learning_local" id="subNav">
+					 
+ Ejemplos: 					<a href="../../learning/basics/index.html" class="active">B&aacute;sicos</a>, 
+					<a href="../../learning/libraries/index.html">Librer&iacute;a</a>, 
+					<a href="../../learning/topics/index.html">T&oacute;picos</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 
+<div class="examples-nav-div">
+<table width="480" border="0"><tr><td align="left"><table>
+<tr><td><a href="photoresistorserial.html">
+				<img src="../../img/back_off.gif" alt="Photoresistor & Serial" /></a></td><td>
+<select name="nav" size="1" class="inputnav" onChange="javascript:gogo(this)">
+	<optgroup label="Getting Started">
+		<option value="blink.html">Blink</option>
+		<option value="digitalreadserial.html">Digital read Serial</option>
+		<option value="analogreadserial.html">Analog read Serial</option>
+		<option value="switch.html">Switch</option>
+		<option value="photoresistor.html">Photoresistor</option>
+		<option value="fade.html">Fade</option>
+	</optgroup>
+	<optgroup label="Digital Output">
+		<option value="ledblink.html">LED blink</option>
+		<option value="ledsequence.html">LED blink sequence</option>
+		<option value="ledswing.html">LED swing</option>
+		<option value="numericdisplay.html">7 Segment led numerical LED display</option>
+		<option value="optocoupler4n35.html">Optocoupler: 4N35</option>
+		<option value="relay.html">Relay</option>
+		<option value="lightbulb.html">120-240 VAC Light bulb: TRIAC</option>
+		<option value="mosfetirld024.html">MOSFET: IRLD024</option>
+		<option value="ledport.html">LED Port</option>
+		<option value="tonekeyboard.html">Tone keyboard</option>
+		<option value="tonemelody.html">Tone melody</option>
+		<option value="tonemultiple.html">Tone multiple</option>
+		<option value="tonepitchfollower.html">Tone pitch follower</option>
+	</optgroup>
+	<optgroup label="Analog Input">
+		<option value="potentiometer.html">Potentiometer</option>
+		<option value="calibration.html">Sensor calibration</option>
+		<option value="smooth.html">Smooth sensor readings</option>
+		<option value="forceresistor.html">Force Resistor</option>
+		<option value="airqualitymq135.html">Air quality sensor: MQ135</option>
+		<option value="rangersharp.html">Infrared ranger (distance/presence): SHARP GP2D12/120</option>
+		<option value="piezofilm.html">PiezoFilm (touch/vibration): MSIUSA piezo film</option>
+		<option value="phototransistor.html">Phototransistor</option>
+		<option value="microphone.html">Microphone (sound sensor)</option>
+		<option value="electretmicrophone.html">Electret Microphone: Sparkfun</option>
+		<option value="ambientlighttemt6000.html">Ambient light sensor: Sparkfun TEMT6000</option>
+		<option value="accelerometer.html">ADXL335 Accelerometer: Sparkfun</option>
+		<option value="gyroadxrs610.html">ADXRS610 Gyroscope: Sparkfun</option>
+		<option value="gyroidg500.html">IDG500 Gyroscope: Sparkfun</option>
+		<option value="gyroidg1215.html">IDG1215 Gyroscope: Sparkfun</option>
+		<option value="gyroixz500.html">IXZ500 Gyroscope: Sparkfun</option>
+		<option value="gyrolisy300al.html">LISY300AL Gyroscope: Sparkfun</option>
+		<option value="airpressure.html">Air pressure: Motorola</option>
+		<option value="rangerleds.html">Infrared ranger & LEDs</option>
+		<option value="potentiometerled.html">Potentiometer & LED</option>
+		<option value="lowcurrentacs712.html">Low current sensor: Sparkfun ACS712</option>
+		<option value="currentacs712.html">Current sensor: Sparkfun ACS712</option>
+	</optgroup>
+	<optgroup label="Digital Input">
+		<option value="switch.html">Switch (button)</option>
+		<option value="multipleswitches.html">Multiple switches</option>
+		<option value="hallsensor.html">Hall effect sensor</option>
+		<option value="parallaxping.html">distance (proximity) sensor: Parallax ping</option>
+		<option value="opticalsensor.html">Transmissive optical sensor</option>
+	</optgroup>
+	<optgroup label="Analog Output">
+		<option value="rgbled.html">RGB LED</option>
+		<option value="motorspeed.html">Motor speed</option>
+		<option value="stretchlight.html">Stretch sensor & LEDs</option>
+		<option value="inverselight.html">Light sensor & LED</option>
+	</optgroup>
+	<optgroup label="Structure">
+		<option value="statementscomments.html">Statements and comments</option>
+		<option value="setuploop.html">Setup and Loop</option>
+		<option value="loop.html">Loop</option>
+		<option value="functions.html">Functions</option>
+	</optgroup>
+	<optgroup label="Data">
+		<option value="variables.html">Variables</option>
+		<option value="integersfloats.html">Integers and floats</option>
+		<option value="truefalse.html">True/False</option>
+		<option value="charactersstrings.html">Characters and Strings</option>
+		<option value="characterclassification.html">Character classification</option>
+		<option value="datatypeconversion.html">Datatype conversion</option>
+		<option value="variablescope.html">Variable scope</option>
+		<option value="arrays.html">Arrays</option>
+		<option value="vectors.html">Vectors</option>
+		<option value="splitstring.html">Split a string and convert it to numbers</option>
+		<option value="array2d.html">Bidimensional arrays</option>
+		<option value="arraypassing.html">Passing an array to a function</option>
+	</optgroup>
+	<optgroup label="Data/Strings">
+		<option value="stringadditionoperator.html">Add strings together</option>
+		<option value="stringappendoperator.html">Appending to Strings</option>
+		<option value="stringcasechanges.html">Change the case of a string</option>
+		<option value="stringcharacters.html">Characters and Strings</option>
+		<option value="stringcomparisonoperators.html">Compare strings</option>
+		<option value="stringconstructors.html">Create strings from other data types</option>
+		<option value="stringindexof.html">Evaluate, look for, and replace characters in a String</option>
+		<option value="stringlength.html">length() in a String</option>
+		<option value="stringlengthtrim.html">length() and trim() in a String</option>
+		<option value="stringreplace.html">Replace characters or substrings of a string</option>
+		<option value="stringstartswithendswith.html">startsWith() and endsWith() in a String</option>
+		<option value="stringsubstring.html">Substring in a String</option>
+	</optgroup>
+	<optgroup label="Control">
+		<option value="iteration.html">Iteration</option>
+		<option value="iterateoutputs.html">Iterate through digital outputs</option>
+		<option value="iterateinputs.html">Iterate through digital inputs</option>
+		<option value="conditionals.html">Conditionals</option>
+		<option value="logicaloperators.html">Logical operators</option>
+	</optgroup>
+	<optgroup label="Math">
+		<option value="incrementdecrement.html">Increment/Decrement</option>
+		<option value="operatorprecedence.html">Operator precedence</option>
+		<option value="modulo.html">Modulo</option>
+		<option value="sinecosine.html">Sine and Cosine</option>
+		<option value="random.html">Random</option>
+	</optgroup>
+	<optgroup label="Digital Advanced">
+		<option value="shiftregister.html">Shift Register: 74LS595</option>
+		<option value="sfr0405ranger.html">Ultrasonic ranger: SFR04/SFR05</option>
+		<option value="magneticfield.html">Magnetic field sensor: micromag 3-axis</option>
+		<option value="humiditytemperaturesht15.html">Humidity & Temperature: Sparkfun SHT15</option>
+		<option value="humiditytemperaturesht11.html">Humidity & Temperature: Parallax SHT11</option>
+		<option value="rgbbackpack.html">RGB LED matrix: Sparkfun RGB LED backpack</option>
+	</optgroup>
+	<optgroup label="Interrupts">
+		<option value="externalinterrupts.html">Attending external interrupts</option>
+	</optgroup>
+	<optgroup label="Timing">
+		<option value="timer.html">Timer</option>
+		<option value="timerblink.html">LED blink w/timer</option>
+	</optgroup>
+	<optgroup label="Serial">
+		<option value="simpleread.html">Simple read</option>
+		<option value="simplewrite.html">Simple write</option>
+		<option value="simplereadwrite.html">Simple read & write</option>
+		<option value="advancedoutput.html">Advanced output</option>
+		<option value="multipleports.html">Multiple Ports</option>
+		<option value="photoresistorserial.html">Photoresistor & Serial</option>
+		<option value="readstring.html" selected="selected">Reading a string</option>
+		<option value="sendingmultipledata.html">Sending multiple values to Processing</option>
+		<option value="serialreadprocessing.html">Reading data from Processing</option>
+		<option value="serialrfid.html">RFID reader: parallax</option>
+		<option value="serialweather.html">Sparkfun USB weather board</option>
+		<option value="serialwriteprocessing.html">Writing data to Processing</option>
+		<option value="midi.html">Sending MIDI notes</option>
+	</optgroup>
+</select>
+
+</td><td><a class="next" href="sendingmultipledata.html">
+				<img src="../../img/next_off.gif" alt="Sending multiple values to Processing" /></a></td></tr></table></td></tr></table></div>
+
+<p class="ref-notice">This example is for Wiring version 1.0 build 0100+. If you have a previous version, use the examples included with your software. <em>If you see any errors or have comments, please <a href="http://forum.wiring.co/index.php/board,13.0.html">let us know</a>.</em></p>
+
+
+<div class="example">Read a string by BARRAGAN http://barraganstudio.com <br />
+<br />
+ Demonstrates how to read a string from the serial port It is important to use delimiters in the String to read for example read data until a '\n' or a designated character is found This example reads data from the serial and stores into a String variable until an 'L' is found, 'L' will be used as a terminator for the string for testing with the console Send. Change the 'L' for whatever delimitator you might want to use in your strings.</p>
+<p></p>
+
+<p class="doc">
+<pre class="code">
+<span class='keyword1'>char</span> val; <span class='comment'>// variable to receive data from the serial port</span>
+<span class='keyword1'>String</span> data = <span class='literal'>""</span>;
+
+<span class='keyword1'>void</span> <span class='keyword2'>setup</span>()
+{
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>begin</span>(9600); <span class='comment'>// start serial communication at 9600bps</span>
+}
+
+<span class='keyword1'>void</span> <span class='keyword2'>loop</span>()
+{
+  <span class='keyword1'>if</span> (<span class='keyword1'>Serial</span>.<span class='keyword2'>available</span>())  <span class='comment'>// <span class='keyword1'>if</span> data is <span class='keyword2'>available</span> to <span class='keyword2'>read</span></span>
+  {
+    val = <span class='keyword1'>Serial</span>.<span class='keyword2'>read</span>(); <span class='comment'>// <span class='keyword2'>read</span> it and store it in 'val'</span>
+    <span class='keyword1'>if</span> (val != 'L')      <span class='comment'>// <span class='keyword1'>if</span> not an 'L'</span>
+    {
+      data += val;       <span class='comment'>// <span class='keyword2'>add</span> it to the data string</span>
+    }
+    <span class='keyword1'>else</span>
+    {
+      <span class='comment'>// <span class='keyword1'>if</span> 'L' was received (our designated termination <span class='keyword1'>char</span>)</span>
+      <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"string received: "</span> + data); <span class='comment'>// <span class='keyword2'>print</span> the stored string</span>
+      data = <span class='literal'>""</span>; <span class='comment'>// empty data <span class='keyword1'>for</span> next string reading</span>
+    }
+  }
+}
+</pre>
+
+
+</div>
+
+
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

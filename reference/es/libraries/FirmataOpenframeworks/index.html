@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>FirmataOpenframeworks \ Libraries \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Library-index" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../../index.html"><img src="../../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav_noSub">
+					<a href="../../index.html">Framework</a> (<a href="../../alpha.html">A-Z</a>) \ 
+					<a href="../../libraries/index.html" class="active">Librer&iacute;as</a> \ 
+					<a href="../../environment/index.html">Entorno</a> \ 
+					<a href="../../learning/index.html">Aprendiendo</a> \
+					<a href="../../hardware/index.html">Hardware</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+	<span class="lib-nav">
+		<a href="../index.html">Librer&iacute;as</a>
+	</span>
+
+			 <div class="colone">
+    <h2>Wiring/Openframeworks usando el Protocolo Firmata</h2>
+    <p>Esta librer&iacute;a permite controlar la tarjeta Wiring desde Openframeworks sin escribir c&oacute;digo en el Wiring IDE. En cambio, deber&aacute; cargar el archivo StandardFirmata ubicado en File->Examples->Firmata->Example.</p>
+    <p>La librer&iacute;a Processing/Firmata puede ser descargada <a href="http://wiring.org.co/download/wiringFirmataOpenframeworks.zip">aqu&iacute;</a></p>
+	<p>El tutorial para usar la librer&iacute;a con Openframeworks est&aacute; <a href="http://wiring.org.co/learning/tutorials/openframeworksFirmata/index.html">aqu&iacute;</a></p>
+</div>
+
+<div class="twocol"> 
+	<p><span class="blink"><a href="ofWiring.html">ofWiring</a><br />
+		Crea el objeto Wiring.</span></p>
+	<p><a href="ofWiring_connect_.html">connect()</a> <br />
+		Inicial la comunicaci&oacute;n con la tarjeta I/O.</p>
+	<p><a href="ofWiring_disconnect_.html">disconnect()</a> <br />
+		Termina la comunicaci&oacute;n con la tarjeta I/O.</p>
+	<p><a href="ofWiring_isWiringReady_.html">isWiringReady()</a> <br />
+		Retorna verdad si la tarjeta I/O est&aacute; lista para tranferir datos.</p>
+    <p><a href="ofWiring_update_.html">update()</a> <br />
+		Sondea los datos del puerto serial.</p>
+    <p><a href="ofWiring_setUseDelay_.html">setUseDelay()</a> <br />
+		Activa el tiempo de retardo.</p>
+    <p><a href="ofWiring_isInitialized_.html">isInitialized()</a> <br />
+		Retorna verdad si la conecci&oacute;n ha sido establecida exitosamente.</p>
+	<p><a href="ofWiring_sendDigitalPinMode_.html">sendDigitalPinMode()</a><br />
+		Asigna un pin digital como INPUT o OUTPUT.</p>
+	<p><a href="ofWiring_sendAnalogPinReporting_.html">sendAnalogPinReporting()</a><br />
+		Activa el reporte de un pin dado.</p>
+	<p><a href="ofWiring_sendDigital_.html">sendDigital()</a><br />
+		Escribe HIGH o LOW en un pin digital.</p>
+    <p><a href="ofWiring_sendPwm_.html">sendPwm()</a><br />
+		Escribe un valor PWM.</p>
+    <p><a href="ofWiring_sendString_.html">sendString()</a><br />
+		Envia un string no mas largo de 12 caracteres.</p>
+	<p><a href="ofWiring_sendReset_.html">sendReset()</a><br />
+		Envia un byte para re establecer el protocolo firmata.</p>
+	<p><a href="ofWiring_sendByte_.html">sendByte()</a><br />
+		Envia un byte.</p>
+	<p><a href="ofWiring_getPwm_.html">getPwm()</a><br />
+		Retorna el &uacute;ltimo valor PWM (0-255) del pin dado.</p>
+	<p><a href="ofWiring_getDigital_.html">getDigital()</a><br />
+		Retorna el &uacute;ltimo valor recibido o el &uacute;ltimo grupo de valores del pin dado.</p>
+	<p><a href="ofWiring_getAnalog_.html">getAnalog()</a><br />
+		Retorna el &uacute;ltimo valor an&aacute;logo recibido (0-1023) del pin dado.</p>
+	<p><a href="ofWiring_getString_.html">getString()</a><br />
+		Retorna el &uacute;ltimo string recibido.</p>
+	 <p><a href="ofWiring_getDigitalPinMode_.html">getDigitalPinMode()</a><br />
+		Retorna INPUT, OUTPUT, PWM, SERVO, ANALOG.</p>
+    <p><a href="ofWiring_getAnalogPinReporting_.html">getAnalogPinReporting()</a><br />
+		Retorna ON, OFF.<br />
+    </p>
+
+</div>
+
+<div class="full">
+<p></div>
+
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

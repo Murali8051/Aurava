@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Wire \ Libraries \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Library-index" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../../index.html"><img src="../../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav_noSub">
+					<a href="../../index.html">Framework</a> (<a href="../../alpha.html">A-Z</a>) \ 
+					<a href="../../libraries/index.html" class="active">Libraries</a> \ 
+					<a href="../../environment/index.html">Environment</a> \ 
+					<a href="../../learning/index.html">Learning</a> \
+					<a href="../../hardware/index.html">Hardware</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+	<span class="lib-nav">
+		<a href="../index.html">Libraries</a>
+	</span>
+
+			 <div class="colone">
+    <h2>Wire</h2>
+    <p>There is a TWI (Two Wire Interface) port available on the Wiring board named <strong>Wire</strong>.  On Wiring v1 boards the SCL and SDA pins are: 0 and 1.<br />
+On Wiring S board the SCL and SDA pins are: 8 and 9.</p>
+  <p>&nbsp;</p>
+</div>
+
+<div class="twocol"> 
+  <p><span class="blink"><a href="Wire.html">Wire</a><br />
+Wiring TWI port available on pins SCL and SDA.</span></p>
+	
+	<p><span class="blink"><a href="Wire_beginTransmission_.html">beginTransmission()</a><br />
+	  Starts data transmission to the specified device. </span></p>
+	<p><span class="blink"><a href="Wire_endTransmission_.html">endTransmission()</a><br />
+	  Marks the end of a transmission to a device.</span></p>
+	<p><span class="blink"><a href="Wire_begin_.html">begin()</a><br />
+	  Initiates the TWI as a Master or a slave using the address specified.</span></p>
+	<p><span class="blink"><a href="Wire_onReceive_.html">onReceive()</a><br />
+	  Set the function that executes whenever data is received
+	  as a slave device.</span></p>
+	<p><span class="blink"><a href="Wire_onRequest_.html">onRequest()</a><br />
+	  Set the function that executes whenever data is requested
+	  by a master from this device.</span></p>
+	<p><a href="Wire_read_.html">read()</a> <br />
+	  Read a byte received from a device.</p>
+	<p><a href="Wire_peek_.html">peek()</a> <br />
+Peek the next byte of data in serial port buffer. This doesn't retrieve the actual byte from the buffer. Returns -1 If no data is available..</p>
+	<p><a href="Wire_requestFrom_.html">requestFrom()</a> <br />
+	  Start reading a specified number of bytes from the device specified with a given address.</p>
+	<p> <a href="Wire_available_.html">available()</a> <br />
+	  Returns the number of bytes available.</p>
+	<p><a href="Wire_write_.html">write()</a><br />
+	  Write data to a device. </p>
+	<p><br />
+    </p>
+</div>
+
+<div class="full">
+<p></div>
+
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

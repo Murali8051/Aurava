@@ -1,0 +1,155 @@
+/* $Id: WHardwareSerial.cpp 1154 2011-06-07 01:25:23Z bhagman $
+||
+|| Aurava Modification
+||
+|| @license Please see cores/Common/License.txt.
+||
+*/
+
+#include <io.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <FIFO.h>
+#include "WHardwareSerial.h"
+
+// Now, provide the class only if the hardware has at least one serial port.
+#if SERIALPORTS > 0
+
+
+#if !defined(SINGLEUSART1)
+interrupt(Serial_RX_vect) receive_routine(void)
+{
+  Serial.rxfifo.enqueue(*Serial._urxbuf);
+}
+
+interrupt(Serial_TX_vect) transmit_routine(void)
+{
+  if (Serial.txfifo.count() > 0)
+    *Serial._utxbuf= Serial.txfifo.dequeue();
+
+  if (Serial.txfifo.count() == 0)                                     //aurava
+    	IE2=0;
+ 	IE2|=UCA0RXIE; 
+}
+#endif
+
+// Constructor
+
+HardwareSerial::HardwareSerial(uint8_t serialPortNumber)
+{
+  switch (serialPortNumber)
+  {
+    // We do not take into consideration older AVRs with a single UART,
+    // such as the m163, m103, etc.  They only have an 8 bit UBRR, and
+    // do not have a UCRSC.
+#if !defined(SINGLEUSART1)
+    case 0:
+      _ubrrl = &UCA0BR0;
+      _ubrrh = &UCA0BR1;
+      _ucr0  = &UCA0CTL0;
+      _ucr1  = &UCA0CTL1;
+      _umodctl=&UCA0MCTL;
+      _urxbuf= &UCA0RXBUF;
+      _utxbuf= &UCA0TXBUF;
+      break;
+#endif
+  }
+}
+
+
+// Public Methods
+
+void HardwareSerial::begin(const uint32_t baud,
+                           const uint8_t data_bits,
+                           const uint8_t stop_bits,
+                           const uint8_t parity)
+{
+uint16_t ubrrValue;
+	//Aurava: Configure for 9600, 8 bits, 1 stop bit.
+	
+	ubrrValue=833;
+	P1SEL|=0x6;
+	P1SEL2|=0x6;
+	*_ubrrh=ubrrValue >> 8;
+	*_ubrrl=ubrrValue;
+	*_umodctl=4;
+	*_ucr1=0x80;
+	IE2|=UCA0RXIE;
+}
+
+
+void HardwareSerial::end()
+{
+        IE2=0;
+	*_ucr1=1;
+}
+
+
+int HardwareSerial::available(void)
+{
+  return rxfifo.count();
+}
+
+
+
+int HardwareSerial::read(void)
+{
+  uint8_t c;
+
+  if (rxfifo.count())
+  {
+    uint8_t oldSREG = READ_SR;
+    dint();
+
+    c = rxfifo.dequeue();
+
+    WRITE_SR(oldSREG);
+
+    return c;
+  }
+  else
+    return -1;
+}
+
+
+int HardwareSerial::peek(void)
+{
+  if (rxfifo.count())
+    return rxfifo.peek();
+  else
+    return -1;
+}
+
+
+void HardwareSerial::flush()
+{
+  rxfifo.flush();
+}
+
+
+
+void HardwareSerial::write(uint8_t c)
+{
+  // We will block here until we have some space free in the FIFO
+  while (txfifo.count() >= TX_BUFFER_SIZE);
+
+    uint8_t oldSREG = READ_SR;
+    dint();
+
+  txfifo.enqueue(c);
+ 
+  	IE2|=UCA0TXIE;
+ 
+  WRITE_SR(oldSREG);
+}
+
+
+// Preinstantiate Objects
+
+//extern "C" void __cxa_pure_virtual() { while (1); }
+
+#if !defined(SINGLEUSART1)
+HardwareSerial Serial(0);
+#endif
+
+#endif // SERIALPORTS > 0

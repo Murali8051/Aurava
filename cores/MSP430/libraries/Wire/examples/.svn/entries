@@ -1,0 +1,61 @@
+10
+
+dir
+1250
+svn://aeon.uniandes.edu.co/wiring/tags/wiring-100release/firmware/cores/AVR8Bit/libraries/Wire/examples
+svn://aeon.uniandes.edu.co/wiring
+
+
+
+2011-06-07T20:00:30.938120Z
+1159
+h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4cdc53cd-438c-44fd-908a-580a65d3b4bc
+
+SlaveReceiver
+dir
+
+HMC6343sparkfun
+dir
+
+HMC6352sparkfun
+dir
+
+MasterWriter
+dir
+
+BMP085
+dir
+
+SlaveSender
+dir
+
+DigitalPotentiometer
+dir
+
+tmp102sparkfun
+dir
+
+MasterReader
+dir
+
+RealTimeClock
+dir
+
+UltrasonicSFR
+dir
+

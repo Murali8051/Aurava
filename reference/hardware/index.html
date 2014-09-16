@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Hardware: Overview \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Overview" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../index.html"><img src="../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav">
+					<a href="../index.html">Framework</a> (<a href="../alpha.html">A-Z</a>) \ 
+					<a href="../libraries/index.html">Libraries</a> \ 
+					<a href="../environment/index.html">Environment</a> \ 
+					<a href="../learning/index.html">Learning</a> \
+					<a href="../hardware/index.html" class="active">Hardware</a> 
+				</div>
+				<div class="navBar hardware_local" id="subNav">
+					<a href="../hardware/index.html" class="active">Overview</a> \
+					<a href="../hardware/previous.html">Previous</a> \
+					<a href="../hardware/compare.html">Compare</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 <h3 id="top" class="ref-header"><img src="imgs/header.gif" width="675" height="24" alt="Frequently Asked Questions. 
+	There are many questions surrounding the Wiring project, we have a few answers." /></h3>
+<p><img src="imgs/PinsWiringS.png" width="498" height="466" /></p>
+<p>The Wiring hardware is a small circuit board that includes a tiny computer  the size of a postage stamp known as a microcontroller. This computer can be programmed in the Wiring programming environment to control all kinds of sensors and actuators. Sensors are devices that allow the board to acquire information from the surrounding environment (temperature, light, distance to an object etc.). Actuators are devices that allow the board to create changes (responses) in the physical world (light, movement, temperature, etc.) .This makes it possible to create all kinds of interactive artifacts. </p>
+<p>A microcontroller addresses some of the difficulties involved in prototyping with electronics by introducing the concept of programming into it. The same unit can behave in different ways, just by doing or modifying a software program to adapt it to a specific purpose.</p>
+      <p>In order to attach sensors and actuators the Wiring hardware provides a set of connectors known as pins. A pin can be set as INPUT or OUTPUT whether it is used to read a sensor or create responses in the physical world through actuators. Sensors can be of different kinds but they may be grouped into digital and analog. Digital refers to signals with two possible states, ON or OFF, HIGH or LOW, like switches for example or special digital communication protocols. Analog refers to signals that can take any value in a continuous range, like luminosity or temperature.</p>
+      <p>Pins can have alternate functions, check the diagrams and information below. Normally one type of function in a pin can be used a time.</p>
+<p>The Wiring hardware can be connected to a computer's USB port. This connection is both for uploading a new program written in the Wiring programming environment into the Wiring hardware and to communicate the Wiring hardware with a host computer for other purposes, like sending data from/to the board to an application running on a PC. The PC recognizes the Wiring hardware as a serial port, being able to receive and send data to/from it from running applications.</p>
+<p>There are 3 basic prototyping scenarios Wiring was designed for: standalone interactive objects or spaces (no need to be connected to a host computer), interactive objects or spaces connected to a host computer to enhance the prototype capabilities, or networked objects or spaces by communicating multiple hardware devices.</p>
+      <p>There are different flavors of the Wiring hardware: <strong>The Wiring/WiringMini V1.0 </strong>boards (include all original Wiring boards up to revision 0004  and WiringMini featuring the atmega128 microcontroller), the <strong>Wiring V1.1 Sparkfun</strong> board (manufactured and distributed by sparkfun.com and featuring the atmega1281 and atmega2561 microcontrollers) and the new generation <strong>Wiring boards: Wiring S</strong> (featuring the atmega644p microcontroller) and distributed by <a href="http://roguerobotics.com">roguerobotics.com</a>, <strong>Wiring M</strong>, <strong>Wiring XS</strong> and <strong>Wiring L</strong> (which will be available soon). </p>
+<p>The Wiring hardware can be used out of the box, it provides a USB port on it which can be directly attached to a computer for uploading programs, no special setup or connections needed to start working with it so <strong><em>it is ideal in the classroom as it is just ready to use</em></strong>.</p>
+<p>If you want to get the original Wiring hardware go to <a href="http://roguerobotics.com">http://roguerobotics.com</a>. To see compatible boards or build your own please check the <a href="http://wiring.org.co/faq.html#download">FAQ</a> or <a href="http://wiring.org.co/download/">download</a> the EAGLE and schematics files for the hardware designs. If you are looking for tutorials for installing the Wiring hardware and software check out the <a href="http://wiring.org.co/learning/tutorials/">Learning / Tutorials</a> section.</p>
+<p>Topics covered here include: <a href="#digitalpins">Digital input/output pins</a>, <a href="#analoginput">Analog input pins</a>, <a href="#analogoutput">PWM (analog) output pins</a>, <a href="#serialports">Serial ports</a>, <a href="#specialfunctions">Pins with special functions</a>, <a href="#externalinterrupts">External interrupts pins</a>, <a href="#digitalports">Digital input/output ports</a><a href="#extradigital"></a>, <a href="#indicative">on-board LEDs</a>, and <a href="#power">Power supply</a>.<br />
+</p>
+<h5>The Wiring S board</h5>
+<p>Is the first board from the new hardware generation. The Wiring S features the atmega644p microcontroller. With 32 I/O pins, 8 analog inputs, 2 hardware serial ports, 6 PWM (analog outputs), SPI, TWI, 3 external interrupts pins, power regulation with output for both 5V and 3.3V. See the <a href="compare.html">comparison</a>.</p>
+<p>&nbsp;</p>
+<p><img src="imgs/SDimensions.png" width="482" height="389" /></p>
+<p>Wiring S dimensions. For full schematics and source files visit the <a href="http://wiring.org.co/download">download</a> section</p>
+<h5 id="digitalpins"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+Digital input/output pins
+</h5>
+<p>The Wiring hardware has digital pins that can be configured and used individually as <strong><em>inputs</em></strong> or <strong><em>outputs</em></strong> from the Wiring Framework API in the Wiring programming environment. When a digital pin is configured as <strong>INPUT</strong> it can be used to read all kind of sensors that give values <strong>HIGH</strong> (On) and <strong>LOW</strong> (Off), like push buttons, touch sensors, switches etc. read pulses or interface any digital sensors in general. When a pin is used as an <strong>OUTPUT</strong> it can be used to turn <em>on</em> or <em>off</em> all sort of devices like light bulbs, motors, home appliances, generate pulses etc. </p>
+<p>All Wiring hardware include an on-board LED connected to a digital pin that can be used for doing quick test programs or diagnostics. The on-board LED pin is called <strong>WLED</strong> in the Wiring Framework API.</p>
+<p>On Wiring V1.x boards  WLED is on pin 48 </p>
+<p>On Wiring S board  WLED is on pin 15</p>
+<h5 id="analoginput2"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> Analog input pins</h5>
+<p>The Wiring hardware has analog inputs capable of reading voltages between 0-5V. Internally the voltages are translated into numbers from 0 to 1023. These inputs can be used to measure continuous quantities like light intensity, temperature, proximity, position using analog sensors etc. </p>
+<p><strong>NOTE:</strong> Analog Inputs can also be used as digital pins if needed, just use the continuous numbering of digital pins with the <strong><em>pinMode</em></strong>, <strong><em>digitalRead</em></strong> or <strong><em>digitalWrite</em></strong> commands to access them as digital pins.</p>
+<h5 id="analogoutput"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> PWM (analog) output pins</h5>
+    <p>The Wiring hardware has PWM (Pulse Width Modulation) output pins. PWM consists of switching something ON and OFF thousands of times per second simulating the behavior of an analog output, creating effects like light intensity dimming or controlling the speed of a motor. The PWM functionality is available in specific pins.</p>
+    <p>On Wiring V1.x boards the PWM capable pins are: 29, 30, 31, 35, 36 and 37 </p>
+    <p>On Wiring S board the PWM capable pins are: 4, 5, 6, 7, 19 and 20</p>
+<h5 id="serialports"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+      Serial ports</h5>
+   
+     <p>The Wiring hardware  has 2 hardware serial ports. In the Wiring Framework API one is called <strong><em>Serial</em></strong> and the other called <strong><em>Serial1</em></strong>.  The serial port <em>Serial</em> is the same available through the USB connector and it is used for both programming the Wiring hardware with the Wiring development environment, and to communicate with other devices.</p>
+     <p>On Wiring V1.x boards the serial port <strong><em>Serial</em></strong> pins are: 32(RX0) and 33 (TX0) and the serial port <strong><em>Serial1</em></strong> pins are: 2(RX1) and 3(TX1) </p>
+     <p>On  Wiring S board the serial port <strong><em>Serial</em></strong> pins are: 0 (RX0) and 1 (TX0) and the serial port <strong><em>Serial1</em></strong> pins are: 2(RX1) and 3(TX1).</p>
+<h5 id="specialfunctions"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+      Pins with special functions</h5>
+ 
+    <p>The Wiring hardware provides <strong>ISP</strong> and <strong>TWI</strong> (Two Wire Interface) also known as i2c interface. The TWI allows to connect up to 128 i2c sensors/actuators in a network using only 2 wires to communicate with all of them. It is also possible to use those pins to create a network of up to 127 Wiring boards using the Wire library. ISP protocol is handled by the SPI library and TWI protocol is handled by Wire library.</p>
+    <p>On Wiring V1.x boards the ISP pins are: 24 (SS), 25 (MOSI), 26 (MISO) and 27 (SCK) </br>
+    On Wiring v1 boards the TWI pins are: 0 (SCL) and 1 (SDA)</p>
+    <p>On Wiring S board the ISP pins are: 20 (SS), 21 (MOSI), 22 (MISO) and 23 (SCK) </br>
+    On Wiring S boards the TWI pins are: 8 (SCL) and 9 (SDA)</p>
+<h5 id="externalinterrupts"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+External interrupts pins
+</h5>
+<p>It is possible to generate and attend external interrupts in the Wiring hardware. There pins on the Wiring hardware capable of generating external interrupts</p>
+<p>On Wiring V1.x boards the <em>external interrupts</em> capable pins are: 0, 1, 2, 3, 36, 37, 38, and 39, named as EI0..EI7. <strong>Note:</strong> pins 0 and 1 are also used for the <em><strong>Wire</strong></em> library (TWI) and pins 2 and 3 are also the serial port <strong><em>Serial1</em></strong>.</p>
+<p>On Wiring S board the <em>external interrupts</em> capable pins are: 2, 3, and 18, named as EI0, E1 and EI2. <strong>Note:</strong> pins 2 and 3 are also the serial port <strong><em>Serial1</em></strong>.</p>
+<h5 id="digitalports"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> Digital input/output ports</h5>
+<p>In the Wiring hardware  pins are grouped in ports. In most cases a port is a set of 8 pins, and can be used to send or receive data to devices in parallel (8 bits at a time). They are useful when using devices like liquid crystal displays or printers. Each port can be configured and used individually as <strong>INPUT</strong> or <strong>OUTPUT</strong> from the Wiring Framework API in the Wiring programming environment through the <em><strong>portMode</strong></em>, <strong><em>portRead</em></strong> and <strong><em>portWrite</em></strong> commands.</p>
+<p><strong>Note</strong>: It is possible to use the <em>analog input</em> section as a digital one, in such case individual pins and the port will continue to be numbered continuously. </p>
+<h5 id="indicative"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+      On-board LEDs</h5>
+	  
+    <p>The Wiring hardware has four LEDs on-board: a power LED showing if the board is powered, an LED directly attached to a digital pin that can be turned <em>on</em> or <em>off</em> from the Wiring Framework API and known as <strong>WLED</strong> and reception (Rx) and transmission (Tx) LEDs indication the serial port <em>Serial</em> (USB) data exchange activity. </p>
+<h5 id="power"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+      Power supply</h5>
+
+    <p>A generic 7-12 Volt 1000mA power supply with female, center positive connector is required to power the Wiring hardware. It will suit fine for a number of applications, but if more power is required, it is recommended to get a more robust power supply. The Wiring hardware can also be powered from external batteries.</p>
+    
+<p> For small experiments, with low current consumption devices, the Wiring hardware can be powered from the computer's USB port when the board is connected to a host computer via a USB printer cable.</p>
+      <p>A USB Cable (generic USB printer cable) is required to connect the Wiring hardware to a host computer. The WiringMini requires a serial to USB adapter (like the Wiring USBAdapter) to connect it to a host computer.</p>
+      <p>&nbsp;</p>
+      <a href="previous.html">Previous generation Wiring boards</a>
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

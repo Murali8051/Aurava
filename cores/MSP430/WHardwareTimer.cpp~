@@ -1,0 +1,487 @@
+/* $Id: WHardwareTimer.cpp 1158 2011-06-07 19:13:20Z bhagman $
+||
+||
+*/
+
+#include "WHardwareTimer.h"
+
+interrupt(TIMER0_A1_VECTOR) TIMER0_COMPA1_2_OVF_routine()
+{
+	if(TA0IV == 0x000E)
+	{
+		if (Timer0.overflowFunction != NULL)
+		Timer0.overflowFunction();
+	}
+	else{
+		if (Timer0.compareMatchAFunction != NULL)
+		Timer0.compareMatchAFunction();
+	}
+}
+
+
+interrupt(TIMER0_A0_VECTOR) TIMER0_COMPA0_routine;
+{
+  if (Timer0.compareMatchBFunction != NULL)
+    Timer0.compareMatchBFunction();
+}
+
+
+interrupt(TIMER1_A1_VECTOR) TIMER1_COMPA1_2_OVF_routine;
+{
+	if(TA0IV == 0x000E)
+	{
+		if (Timer1.overflowFunction != NULL)
+			Timer1.overflowFunction();
+	}
+	else{
+		if (Timer1.compareMatchBFunction != NULL)
+			Timer1.compareMatchBFunction();
+	}
+}
+
+interrupt(TIMER1_A0_VECTOR) TIMER1_COMPA0_routine;
+{
+  if (Timer1.compareMatchAFunction != NULL)
+    Timer1.compareMatchAFunction();
+}
+
+
+// Constructor
+
+HardwareTimer::HardwareTimer(uint8_t timerNumber)
+{
+  _timerNumber = timerNumber;
+
+  switch (timerNumber)
+  {
+    case 0:
+    	_tanr=&TA0R;
+    	_tanctl=&TA0CTL;
+    	_tancctl0=&TA0CCTL0;
+    	_tancctl1=&TA0CCTL1;
+    	_tancctl2=&TA0CCTL2;
+    	_tanccr0=&TA0CCR0;
+    	_tanccr1=&TA0CCR1;
+    	_tanccr2=&TA0CCR2;
+    	_channelCount = 3;
+    break;
+
+    case 1:
+    	_tanr=&TA1R;
+    	_tanctl=&TA1CTL;
+    	_tancctl0=&TA1CCTL0;
+    	_tancctl1=&TA1CCTL1;
+    	_tancctl2=&TA1CCTL2;
+    	_tanccr0=&TA1CCR0;
+    	_tanccr1=&TA1CCR1;
+    	_tanccr2=&TA1CCR2;
+    	_channelCount = 3;
+    break;
+  }
+
+  setClockSource(CLOCK_STOP);
+ // if (_tcntnh != NULL)  // 16 bit timers
+ //   	*_tcntnh = 0;
+  	*_tanr = 0;
+
+  overflowFunction = NULL;
+  compareMatchAFunction = NULL;
+  compareMatchBFunction = NULL;
+  compareMatchCFunction = NULL;
+  captureEventFunction = NULL;
+}
+
+
+void HardwareTimer::setClockSource(uint8_t clockSource)
+{
+  uint8_t bits = 0;
+
+  // Select our clock source based on timer type and clockSource.
+  // Timer 2 is the only RTC clock on the majority of Atmel AVR 8 bit controllers.
+  // Timer 2 has a different set of clock prescalars, except for ATmega64/128, where
+  // Timer 0 has the different set of clock prescalars - yuck.
+
+#if defined (__AVR_ATmega128__) || defined (__AVR_ATmega64__)
+  if (_timerNumber == 0)
+#else
+  if (_timerNumber == 2)
+#endif
+    switch (clockSource)
+    {
+      case CLOCK_NO_PRESCALE:
+        bits = 0b001;
+        break;
+      case CLOCK_PRESCALE_8:
+        bits = 0b010;
+        break;
+      case CLOCK_PRESCALE_32:
+        bits = 0b011;
+        break;
+      case CLOCK_PRESCALE_64:
+        bits = 0b100;
+        break;
+      case CLOCK_PRESCALE_128:
+        bits = 0b101;
+        break;
+      case CLOCK_PRESCALE_256:
+        bits = 0b110;
+        break;
+      case CLOCK_PRESCALE_1024:
+        bits = 0b111;
+        break;
+
+      //case CLOCK_STOP:
+      //case CLOCK_EXTERNAL_FALLING:
+      //case CLOCK_EXTERNAL_RISING:
+      default:
+        bits = 0;
+        break;
+    }
+  else
+    // all the rest use same prescale divisors
+    switch (clockSource)
+    {
+      case CLOCK_NO_PRESCALE:
+        bits = 0b001;
+        break;
+      case CLOCK_PRESCALE_8:
+        bits = 0b010;
+        break;
+      case CLOCK_PRESCALE_64:
+        bits = 0b011;
+        break;
+      case CLOCK_PRESCALE_256:
+        bits = 0b100;
+        break;
+      case CLOCK_PRESCALE_1024:
+        bits = 0b101;
+        break;
+      case CLOCK_EXTERNAL_FALLING:
+        bits = 0b110;
+        break;
+      case CLOCK_EXTERNAL_RISING:
+        bits = 0b111;
+        break;
+
+      //case CLOCK_STOP:
+      //case CLOCK_PRESCALE_32:
+      //case CLOCK_PRESCALE_128:
+      default:
+        bits = 0;
+        break;
+    }
+
+  *_tccrnb = (*_tccrnb & 0b11111000) | bits;
+}
+
+
+void HardwareTimer::setInterrupt(uint8_t interrupt, uint8_t value)
+{
+  int8_t flagBit = -1;
+  uint8_t bitValue = 0;
+
+  if (value)
+    bitValue = 1;
+
+#if defined (TIMSK)
+  // ATmega32/64/128(A) support
+  // check register to figure out which bit in the TIMSK/ETIMSK to set
+  // OK to be explicit (i.e. ETIMSK = ...)
+
+  volatile uint8_t *timskReg = &TIMSK;
+
+  switch (interrupt)
+  {
+    case INTERRUPT_OVERFLOW:
+      if (_timerNumber == 0)
+        flagBit = TOIE0;
+      else if (_timerNumber == 1)
+        flagBit = TOIE1;
+      else if (_timerNumber == 2)
+        flagBit = TOIE2;
+#if defined (ETIMSK)
+      else if (_timerNumber == 3)
+      {
+        flagBit = TOIE3;
+        timskReg = &ETIMSK;
+      }
+#endif
+      break;
+    case INTERRUPT_COMPARE_MATCH_A:
+      if (_timerNumber == 0)
+        flagBit = OCIE0;
+      else if (_timerNumber == 1)
+        flagBit = OCIE1A;
+      else if (_timerNumber == 2)
+        flagBit = OCIE2;
+#if defined (ETIMSK)
+      else if (_timerNumber == 3)
+      {
+        flagBit = OCIE3A;
+        timskReg = &ETIMSK;
+      }
+#endif
+      break;
+    case INTERRUPT_COMPARE_MATCH_B:
+      if (_timerNumber == 1)
+        flagBit = OCIE1B;
+#if defined (ETIMSK)
+      else if (_timerNumber == 3)
+      {
+        flagBit = OCIE3B;
+        timskReg = &ETIMSK;
+      }
+#endif
+      break;
+    case INTERRUPT_COMPARE_MATCH_C:
+#if defined (ETIMSK)
+      timskReg = &ETIMSK;
+      if (_timerNumber == 1)
+        flagBit = OCIE1C;
+      else if (_timerNumber == 3)
+        flagBit = OCIE3C;
+#endif
+      break;
+    case INTERRUPT_CAPTURE_EVENT:
+      if (_timerNumber == 1)
+        flagBit = TICIE1;
+#if defined (ETIMSK)
+      else if (_timerNumber == 3)
+      {
+        flagBit = TICIE3;
+        timskReg = &ETIMSK;
+      }
+#endif
+      break;
+  }
+
+  // Only set if the flagBit has been set
+  if (flagBit >= 0)
+    *timskReg = (*timskReg & ~(1 << flagBit)) | (bitValue << flagBit);
+
+#else  // Everybody else
+  switch (interrupt)
+  {
+    case INTERRUPT_OVERFLOW:
+      flagBit = TOIEn;
+      break;
+    case INTERRUPT_COMPARE_MATCH_A:
+      flagBit = OCIEnA;
+      break;
+    case INTERRUPT_COMPARE_MATCH_B:
+      flagBit = OCIEnB;
+      break;
+    case INTERRUPT_COMPARE_MATCH_C:
+      flagBit = OCIEnC;
+      break;
+    case INTERRUPT_CAPTURE_EVENT:
+      flagBit = ICIEn;
+      break;
+  }
+
+  // Only set if the flagBit has been set
+  if (flagBit >= 0)
+    *_timskn = (*_timskn & ~(1 << flagBit)) | (bitValue << flagBit);
+
+#endif  // defined (TIMSK)
+}
+
+
+// Attach an interrupt function, and set the appropriate interrupt flag
+void HardwareTimer::attachInterrupt(uint8_t interrupt, void (*userFunc)(void), uint8_t enable)
+{
+  switch (interrupt)
+  {
+    case INTERRUPT_OVERFLOW:
+      overflowFunction = userFunc;
+      break;
+    case INTERRUPT_COMPARE_MATCH_A:
+      compareMatchAFunction = userFunc;
+      break;
+    case INTERRUPT_COMPARE_MATCH_B:
+      compareMatchBFunction = userFunc;
+      break;
+    case INTERRUPT_COMPARE_MATCH_C:
+      compareMatchCFunction = userFunc;
+      break;
+    case INTERRUPT_CAPTURE_EVENT:
+      captureEventFunction = userFunc;
+      break;
+  }
+
+  if (userFunc == NULL)
+    setInterrupt(interrupt, 0);
+  else if (enable)
+    setInterrupt(interrupt, 1);
+}
+
+/*
+uint16_t HardwareTimer::getPrescaler()
+{
+  return (pgm_read_word(timerPrescaleFactor+(*_tccrnb & TIMER_PRESCALE_MASK)));
+}
+*/
+
+void HardwareTimer::setMode(uint8_t mode)
+{
+  // WGMn3 and WGMn2 are in positions 4 and 3, respectively, in TCCRnB
+  // WGMn1 and WGNn0 are in positions 1 and 0, respectively, in TCCRnA
+
+  // For devices with global TIMSK, 8 bit timers have:
+  // WGMn0 in position 6 of TCCRn register
+  // WGMn1 in position 3 of TCCRn register
+
+#if defined (TIMSK)
+  if (_timerNumber == 0 || _timerNumber == 2)
+  {
+    *_tccrna = (*_tccrna & 0b10110111)
+                 | ((mode & 0b00000001) << 6)
+                 | ((mode & 0b00000010) << 2);
+  }
+  else
+  {
+    *_tccrnb = (*_tccrnb & 0b11100111) | ((mode & 0b00001100) << 1);
+  }
+#else
+  *_tccrna = (*_tccrna & 0b11111100) | (mode & 0b00000011);
+  *_tccrnb = (*_tccrnb & 0b11100111) | ((mode & 0b00001100) << 1);
+#endif
+}
+
+/* =====BH===== - This will only apply to 16 bit timers
+void HardwareTimer::setPWMMode(uint8_t bitResolution)
+{
+  // configures timern for use with PWM output
+  // on pins OCnA, OCnB, and OCnC
+
+  if (bitResolution == 9)
+    setMode(0b0010);
+  else if (bitResolution == 10)
+    setMode(0b0011);
+  else
+    setMode(0b0001);
+
+  *_ocrnah = 0;
+  *_ocrnal = 0;
+  *_ocrnbh = 0;
+  *_ocrnbl = 0;
+  *_ocrnch = 0;
+  *_ocrncl = 0;
+}
+*/
+
+/*
+void HardwareTimer::setPWMOff()
+{
+  // setMode(0b0000);  // not necessary
+  setOutputMode(PWMChannelA, 0);
+  setOutputMode(PWMChannelB, 0);
+  setOutputMode(PWMChannelC, 0);
+}
+*/
+
+void HardwareTimer::setOutputMode(uint8_t channel, uint8_t outputMode)
+{
+  uint8_t COMbitMask = 0b11;
+  uint8_t shiftCount;
+
+  outputMode &= 0b11;  // only 4 modes
+
+  if (channel < _channelCount)
+  {
+    if ((_timerNumber == 0 || _timerNumber == 2) && _channelCount == 1)
+    {
+      // 8 bit timers with only 1 OCR
+      shiftCount = COMn0;
+    }
+    else
+    {
+      // 16 bit timers
+      if (channel == CHANNEL_A)
+        shiftCount = COMnA0;
+      else if (channel == CHANNEL_B)
+        shiftCount = COMnB0;
+      else if (channel == CHANNEL_C)
+        shiftCount = COMnC0;
+    }
+
+    COMbitMask <<= shiftCount;
+    outputMode <<= shiftCount;
+
+    *_tccrna = (*_tccrna & ~(COMbitMask)) | outputMode;
+  }
+}
+
+void HardwareTimer::setOCR(uint8_t channel, uint16_t value)
+{
+  uint8_t highByte = value >> 8;
+  uint8_t lowByte = value & 0x00ff;
+
+  if (channel < _channelCount)
+  {
+    if (channel == CHANNEL_A)
+    {
+      if (_ocrnah != NULL)
+        *_ocrnah = highByte;
+      *_ocrnal = lowByte;
+    }
+    else if (channel == CHANNEL_B)
+    {
+      if (_ocrnbh != NULL)
+        *_ocrnbh = highByte;
+      *_ocrnbl = lowByte;
+    }
+    else if (channel == CHANNEL_C)
+    {
+      *_ocrnch = highByte;
+      *_ocrncl = lowByte;
+    }
+  }
+}
+
+
+void HardwareTimer::setCounter(uint16_t value)
+{
+  uint8_t highByte = value >> 8;
+  uint8_t lowByte = value & 0x00ff;
+
+  uint8_t oldSREG = SREG;
+  cli();
+  if (_tcntnh != NULL)  // 16 bit timers
+    *_tcntnh = highByte;
+
+  *_tcntnl = lowByte;
+  SREG = oldSREG;
+}
+
+
+uint16_t HardwareTimer::getCounter(void)
+{
+  uint16_t value = 0;
+  uint8_t oldSREG = SREG;
+  cli();
+  if (_tcntnh != NULL)
+    value = *_tcntnh << 8;
+  value += *_tcntnl;
+  SREG = oldSREG;
+
+  return value;
+}
+
+
+// Preinstantiate Objects
+HardwareTimer Timer0(0);
+HardwareTimer Timer1(1);
+
+#if (NUM_8BIT_TIMERS == 2)
+HardwareTimer Timer2(2);
+#endif
+
+#if (NUM_16BIT_TIMERS > 1)
+HardwareTimer Timer3(3);
+#endif
+#if (NUM_16BIT_TIMERS > 2)
+HardwareTimer Timer4(4);
+HardwareTimer Timer5(5);
+#endif
+

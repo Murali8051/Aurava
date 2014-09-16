@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>WiringOSC \ Learning \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Topics" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../../index.html"><img src="../../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav">
+					<a href="../../index.html">Framework</a> (<a href="../../alpha.html">A-Z</a>) \ 
+					<a href="../../libraries/index.html">Libraries</a> \ 
+					<a href="../../environment/index.html">Environment</a> \ 
+					<a href="../../learning/index.html" class="active">Learning</a> \
+					<a href="../../hardware/index.html">Hardware</a> 
+				</div>
+				<div class="navBar learning_local" id="subNav">
+					 
+ Examples: 					<a href="../../learning/basics/index.html">Basics</a>, 
+					<a href="../../learning/libraries/index.html">Library</a>, 
+					<a href="../../learning/topics/index.html" class="active">Topics</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 
+<div class="examples-nav-div">
+<table width="480" border="0"><tr><td align="left"><table>
+<tr><td><a href="ethernetlantronix.html">
+				<img src="../../img/back_off.gif" alt="Ethernet: Lantronix XPORT" /></a></td><td>
+<select name="nav" size="1" class="inputnav" onChange="javascript:gogo(this)">
+	<optgroup label="Motors">
+		<option value="dcmotor.html">DC Motor</option>
+		<option value="steppermotor.html">Stepper motor: TEAC</option>
+		<option value="vibrationmotor.html">Vibration motor</option>
+		<option value="picoboticsservo.html">Picobotics servo controller</option>
+		<option value="../libraries/servomotor.html">Servo moving</option>
+		<option value="../libraries/servomultiple.html">Multiple servos</option>
+		<option value="../libraries/servoanaloginput.html">Servo & potentiometer</option>
+		<option value="../libraries/steppermove.html">Stepper move</option>
+	</optgroup>
+	<optgroup label="Code mixing">
+		<option value="wiringandc.html">Mixing Wiring and "C" code</option>
+	</optgroup>
+	<optgroup label="Ethernet">
+		<option value="ethernetlantronix.html">Ethernet: Lantronix XPORT</option>
+	</optgroup>
+	<optgroup label="Other software">
+		<option value="wiringosc.html" selected="selected">Wiring hardware + OSC</option>
+		<option value="switchesprocessing.html">Switches & Processing</option>
+		<option value="lightprocessing.html">Light sensor & Processing</option>
+		<option value="servoprocessing.html">Servo motor & Processing</option>
+		<option value="motorprocessing.html">DC motor & Processing</option>
+		<option value="http://wiring.org.co/learning/tutorials/isadora/index.html">Wiring & Isadora (Tutorial)</option>
+		<option value="simplecommunicationmaxmsp.html">Send data to MaxMSP</option>
+		<option value="serialreadmaxmsp.html">Receive data from MaxMSP</option>
+		<option value="allanaloginputsmaxmsp.html">Reading all analog inputs & MaxMSP</option>
+	</optgroup>
+	<optgroup label="Other hardware">
+		<option value="readingnunchuck.html">Reading Nintendo Nunchuck</option>
+	</optgroup>
+	<optgroup label="Power regulators">
+		<option value="power5lm7805.html">Power regulators 5V: LM7805</option>
+		<option value="power33ld33v.html">Power regulators 3.3V: LD33V</option>
+		<option value="power33lm7833.html">Power regulators 3.3V: LM7833</option>
+	</optgroup>
+	<optgroup label="Sensing current">
+		<option value="../basics/lowcurrentacs712.html">Low current sensor: Sparkfun ACS712</option>
+		<option value="../basics/currentacs712.html">Current sensor: Sparkfun ACS712</option>
+	</optgroup>
+	<optgroup label="Proximity">
+		<option value="../libraries/ultrasonicsfr.html">Ultrasonic ranger: SFR08/SFR10</option>
+		<option value="../basics/sfr0405ranger.html">Ultrasonic ranger: SFR04/SFR05</option>
+		<option value="../basics/parallaxping.html">Distance (proximity) sensor: Parallax ping</option>
+		<option value="../basics/rangersharp.html">Infrared ranger (distance/presence): SHARP GP2D12/120</option>
+		<option value="../basics/phototransistor.html">Phototransistor</option>
+		<option value="../basics/rangerleds.html">Infrared ranger & LEDs</option>
+		<option value="../basics/switch.html">Switch (button)</option>
+		<option value="../basics/hallsensor.html">Hall effect sensor</option>
+		<option value="../libraries/qslidetouch.html">Touch sensor</option>
+	</optgroup>
+	<optgroup label="Sensing the environment">
+		<option value="../basics/magneticfield.html">Magnetic field sensor: micromag 3-axis</option>
+		<option value="../basics/humiditytemperaturesht15.html">Humidity & Temperature: Sparkfun SHT15</option>
+		<option value="../basics/humiditytemperaturesht11.html">Humidity & Temperature: Parallax SHT11</option>
+		<option value="../basics/photoresistor.html">Photoresistor</option>
+		<option value="../basics/airqualitymq135.html">Air quality sensor: MQ135</option>
+		<option value="../basics/phototransistor.html">Phototransistor</option>
+		<option value="../basics/microphone.html">Microphone (sound sensor)</option>
+		<option value="../basics/electretmicrophone.html">Electret Microphone: Sparkfun</option>
+		<option value="../basics/ambientlighttemt6000.html">Ambient light sensor: Sparkfun TEMT6000</option>
+		<option value="../basics/inverselight.html">Light sensor & LED</option>
+		<option value="../libraries/bmp085.html">Temperature and barometric pressure: Sparkfun BOSCH BMP085</option>
+		<option value="../libraries/tmp102sparkfun.html">Temperature: Sparkfun tmp102</option>
+		<option value="../libraries/barometricpressuresensor.html">Barometric pressure: SCP1000</option>
+	</optgroup>
+	<optgroup label="Force">
+		<option value="../basics/forceresistor.html">Force Resistor</option>
+		<option value="../basics/piezofilm.html">PiezoFilm (touch/vibration): MSIUSA piezo film</option>
+		<option value="../basics/airpressure.html">Air pressure: Motorola</option>
+		<option value="../basics/stretchlight.html">Stretch sensor & LEDs</option>
+	</optgroup>
+	<optgroup label="Location/acceleration">
+		<option value="../basics/potentiometer.html">Potentiometer</option>
+		<option value="../basics/accelerometer.html">Accelerometer ADXL335: Sparkfun</option>
+		<option value="../basics/gyroadxrs610.html">ADXRS610 Gyroscope: Sparkfun</option>
+		<option value="../basics/gyroidg500.html">IDG500 Gyroscope: Sparkfun</option>
+		<option value="../basics/gyroidg1215.html">IDG1215 Gyroscope: Sparkfun</option>
+		<option value="../basics/gyroixz500.html">IXZ500 Gyroscope: Sparkfun</option>
+		<option value="../basics/gyrolisy300al.html">LISY300AL Gyroscope: Sparkfun</option>
+		<option value="../libraries/gyromlx90609.html">MLX90609 Gyroscope: Sparkfun</option>
+		<option value="../basics/potentiometerled.html">Potentiometer & LED</option>
+		<option value="../libraries/digitalpotentiometer.html">Digital potentiometer: AD5171</option>
+		<option value="../libraries/hmc6352sparkfun.html">Compass heading: HMC6352 sparkfun</option>
+		<option value="../libraries/hmc6343sparkfun.html">Compass heading with tilt compensation: HMC6343 sparkfun</option>
+		<option value="../libraries/encoderread.html">Encoder read</option>
+		<option value="../libraries/basicpositioning.html">Basic positioning</option>
+		<option value="../libraries/coursetodestination.html">Course to destination</option>
+		<option value="../libraries/determiningspeed.html">Determining speed</option>
+		<option value="../libraries/distancetodestination.html">Distance to destination</option>
+	</optgroup>
+	<optgroup label="Displays">
+		<option value="../basics/ledswing.html">LED swing</option>
+		<option value="../basics/numericdisplay.html">7 Segment led numerical LED display</option>
+		<option value="../basics/shiftregister.html">Shift Register: 74LS595</option>
+		<option value="../basics/rgbbackpack.html">RGB LED matrix: Sparkfun RGB LED backpack</option>
+		<option value="../libraries/hellomatrix.html">Hello Matrix</option>
+		<option value="../libraries/spriteanimation.html">Sprite animation</option>
+		<option value="../libraries/printdata.html">Printing data to parallel LCD display</option>
+	</optgroup>
+</select>
+
+</td><td><a class="next" href="switchesprocessing.html">
+				<img src="../../img/next_off.gif" alt="Switches & Processing" /></a></td></tr></table></td></tr></table></div>
+
+<p class="ref-notice">This example is for Wiring version 1.0 build 0100+. If you have a previous version, use the examples included with your software. <em>If you see any errors or have comments, please <a href="http://forum.wiring.co/index.php/board,13.0.html">let us know</a>.</em></p>
+
+
+<div class="example">WIRING_OSC 0004 <br />
+<br />
+ Firmware to send OSC messages from a Wiring board to a PC and to receive OSC messages sent from the PC. * Right now, only messages with a single integer argument are supported in either direction. * Uses the following serial OSC format: 0xBE MSG_LENGTH OSC_MESSAGE CHECKSUM ---- ---------- ---/.../--  -------- 1b   1byte      4*n bytes   1byte * PROTOCOL DETAILS Digital pins 0..39, analog inputs 0..7 are supported. PWM output on PWM pins 0..5 is supported as well. Below, the notation [0..39] means: any number from 0 to 39. The notation [0|1] means: either 0 or 1. Pin numbers are always part of the OSC address. The single integer argument for each OSC message represents either HIGH/LOW, or an 8bit analog value. * PC->WIRING MESSAGE FORMAT /pinmode/[0..39]  [0|1] - set a pin to input or output mode * /report/adc [0|1]    - turn all analog pin reporting on/off (Default: off) /report/adc/[0..7] [0|1]  - set analog pin reporting for one pin on/off /report/in [0|1]     - turn digital pin reporting on/off (default: on) * /out/[0..39] [0|1]         - set a digital pin to [low|high] /pwm/[0..5] [0..1023]     - set duty on a pwm-enabled pin * ARDUINO->PC PROTOCOL /in/[0..39] [0|1]    - a digital input pin changed to [high|low] /adc/[0..7] [0..255] - analog input value changed to [0..255] NOTE: input pins use pull-up resistors and are HIGH by default. Therefore, 0 means HIGH, 1 means LOW (pulled to ground). * EXAMPLES: PC->ARDUINO /pinmode/5 0         - set pin 5 to INPUT /pinmode/9 1         - set pin 9 to OUTPUT /out/9 0             - set pin 9 to LOW /out/12 1            - set pin 12 to HIGH /pwm/4 512          - set PWM duty on PWM pin 4 to 512 (50%) /report/in 1         - turn digital input pin reporting on /report/adc/4 0      - turn reporting of analog input 4 off * EXAMPLES: WIRING->PC /in/4 1              - digital input pin 4 pulled to ground /adc/2 512           - analog input pin2 read 512 (=2.5V) * DEFAULT STARTUP CONFIGURATION - Pins 0-39 are all set to input, digital reporting enabled (change variable reportDigital to False to disable by default) - Analog reporting is disabled (change variable reportAnalog to 0xFF to enable by default) * NOTES: - Pins 32,33 cannot be used (needed for Rx/Tx) - Resolution on analog in and out is 10 bit. - So far, not much error checking for bounds done - In testing with pd and [serialIO], message bytes tend to get "stuck" in a buffer either on PC or on Wiring board side when sending to hardware, with the effect that an OSC message doesn't get processed on the board until the *next* message arrives, or until a few 0x00 characters are sent. This does not appear to happen wir Arduino_Osc. - On the tested board, pin Analog In 0 corresponds to analogRead(7) and pins 1..7 correspond to analogRead(0)..analogRead(6). * MIT License: Copyright (c) 2008 Bjoern Hartmann, Stanford HCI Group Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. * bjoern@cs.stanford.edu 11/23/2008</p>
+<p></p>
+
+<p class="doc">
+<pre class="code">
+#<span class='keyword1'>define</span> VERSION 4
+
+#<span class='keyword1'>define</span> MIN_A2D_DIFF 4  <span class='comment'>// threshold <span class='keyword1'>for</span> reporting a2d changes</span>
+#<span class='keyword1'>define</span> MAX_LENGTH 24   <span class='comment'>// <span class='keyword2'>size</span> of buffer <span class='keyword1'>for</span> building OSC msgs</span>
+#<span class='keyword1'>define</span> SERIAL_SPEED 38400
+
+#<span class='keyword1'>define</span> FIRST_DIGITAL_PIN 0
+#<span class='keyword1'>define</span> LAST_DIGITAL_PIN 39
+#<span class='keyword1'>define</span> NUM_DIGITAL_PINS 40
+#<span class='keyword1'>define</span> NUM_PORTS 5
+
+#<span class='keyword1'>define</span> <span class='literal2'>FIRST_ANALOG_PIN</span> 0
+#<span class='keyword1'>define</span> LAST_ANALOG_PIN 7
+#<span class='keyword1'>define</span> NUM_ANALOG_PINS 8
+#<span class='keyword1'>define</span> RX_PIN 32
+#<span class='keyword1'>define</span> TX_PIN 33
+
+
+<span class='comment'>// <span class='keyword1'>define</span> state constants <span class='keyword1'>for</span> parsing FSM</span>
+#<span class='keyword1'>define</span> OSC_RXOP_WAITFORSTART 0
+#<span class='keyword1'>define</span> OSC_RXOP_READSIZE 1
+#<span class='keyword1'>define</span> OSC_RXOP_READADDR 2
+#<span class='keyword1'>define</span> OSC_RXOP_READTAG 3
+#<span class='keyword1'>define</span> OSC_RXOP_READARG 4
+#<span class='keyword1'>define</span> OSC_RXOP_READCHECKSUM 5
+<span class='comment'>//removed READMSG</span>
+#<span class='keyword1'>define</span> OSC_RXOP_SKIPMSG 7
+#<span class='keyword1'>define</span> OSC_RXOP_READARG1BYTE1 8
+#<span class='keyword1'>define</span> OSC_RXOP_READARG1BYTE2 9
+#<span class='keyword1'>define</span> OSC_RXOP_READARG1BYTE3 10
+#<span class='keyword1'>define</span> OSC_RXOP_READARG1BYTE4 11
+#<span class='keyword1'>define</span> OSC_RXOP_READTAGBYTE1 12
+#<span class='keyword1'>define</span> OSC_RXOP_READTAGBYTE2 13
+#<span class='keyword1'>define</span> OSC_RXOP_READTAGBYTE3 14
+#<span class='keyword1'>define</span> OSC_RXOP_READTAGBYTE4 15
+#<span class='keyword1'>define</span> OSC_MAX_RX_MSG_SIZE 32
+
+
+<span class='keyword1'>int</span> incomingByte = 0; <span class='comment'>// <span class='keyword1'>for</span> incoming serial data</span>
+<span class='keyword1'>int</span> k = <span class='literal2'>FIRST_ANALOG_PIN</span>;
+
+<span class='keyword1'>byte</span> inputBuffer[NUM_PORTS] = {0xFF}; <span class='comment'>// holds previous values of PORTB and PORTD (pins 0..7); start all high because of pull-ups</span>
+<span class='keyword1'>int</span> a2dBuffer[NUM_ANALOG_PINS] = {0x00};   <span class='comment'>// holds previous A2D conversion values</span>
+<span class='keyword1'>char</span> oscBuffer[MAX_LENGTH] = {0x00}; <span class='comment'>// holds outgoing OSC message</span>
+
+<span class='keyword1'>byte</span> pinDir[NUM_PORTS] = {0x00}; <span class='comment'>//buffer that saves pin directions 0=input; 1=output; <span class='keyword1'>default</span>: all in</span>
+
+<span class='keyword1'>char</span> prefixReport[] = <span class='literal'>"/report/"</span>;
+<span class='keyword1'>char</span> prefixPinmode[] = <span class='literal'>"/pinmode/"</span>;
+<span class='keyword1'>char</span> prefixOut[] = <span class='literal'>"/out/"</span>;
+<span class='keyword1'>char</span> prefixPwm[] = <span class='literal'>"/pwm/"</span>;
+<span class='keyword1'>char</span> prefixIn[] = <span class='literal'>"/in/"</span>;
+<span class='keyword1'>char</span> prefixA2d[] = <span class='literal'>"/adc/"</span>;
+<span class='keyword1'>char</span> prefixReset[] = <span class='literal'>"/reset"</span>; <span class='comment'>//TODO: implement</span>
+
+<span class='keyword1'>char</span> oscOutAddress[10] = {0x00}; <span class='comment'>//string that holds outgoing osc message address</span>
+
+<span class='keyword1'>char</span>* numbers[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16",
+                   "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
+                   "31", "32", "33", "34", "35", "36", "37", "38", "39"
+                  };
+<span class='keyword1'>byte</span> pwmPinMap[6] = {37, 36, 35, 31, 30, 29};
+<span class='comment'>// which values should be reported?</span>
+<span class='keyword1'>byte</span> reportAnalog = 0x00; <span class='comment'>//bitmask - 0=off, 1=on - <span class='keyword1'>default</span>:all off</span>
+<span class='keyword1'>boolean</span> reportDigital = <span class='keyword1'>true</span>; <span class='comment'>//no per-pin reporting <span class='keyword1'>for</span> analog</span>
+
+<span class='comment'>//<span class='comment'>//<span class='comment'>//parser variables<span class='comment'>//<span class='comment'>//<span class='comment'>//<span class='comment'>//</span>
+<span class='keyword1'>static</span> <span class='keyword1'>byte</span> oscRxNextOp = OSC_RXOP_WAITFORSTART; <span class='comment'>//keeps track of current state</span>
+<span class='comment'>// space <span class='keyword1'>for</span> buffer in RAM</span>
+<span class='keyword1'>static</span> <span class='keyword1'>char</span> oscRxData[OSC_MAX_RX_MSG_SIZE];
+
+<span class='keyword1'>byte</span> oscRxMsgSize; <span class='comment'>// <span class='keyword2'>size</span> of incoming msg</span>
+<span class='keyword1'>byte</span> oscRxReadBytes; <span class='comment'>//number of bytes <span class='keyword2'>read</span></span>
+<span class='keyword1'>byte</span> *oscRxAddr;
+<span class='keyword1'>unsigned</span> <span class='keyword1'>long</span> oscRxIntArg1; <span class='comment'>//<span class='keyword1'>int</span> argument of message</span>
+<span class='keyword1'>byte</span> oscRxChecksum;
+
+
+<span class='comment'>/***********************************************
+ * SETUP - open serial comm and initialize pins
+ ***********************************************/</span>
+<span class='keyword1'>void</span> <span class='keyword2'>setup</span>()
+{
+  <span class='keyword1'>int</span> i;
+
+  reportAnalog = 0x00;
+  reportDigital = <span class='keyword1'>true</span>;
+
+  <span class='comment'>// set all pins as inputs</span>
+  <span class='keyword1'>for</span> (i = FIRST_DIGITAL_PIN; i &lt;= LAST_DIGITAL_PIN; i++)
+  {
+    <span class='keyword1'>if</span> ((i != RX_PIN) &amp;&amp; (i != TX_PIN))
+    {
+      <span class='keyword2'>pinMode</span>(i, <span class='literal2'>INPUT</span>);
+      <span class='keyword2'>digitalWrite</span>(i, <span class='literal2'>HIGH</span>); <span class='comment'>// use pull-ups</span>
+    }
+  }
+
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>begin</span>(SERIAL_SPEED);
+
+}
+
+<span class='comment'>/***********************************************
+ * LOOP - poll pin values and <span class='keyword2'>read</span> incoming
+ * serial communication
+ ***********************************************/</span>
+<span class='keyword1'>void</span> <span class='keyword2'>loop</span>()
+{
+
+  <span class='comment'>// check all digital inputs</span>
+  <span class='keyword1'>if</span> (reportDigital)
+  {
+    checkDiscreteInputs();
+  }
+
+  <span class='comment'>// check one analog input per <span class='keyword2'>loop</span></span>
+  <span class='keyword1'>if</span> (reportAnalog &amp; (1 &lt;&lt; k))
+  {
+    checkAnalogInput(k);
+  }
+  k = (k + 1) % NUM_ANALOG_PINS;
+
+  <span class='comment'>// handle all received serial bytes</span>
+  <span class='keyword1'>while</span> (<span class='keyword1'>Serial</span>.<span class='keyword2'>available</span>() &gt; 0)
+  {
+    incomingByte = <span class='keyword1'>Serial</span>.<span class='keyword2'>read</span>() &amp; 0xFF;<span class='comment'>// <span class='keyword2'>read</span> <span class='keyword1'>byte</span> - truncate to 8bits to be safe</span>
+    oscRxHandler(incomingByte); <span class='comment'>// hand to message parser</span>
+  }
+
+}
+
+<span class='comment'>/***********************************************
+ * Check all digital inputs and call
+ * oscSendMessageInt() <span class='keyword1'>if</span> values has changed
+ ***********************************************/</span>
+<span class='keyword1'>void</span> checkDiscreteInputs()
+{
+  <span class='keyword1'>int</span> i;
+  <span class='keyword1'>byte</span> state[NUM_PORTS] = {0x00};
+  <span class='comment'>//WIRING: <span class='keyword2'>read</span> all ports into buffer</span>
+  <span class='keyword1'>for</span> (i = 0; i &lt; NUM_PORTS; i++)
+  {
+    state[i] = <span class='keyword2'>portRead</span>(i);
+  }
+
+  <span class='comment'>// <span class='keyword1'>if</span> the state of a pin has changed since last time,</span>
+  <span class='comment'>// and that pin is an input pin, send a message</span>
+  <span class='keyword1'>for</span> (i = FIRST_DIGITAL_PIN; i &lt;= LAST_DIGITAL_PIN; i++)
+  {
+    <span class='keyword1'>if</span> (!(pinDir[i / 8] &amp; (1 &lt;&lt; (i % 8))) &amp;&amp; (i != RX_PIN) &amp;&amp; (i != TX_PIN)) <span class='comment'>//<span class='keyword1'>if</span> pin is input and not RX/TX</span>
+    {
+      <span class='keyword1'>if</span> ((state[i / 8] &amp; (1 &lt;&lt; (i % 8))) != (inputBuffer[i / 8] &amp; (1 &lt;&lt; (i % 8)))) <span class='comment'>//does <span class='literal2'><span class='keyword1'>this</span></span> shift work?</span>
+      {
+        strcpy(oscOutAddress, prefixIn);
+        strcat(oscOutAddress, numbers[i]);
+        oscSendMessageInt(oscOutAddress, !(state[i / 8] &amp; (1 &lt;&lt; (i % 8))));
+      }
+    }
+  }
+
+  <span class='comment'>//save current state to buffer</span>
+  <span class='keyword1'>for</span> (i = 0; i &lt; NUM_PORTS; i++)
+  {
+    inputBuffer[i] = state[i];
+  }
+}
+
+
+<span class='comment'>/***********************************************
+ * Check one analog input channel and call
+ * oscSendMessageInt() <span class='keyword1'>if</span> its value has changed
+ ***********************************************/</span>
+<span class='keyword1'>void</span> checkAnalogInput(<span class='keyword1'>byte</span> channel)
+{
+  <span class='keyword1'>int</span> result;
+  <span class='keyword1'>int</span> diff;
+  <span class='comment'>// <span class='keyword2'>read</span> a2d</span>
+  result = <span class='keyword2'>analogRead</span>(channel); <span class='comment'>// &gt;&gt;2 on arduino</span>
+
+  <span class='comment'>// compare to last reading - <span class='keyword1'>if</span> delta big enough,</span>
+  <span class='comment'>// send message</span>
+  <span class='comment'>//diff = result - a2dBuffer[channel];</span>
+  <span class='comment'>//<span class='keyword1'>if</span> (diff&gt;MIN_A2D_DIFF || diff&lt;(<span class='keyword1'>int</span>)((-1)*MIN_A2D_DIFF)) {</span>
+  <span class='keyword1'>if</span> (result != a2dBuffer[channel])
+  {
+    a2dBuffer[channel] = result;
+    strcpy(oscOutAddress, prefixA2d);
+    strcat(oscOutAddress, numbers[channel]);
+    oscSendMessageInt(oscOutAddress, result);
+  }
+}
+
+
+<span class='comment'>/***********************************************
+ * Send an OSC message with the passed in
+ * address and a single integer argument
+ ***********************************************/</span>
+<span class='keyword1'>void</span> oscSendMessageInt(<span class='keyword1'>char</span> * address, <span class='keyword1'>unsigned</span> <span class='keyword1'>long</span> value)
+{
+  <span class='keyword1'>byte</span> offset = 0;
+  <span class='keyword1'>byte</span> i = 0;
+
+  <span class='comment'>// <span class='keyword2'>clear</span> buffer</span>
+  <span class='keyword1'>for</span> (i = 0; i &lt; MAX_LENGTH; i++)
+  {
+    oscBuffer[i] = 0x00;
+  }
+
+  <span class='comment'>//<span class='keyword2'>write</span> packet header</span>
+  oscBuffer[offset++] = 0xBE;
+
+  <span class='comment'>//compute message <span class='keyword2'>length</span></span>
+  <span class='comment'>//first compute address string <span class='keyword2'>length</span> and padd <span class='keyword1'>if</span> necessary</span>
+  <span class='keyword1'>byte</span> addrlen = strlen(address);
+  <span class='keyword1'>if</span> (addrlen &amp; 0x03)
+    addrlen += 4 - (addrlen &amp; 0x03);
+
+  <span class='comment'>//then <span class='keyword2'>add</span> type-tag <span class='keyword2'>length</span> and arg <span class='keyword2'>length</span> (both 4 <span class='keyword1'>for</span> a simple <span class='keyword1'>int</span> message)</span>
+  <span class='keyword1'>byte</span> typetaglen = 4;
+  <span class='keyword1'>byte</span> arglen = 4;
+
+  <span class='comment'>//<span class='keyword1'>final</span> <span class='keyword2'>length</span> is sum of the three</span>
+  <span class='keyword1'>byte</span> len = addrlen + typetaglen + arglen;
+
+  <span class='comment'>//<span class='keyword2'>write</span> message <span class='keyword2'>length</span></span>
+  oscBuffer[offset++] = (<span class='keyword1'>unsigned</span> <span class='keyword1'>char</span>)len;
+
+  <span class='comment'>//<span class='keyword2'>write</span> address</span>
+  strcpy(oscBuffer + offset, address);
+  offset += addrlen;
+
+  <span class='comment'>//<span class='keyword2'>write</span> typetag</span>
+  oscBuffer[offset++] = ',';
+  oscBuffer[offset++] = 'i';
+  oscBuffer[offset++] = 0x00;
+  oscBuffer[offset++] = 0x00;
+
+  <span class='comment'>//<span class='keyword2'>write</span> argument</span>
+  oscBuffer[offset++] = *(((<span class='keyword1'>unsigned</span> <span class='keyword1'>char</span> *)(&amp;value)) + 3);
+  oscBuffer[offset++] = *(((<span class='keyword1'>unsigned</span> <span class='keyword1'>char</span> *)(&amp;value)) + 2);
+  oscBuffer[offset++] = *(((<span class='keyword1'>unsigned</span> <span class='keyword1'>char</span> *)(&amp;value)) + 1);
+  oscBuffer[offset++] = *(((<span class='keyword1'>unsigned</span> <span class='keyword1'>char</span> *)(&amp;value)) + 0);
+
+  <span class='comment'>//compute + <span class='keyword2'>write</span> checksum</span>
+  <span class='keyword1'>byte</span> checksum = 0;
+  <span class='keyword1'>for</span> (i = 2; i &lt; offset; i++)
+  {
+    checksum += oscBuffer[i];
+  }
+  oscBuffer[offset++] = checksum;
+
+  <span class='comment'>//send message <span class='keyword1'>byte</span>-by-<span class='keyword1'>byte</span></span>
+  <span class='keyword1'>for</span> (i = 0; i &lt; offset; i++)
+  {
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(oscBuffer[i], BYTE);
+  }
+}
+
+
+<span class='comment'>/***********************************************
+ * Handle a received OSC message
+ ***********************************************/</span>
+<span class='keyword1'>void</span> oscReceiveMessageInt(<span class='keyword1'>char</span> * msg, <span class='keyword1'>unsigned</span> <span class='keyword1'>long</span> value)
+{
+  <span class='keyword1'>int</span> i;
+  <span class='keyword1'>int</span> outPin;
+
+  <span class='comment'>//uncomment to echo message back <span class='keyword1'>for</span> debugging</span>
+  oscSendMessageInt(msg, value);
+
+  <span class='comment'>// check <span class='keyword1'>if</span> <span class='literal2'><span class='keyword1'>this</span></span> is an output message, i.e., starts with <span class='literal'>"/out/"</span></span>
+  <span class='keyword1'>if</span> (strncmp(msg, prefixOut, strlen(prefixOut)) == 0)
+  {
+    <span class='comment'>//<span class='keyword1'>if</span> so, find which pin</span>
+    outPin = atoi(msg + strlen(prefixOut));
+    <span class='keyword1'>if</span> (outPin &gt;= FIRST_DIGITAL_PIN &amp;&amp; outPin &lt;= LAST_DIGITAL_PIN &amp;&amp; outPin != RX_PIN &amp;&amp; outPin != TX_PIN) <span class='comment'>//sanity check</span>
+    {
+      <span class='comment'>//change its value</span>
+      <span class='comment'>//note: pin can be set to input - <span class='literal2'><span class='keyword1'>this</span></span> enables/disables pullups</span>
+      <span class='keyword2'>digitalWrite</span>(outPin, (<span class='keyword1'>byte</span>)(value &amp; 0x01));
+    }
+    <span class='keyword1'>return</span>;
+  }
+
+  <span class='comment'>// check <span class='keyword1'>if</span> <span class='literal2'><span class='keyword1'>this</span></span> is a pwm message, i.e., starts with <span class='literal'>"/pwm/"</span></span>
+  <span class='keyword1'>if</span> (strncmp(msg, prefixPwm, strlen(prefixPwm)) == 0)
+  {
+    outPin = atoi(msg + strlen(prefixPwm));
+    <span class='keyword1'>if</span> (outPin &gt;= FIRST_DIGITAL_PIN &amp;&amp; outPin &lt;= LAST_DIGITAL_PIN  &amp;&amp; outPin != RX_PIN &amp;&amp; outPin != TX_PIN) <span class='comment'>//sanity check</span>
+    {
+      <span class='comment'>//make sure we turn pin into output in our pinDir first</span>
+      <span class='comment'>//so we don't generate lots of extraneous messages</span>
+
+      <span class='comment'>//may need to <span class='keyword2'>map</span> from 0..5 to 29..37 range as well</span>
+      <span class='keyword1'>if</span> (0 &lt;= outPin &amp;&amp; 5 &gt;= outPin)
+      {
+        pinDir[pwmPinMap[outPin] / 8] =
+          pinDir[pwmPinMap[outPin] / 8] | (1 &lt;&lt; (pwmPinMap[outPin] % 8));
+      }
+      <span class='keyword1'>else</span>
+      {
+        pinDir[outPin / 8] = pinDir[outPin / 8] | (1 &lt;&lt; (outPin % 8));
+      }
+
+      <span class='comment'>//set pwm</span>
+      <span class='keyword2'>analogWrite</span>(outPin, value &amp; 1023);
+    }
+    <span class='keyword1'>return</span>;
+  }
+
+  <span class='comment'>// check <span class='keyword1'>if</span> <span class='literal2'><span class='keyword1'>this</span></span> is a "report" message which starts with "/report/"</span>
+  <span class='comment'>// changes which pins <span class='keyword2'>get</span> reported</span>
+  <span class='keyword1'>if</span> (strncmp(msg, prefixReport, strlen(prefixReport)) == 0)
+  {
+    <span class='comment'>//<span class='keyword1'>if</span> it continues with <span class='literal'>"/in"</span></span>
+
+    <span class='keyword1'>if</span> (strncmp(msg + strlen(prefixReport) - 1, prefixIn, strlen(prefixIn) - 1) == 0)
+    {
+      reportDigital = (value != 0);
+      <span class='keyword1'>return</span>;
+    }
+
+    <span class='comment'>//<span class='keyword1'>else</span> <span class='keyword1'>if</span> it continues with <span class='literal'>"/adc/"</span></span>
+    <span class='keyword1'>else</span> <span class='keyword1'>if</span> (strncmp(msg + strlen(prefixReport) - 1, prefixA2d, strlen(prefixA2d)) == 0)
+    {
+      <span class='comment'>//extract which analog pin we're talking about</span>
+      outPin = atoi(msg + strlen(prefixReport) - 1 + strlen(prefixA2d));
+      <span class='comment'>//flip the <span class='keyword2'>bit</span> in reportAnalog:</span>
+      <span class='keyword1'>if</span> (outPin &gt;= <span class='literal2'>FIRST_ANALOG_PIN</span> &amp;&amp; outPin &lt;= LAST_ANALOG_PIN) <span class='comment'>//sanity check</span>
+      {
+        <span class='keyword1'>if</span> (value == 0)
+        {
+          reportAnalog = reportAnalog &amp; ~(1 &lt;&lt; outPin);
+        }
+        <span class='keyword1'>else</span>
+        {
+          reportAnalog = reportAnalog | (1 &lt;&lt; outPin);
+        }
+      }
+      <span class='keyword1'>return</span>;
+    }
+
+    <span class='comment'>//<span class='keyword1'>else</span> <span class='keyword1'>if</span> it continues with <span class='literal'>"/adc"</span> (no <span class='keyword1'>final</span> slash)</span>
+    <span class='keyword1'>else</span> <span class='keyword1'>if</span> (strncmp(msg + strlen(prefixReport) - 1, prefixA2d, strlen(prefixA2d) - 1) == 0)
+    {
+      <span class='comment'>//turn reporting <span class='keyword1'>for</span> all analog pins on or off</span>
+      <span class='keyword1'>if</span> (value == 0)
+      {
+        reportAnalog = 0x00;
+      }
+      <span class='keyword1'>else</span>
+      {
+        reportAnalog = 0xFF;
+      }
+      <span class='keyword1'>return</span>;
+    }
+
+  }
+
+  <span class='comment'>//<span class='keyword1'>finally</span>, <span class='literal2'><span class='keyword1'>this</span></span> could be a <span class='literal'>"/pinmode/ message"</span></span>
+  <span class='keyword1'>if</span> (strncmp(msg, prefixPinmode, strlen(prefixPinmode)) == 0)
+  {
+    outPin = atoi(msg + strlen(prefixPinmode));
+    <span class='keyword1'>if</span> (outPin &gt;= FIRST_DIGITAL_PIN &amp;&amp; outPin &lt;= LAST_DIGITAL_PIN) <span class='comment'>//sanity check</span>
+    {
+      <span class='keyword1'>if</span> (value == 0)
+      {
+        pinDir[outPin / 8] = pinDir[outPin / 8] &amp; ~(1 &lt;&lt; (outPin % 8)); <span class='comment'>//turn <span class='keyword2'>bit</span> in our own direction buffer to off = input</span>
+        <span class='keyword2'>pinMode</span>(outPin, <span class='literal2'>INPUT</span>); <span class='comment'>//set DDR register <span class='keyword2'>bit</span> to input</span>
+        <span class='keyword2'>digitalWrite</span>(outPin, <span class='literal2'>HIGH</span>); <span class='comment'>//reenable pull-up</span>
+      }
+      <span class='keyword1'>else</span>
+      {
+        pinDir[outPin / 8] = pinDir[outPin / 8] | (1 &lt;&lt; (outPin % 8)); <span class='comment'>//turn <span class='keyword2'>bit</span> on</span>
+        <span class='keyword2'>pinMode</span>(outPin, <span class='literal2'>OUTPUT</span>); <span class='comment'>// turn DDR <span class='keyword2'>bit</span> to output</span>
+      }
+    }
+    <span class='keyword1'>return</span>;
+  }
+  <span class='comment'>//is <span class='literal2'><span class='keyword1'>this</span></span> a reset message? <span class='keyword1'>if</span> so, reinitialize.</span>
+  <span class='keyword1'>if</span> (strncmp(msg, prefixReset, strlen(prefixReset)) == 0)
+  {
+    oscRxNextOp = OSC_RXOP_WAITFORSTART;
+    <span class='keyword2'>setup</span>();
+  }
+}
+
+
+
+<span class='comment'>/***********************************
+ * PARSING OF MESSAGES BELOW
+ ***********************************/</span>
+
+
+
+
+
+<span class='comment'>/***********************************
+ * PARSER
+ ***********************************/</span>
+<span class='keyword1'>void</span> oscRxHandler(<span class='keyword1'>unsigned</span> <span class='keyword1'>char</span> c)
+{
+  <span class='keyword1'>byte</span> i;
+  <span class='keyword1'>switch</span> (oscRxNextOp)
+  {
+    <span class='keyword1'>case</span> OSC_RXOP_WAITFORSTART:
+      <span class='keyword1'>if</span> (c == 0xBE) <span class='comment'>//0xBE is the magic start <span class='keyword1'>byte</span></span>
+      {
+        oscRxNextOp = OSC_RXOP_READSIZE;
+      }
+      <span class='keyword1'>break</span>;
+
+    <span class='keyword1'>case</span> OSC_RXOP_READSIZE:
+      oscRxMsgSize = c; <span class='comment'>// <span class='keyword2'>read</span> message <span class='keyword2'>size</span></span>
+      oscRxReadBytes = 0; <span class='comment'>//reset index into message buffer</span>
+      <span class='keyword1'>if</span> (oscRxMsgSize &lt; (OSC_MAX_RX_MSG_SIZE - 1))
+      {
+        oscRxNextOp = OSC_RXOP_READADDR;
+      }
+      <span class='keyword1'>else</span>
+      {
+        oscRxNextOp = OSC_RXOP_SKIPMSG; <span class='comment'>//Msg is too <span class='keyword1'>long</span></span>
+      }
+      <span class='keyword1'>break</span>;
+
+    <span class='keyword1'>case</span> OSC_RXOP_READADDR:
+      <span class='keyword1'>if</span> (c != 0 &amp;&amp; c != ',')
+      {
+        oscRxData[oscRxReadBytes++] = c; <span class='comment'>//copy normal addr <span class='keyword1'>byte</span></span>
+      }
+      <span class='keyword1'>else</span> <span class='keyword1'>if</span> (c == ',')
+      {
+        <span class='comment'>//<span class='keyword1'>if</span> we went straight from addr to to tag string, convert <span class='literal'>","</span> of tag string to 0x00</span>
+        <span class='comment'>// so our address string is properly zero-terminated</span>
+        <span class='comment'>//and jump ahead in the state machine to <span class='keyword2'>read</span> second tag <span class='keyword1'>byte</span> next</span>
+        oscRxData[oscRxReadBytes++] = 0x00;
+        oscRxNextOp = OSC_RXOP_READTAGBYTE2;
+      }
+      <span class='keyword1'>else</span>
+      {
+        oscRxData[oscRxReadBytes++] = 0;
+        <span class='keyword1'>if</span> (!((oscRxReadBytes) &amp; 0x03)) <span class='comment'>//skip 0s until we hit <span class='keyword1'>byte</span> boundary</span>
+        {
+          oscRxNextOp = OSC_RXOP_READTAGBYTE1;
+        }
+      }
+      <span class='keyword1'>break</span>;
+
+      <span class='comment'>// <span class='keyword2'>read</span> type tag string bytes 1-4</span>
+    <span class='keyword1'>case</span> OSC_RXOP_READTAGBYTE1:
+      oscRxData[oscRxReadBytes++] = c;
+      <span class='keyword1'>if</span> (c == ',')
+      {
+        <span class='comment'>// valid type tag start character found</span>
+        oscRxNextOp = OSC_RXOP_READTAGBYTE2;
+      }
+      <span class='keyword1'>else</span>
+      {
+        <span class='comment'>// no type tag start <span class='keyword1'>char</span> present</span>
+        <span class='comment'>// assume one <span class='keyword1'>int</span> arg and <span class='keyword2'>read</span> its first <span class='keyword1'>byte</span></span>
+        oscRxIntArg1 = 0;
+        oscRxIntArg1 |= ((<span class='keyword1'>unsigned</span> <span class='keyword1'>long</span>)(c) &lt;&lt; 0x18);
+        oscRxNextOp = OSC_RXOP_READARG1BYTE2;
+      }
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> OSC_RXOP_READTAGBYTE2:
+      oscRxData[oscRxReadBytes++] = c;
+      <span class='keyword1'>switch</span> (c)
+      {
+        <span class='keyword1'>case</span> 'i': <span class='comment'>//int32 argument</span>
+          oscRxNextOp = OSC_RXOP_READTAGBYTE3;
+          <span class='keyword1'>break</span>;
+          <span class='comment'>// all other types besides <span class='keyword1'>int</span> are not supported yet</span>
+          <span class='comment'>// so skip remainder of message</span>
+        <span class='keyword1'>case</span> 'f': <span class='comment'>//<span class='keyword2'><span class='keyword1'>float</span></span> arg</span>
+        <span class='keyword1'>case</span> 's': <span class='comment'>//string arg</span>
+        <span class='keyword1'>default</span>:
+          oscRxNextOp = OSC_RXOP_SKIPMSG;
+      }
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> OSC_RXOP_READTAGBYTE3:
+      oscRxData[oscRxReadBytes++] = c;
+      <span class='keyword1'>switch</span> (c)
+      {
+          <span class='comment'>// <span class='keyword1'>null</span> - message has only one arg - we're ok</span>
+        <span class='keyword1'>case</span> 0:
+          oscRxNextOp = OSC_RXOP_READTAGBYTE4;
+          <span class='keyword1'>break</span>;
+          <span class='comment'>// all others: not yet supported; skip rest of message</span>
+        <span class='keyword1'>default</span>:
+          oscRxNextOp = OSC_RXOP_SKIPMSG;
+          <span class='keyword1'>break</span>;
+      }
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> OSC_RXOP_READTAGBYTE4:
+      oscRxData[oscRxReadBytes++] = c;
+      <span class='keyword1'>switch</span> (c)
+      {
+          <span class='comment'>// <span class='keyword1'>null</span> - message has only one arg - we're ok</span>
+        <span class='keyword1'>case</span> 0:
+          oscRxNextOp = OSC_RXOP_READARG1BYTE1;
+          <span class='keyword1'>break</span>;
+          <span class='comment'>// all others: not yet supported; skip rest of message</span>
+        <span class='keyword1'>default</span>:
+          oscRxNextOp = OSC_RXOP_SKIPMSG;
+          <span class='keyword1'>break</span>;
+      }
+      <span class='keyword1'>break</span>;
+
+      <span class='comment'>// <span class='keyword2'>read</span> argument bytes 1-4</span>
+    <span class='keyword1'>case</span> OSC_RXOP_READARG1BYTE1:
+      oscRxData[oscRxReadBytes++] = c;
+      oscRxIntArg1 = 0;
+      oscRxIntArg1 |= ((<span class='keyword1'>unsigned</span> <span class='keyword1'>long</span>)(c) &lt;&lt; 0x18);
+      oscRxNextOp = OSC_RXOP_READARG1BYTE2;
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> OSC_RXOP_READARG1BYTE2:
+      oscRxData[oscRxReadBytes++] = c;
+      oscRxIntArg1 |= ((<span class='keyword1'>unsigned</span> <span class='keyword1'>long</span>)(c) &lt;&lt; 0x10);
+      oscRxNextOp = OSC_RXOP_READARG1BYTE3;
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> OSC_RXOP_READARG1BYTE3:
+      oscRxData[oscRxReadBytes++] = c;
+      oscRxIntArg1 |= ((<span class='keyword1'>unsigned</span> <span class='keyword1'>long</span>)(c) &lt;&lt; 0x08);
+      oscRxNextOp = OSC_RXOP_READARG1BYTE4;
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> OSC_RXOP_READARG1BYTE4:
+      oscRxData[oscRxReadBytes++] = c;
+      oscRxIntArg1 |= (<span class='keyword1'>unsigned</span> <span class='keyword1'>long</span>)(c);
+      oscRxNextOp = OSC_RXOP_READCHECKSUM;
+      <span class='keyword1'>break</span>;
+
+      <span class='comment'>// <span class='keyword2'>read</span> checksum <span class='keyword1'>byte</span>; check msg integrity; fire off user function</span>
+    <span class='keyword1'>case</span> OSC_RXOP_READCHECKSUM:
+      <span class='comment'>// check that we <span class='keyword2'>read</span> the right number of bytes</span>
+      <span class='keyword1'>if</span> (oscRxReadBytes != oscRxMsgSize)
+      {
+        oscSendMessageInt(<span class='literal'>"/error/msgsize/"</span>, oscRxReadBytes);
+      }
+      <span class='keyword1'>else</span>
+      {
+        oscRxChecksum = 0;
+        <span class='keyword1'>for</span> (i = 0; i &lt; oscRxMsgSize; i++)
+        {
+          oscRxChecksum += oscRxData[i];
+        }
+        <span class='keyword1'>if</span> (oscRxChecksum == c)
+        {
+          <span class='comment'>// checksum matched and we're done with <span class='literal2'><span class='keyword1'>this</span></span> msg</span>
+          <span class='comment'>// -&gt; fire off user function</span>
+          oscReceiveMessageInt(oscRxData, oscRxIntArg1);
+
+        }
+        <span class='keyword1'>else</span>
+        {
+          <span class='comment'>// mismatch - <span class='keyword1'>throw</span> <span class='literal2'><span class='keyword1'>this</span></span> message away</span>
+          oscSendMessageInt(<span class='literal'>"/error/checksum"</span>, oscRxChecksum);
+        }
+      }
+      <span class='comment'>// wait <span class='keyword1'>for</span> next message header</span>
+      oscRxNextOp = OSC_RXOP_WAITFORSTART;
+      <span class='keyword1'>break</span>;
+
+      <span class='comment'>//skip rest of message - called <span class='keyword1'>if</span> an error was detected in the current</span>
+      <span class='comment'>//incoming message</span>
+    <span class='keyword1'>case</span> OSC_RXOP_SKIPMSG:
+      <span class='keyword1'>if</span> (++oscRxReadBytes == (oscRxMsgSize + 1))
+      {
+        oscRxNextOp = OSC_RXOP_WAITFORSTART;
+      }
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>default</span>:
+      oscRxNextOp = OSC_RXOP_WAITFORSTART;
+  }
+}
+</pre>
+
+
+</div>
+
+
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

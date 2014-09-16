@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<!--*-->lang<!--*-->" lang="<!--*-->lang<!--*-->">
+	<head>
+		<title>MenuItem::getName()\ MenuItem \ Language (API) \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=<!--*-->charset<!--*-->" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Library-ref" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../../index.html"><img src="../../img/wiring.gif" alt="Wiring.org.co" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav_noSub">
+					<a href="../../index.html">Framework</a> (<a href="../../alpha.html">A-Z</a>) \ 
+					<a href="../../libraries/index.html" class="active">Librer&iacute;as</a> \ 
+					<a href="../../environment/index.html">Entorno</a> \ 
+					<a href="../../learning/index.html">Aprendiendo</a> \
+					<a href="../../hardware/index.html">Hardware</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+	<span class="lib-nav">
+		<a href="../index.html">Librer&iacute;as</a>
+		 \ <a href="index.html" class="active">MenuItem</a>
+	</span>
+
+			 <p class="ref-notice">Referencia para la versi&oacute;n de Wiring 1.0 Build 0100+. Si tiene una versi&oacute;n previa, use la referencia incluida con su software. <em>Si encuentra errores o tiene comentarios, <a href="http://forum.wiring.co/index.php/board,13.0.html">no dude en contactarnos</a>.</em></p>
+
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="">
+		<th scope="row">Clase</th>
+		<td><p>MenuItem</p></td>
+	</tr>
+
+	<tr class="name-row">
+		<th scope="row">Nombre</th>
+		<td><h3>getName()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Ejemplos</th>
+		<td><div class="example"><pre>#<span class='keyword1'>include</span> &lt;MenuBackend.h&gt;
+
+<span class='comment'>//<span class='literal2'><span class='keyword1'>this</span></span> controls the menu backend and the event generation</span>
+MenuBackend menu = MenuBackend(menuUseEvent,menuChangeEvent);
+<span class='comment'>//beneath is list of menu items needed to build the menu</span>
+MenuItem settings   = MenuItem(menu, <span class='literal'>"Settings"</span>, 1);
+MenuItem pin      = MenuItem(menu, <span class='literal'>"Pin"</span>, 2);
+MenuItem debug    = MenuItem(menu, <span class='literal'>"Debug"</span>, 2);
+MenuItem options    = MenuItem(menu, <span class='literal'>"Options"</span>, 1);
+MenuItem setDelay = MenuItem(menu, <span class='literal'>"Delay"</span>,'D', 2);
+MenuItem d100   = MenuItem(menu, <span class='literal'>"100 ms"</span>, 3);
+MenuItem d200   = MenuItem(menu, <span class='literal'>"200 ms"</span>, 3);
+MenuItem d300   = MenuItem(menu, <span class='literal'>"300 ms"</span>, 3);
+MenuItem d400   = MenuItem(menu, <span class='literal'>"400 ms"</span>, 3);
+
+<span class='comment'>//<span class='literal2'><span class='keyword1'>this</span></span> function builds the menu and connects the correct items together</span>
+<span class='keyword1'>void</span> menuSetup()
+{
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"Setting up menu..."</span>);
+  <span class='comment'>//<span class='keyword2'>add</span> the file menu to the menu root</span>
+  menu.getRoot().<span class='keyword2'>add</span>(settings); 
+  <span class='comment'>//<span class='keyword2'>setup</span> the settings menu item</span>
+  settings.addAfter(options); 
+  options.addAfter(settings); 
+
+  settings.addLeft(settings); <span class='comment'>//<span class='keyword2'>loop</span> back <span class='keyword1'>if</span> left on settings</span>
+  settings.addRight(pin);     <span class='comment'>//chain settings to  pin on right</span>
+  debug.addLeft(settings);  <span class='comment'>//also go to settings left <span class='keyword1'>for</span> debug</span>
+  <span class='comment'>//we want looping both up and down</span>
+  pin.addBefore(debug);
+  pin.addAfter(debug);
+  debug.addBefore(pin);
+  debug.addAfter(pin);
+
+  options.addLeft(options);   <span class='comment'>//<span class='keyword2'>loop</span> back <span class='keyword1'>if</span> left on settings</span>
+  options.addRight(setDelay); <span class='comment'>//chain options to <span class='keyword2'>delay</span> on right</span>
+  setDelay.addRight(d100);
+  d100.addBefore(d100);   <span class='comment'>//<span class='keyword2'>loop</span> to d400 </span>
+  d100.addAfter(d200);
+  d200.addAfter(d300);
+  d300.addAfter(d400);
+  d400.addAfter(d100);    <span class='comment'>//<span class='keyword2'>loop</span> back to d100</span>
+  <span class='comment'>//we want left to always be bak to <span class='keyword2'>delay</span></span>
+  d100.addLeft(setDelay);
+  d200.addLeft(setDelay);
+  d300.addLeft(setDelay);
+  d400.addLeft(setDelay);
+}
+
+<span class='comment'>/*
+  This is an important function
+ Here all use events are handled
+ 
+ This is where you <span class='keyword1'>define</span> a behaviour <span class='keyword1'>for</span> a menu item
+ */</span>
+<span class='keyword1'>void</span> menuUseEvent(MenuUseEvent used)
+{
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"Menu use "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(used.item.getName());
+
+  <span class='keyword1'>if</span> (used.item.isEqual(setDelay)) <span class='comment'>//comparison agains a known item</span>
+  {
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"menuUseEvent found Delay (D)"</span>);
+  }
+}
+
+<span class='comment'>/*
+  This is an important function
+ Here we <span class='keyword2'>get</span> a notification whenever the user changes the menu
+ That is, when the menu is navigated
+ */</span>
+<span class='keyword1'>void</span> menuChangeEvent(MenuChangeEvent changed)
+{
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"Menu change "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(changed.from.getName());
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>" "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(changed.to.getName());
+}
+
+<span class='keyword1'>void</span> <span class='keyword2'>setup</span>()
+{
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>begin</span>(9600);
+
+  menuSetup();
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"Starting navigation:rnUp:w Down:s Left:a Right:d Use: e"</span>);
+
+  <span class='comment'>//fire Delay : menu.use('D');</span>
+  <span class='comment'>//bail back to Options by moving up one logical level </span>
+  <span class='comment'>//after a D : menu.moveRelativeLevels(-1);</span>
+}
+
+<span class='keyword1'>void</span> <span class='keyword2'>loop</span>()
+{
+  <span class='keyword1'>if</span> (<span class='keyword1'>Serial</span>.<span class='keyword2'>available</span>()) 
+  {
+    <span class='keyword1'>byte</span> <span class='keyword2'>read</span> = <span class='keyword1'>Serial</span>.<span class='keyword2'>read</span>();
+    <span class='keyword1'>switch</span> (<span class='keyword2'>read</span>) 
+    {
+    <span class='keyword1'>case</span> 'w': 
+      menu.moveUp(); 
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> 's': 
+      menu.moveDown(); 
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> 'd': 
+      menu.moveRight(); 
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> 'a': 
+      menu.moveLeft(); 
+      <span class='keyword1'>break</span>;
+    <span class='keyword1'>case</span> 'e': 
+      menu.use(); 
+      <span class='keyword1'>break</span>;
+    }
+  }
+}
+</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Descripci&oacute;n</th>
+		<td>Obtiene el nombre de este item.</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Sintaxis</th>
+		<td><pre>getName()
+</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Retorna</th>
+		<td>El nombre de este item.</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Uso</th>
+		<td>Application</td>
+	</tr>
+</table>
+
+Updated on July 07, 2011 11:15:39pm PDT<br /><br />
+
+<!-- Creative Commons License -->
+
+<div class="license">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a>
+</div>
+<!--
+
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+   <dc:title>Wiring.org.co Reference</dc:title>
+   <dc:date>2004</dc:date>
+   <dc:description>Reference for the Wiring.org.co programming environment and language.</dc:description>
+   <dc:creator><Agent>
+      <dc:title>Hernando Barrag&aacute;n et al.</dc:title>
+   </Agent></dc:creator>
+   <dc:rights><Agent>
+      <dc:title>Hernando Barrag&aacute;n</dc:title>
+   </Agent></dc:rights>
+   <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+   <license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/" />
+</Work>
+
+<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.0/">
+   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+   <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+   <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" />
+   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+   <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+</License>
+
+</rdf:RDF>
+
+-->
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

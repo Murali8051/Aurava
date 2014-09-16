@@ -1,0 +1,37 @@
+10
+
+dir
+1250
+svn://aeon.uniandes.edu.co/wiring/tags/wiring-100release/firmware/libraries/Password/examples
+svn://aeon.uniandes.edu.co/wiring
+
+
+
+2011-04-04T03:39:36.628275Z
+987
+h
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4cdc53cd-438c-44fd-908a-580a65d3b4bc
+
+PasswordKeypad
+dir
+
+HelloPassword
+dir
+
+SerialMonitor
+dir
+

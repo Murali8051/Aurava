@@ -1,0 +1,22 @@
+####################################################
+
+Aurava
+Open Project Initiated by Murali Srinivasa
+
+Jan 05 2012 Release 
+
+Demo Release 
+
+Libraries included:
+>>Digital
+>>Serial(9600 Baud rate Support only)
+>>Timers(Supports only MSP430G2553 Only)
+>>Delay(Implemented using __delay_cycles())
+>>LCD(Not tested)
+
+MSPGCC
+>>Modified stdlib, string to work with cpp
+>>Included pgmspace by using pointers
+
+
+####################################################

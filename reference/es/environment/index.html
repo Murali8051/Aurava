@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+	<head>
+		<title> Entorno (ide) \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barrag�n" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barrag�n" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barrag�n" />
+		
+		<script src="../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Environment" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../index.html"><img src="../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav_noSub">
+					<a href="../index.html">Framework</a> (<a href="../alpha.html">A-Z</a>) \ 
+					<a href="../libraries/index.html">Librer&iacute;as</a> \ 
+					<a href="../environment/index.html" class="active">Entorno</a> \ 
+					<a href="../learning/index.html">Aprendiendo</a> \
+					<a href="../hardware/index.html">Hardware</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			     <h3 id="top" class="ref-header"><img src="images/header.gif" alt="Ambiente de desarrollo (IDE). El ambiente de desarrollo de Wiring incluye un editor de texto y un compilador. Este permite la creaci&oacute;n de programas para el hardware de Wiring con un conjunto de restricciones cuidadosamente dise&ntilde;ado." /></h3>
+<!--<h5>Getting Started: </h5>-->
+    <p>
+      <a href="#PDE">Entorno de Desarrollo de Wiring (PDE)</a><br />
+      <a href="#Preferences">Preferencias del entorno de Wiring</a><br />
+      <a href="#Sketchbook">Sketchbook</a><br />
+      <a href="#Tabs">Pesta&ntilde;as, Multiples archivos, y Clases</a><br />
+      <a href="#Uploading">Carga de Aplicaciones</a><br />
+    </p>
+    <h5 id="PDE"><a href="#top"><img src="images/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+      Entorno de Desarrollo de Wiring</h5>
+    <p>Hemos dise&ntilde;ado un editor simple de usar para escribir, compilar y cargar programas en el hardware de Wiring. 
+        El Entorno Wiring (Entorno Integrado de Desarrollo o IDE) 
+        tiene un editor de texto y un compilador de programas escritos para el hardware de Wiring o el hardware seleccionado. Cuando se oprime el bot&oacute;n &quot;run&quot;, el programa se compila. La barra de herramientas provee funcionalidades para compilar 
+        programas, crear un nuevo sketch, abrir, guardar y exportar al hardware. 
+        Comandos adicionales est&aacute;n disponibles a trav&eacute;s de los men&uacute;s. El area de mensajes 
+        da feedback cuando se guarda o exporta y tambi&eacute;n muestra las ubicaciones 
+        de los errores cuando los programas son compilados. El area del texto (consola) muestra mensajes
+        del compilador, y el Serial Monitor puede enviar y recibir mensajes desde/hacia la tarjeta Wiring usandando la funci&oacute;n de programaci&oacute;n Serial.print()/Serial.read() en Wiring.<br />
+      <br />
+      <br />
+      <img src="images/ide.gif" alt="IDE screenshot" />    </p>
+<p>Los programas escritos usando Wiring son llamados sketches (bocetos). Estos sketches son 
+      escritos en el editor de texto. Tiene funciones para cortar/pegar y para 
+      buscar/remplazar texto. El area de mensaje da feedback mientras salva y 
+      carga y tambi&eacute;n muestra errores al compilar. La consola muestra textos de salida de
+      los programas de Wiring incluyendo mensajes completos de error . El Serial Monitor puede mostrar textos de salida provenientes 
+      de los programas en Wiring al usar las funciones Serial.print() y Serial.println(), tambi&eacute;n es posible enviarle mensajes a Wiring y el programa que corre puede leerlos usando el comando Serial.read(). Los botones de la barra de herramientas permiten 
+      compilar, ver el diagrama del circuito electr&oacute;nico del sketch, crear un nuevo sketch, abrir, salvar, cargar y abrir el Serial Monitor:</p>
+<table width="550" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="50" valign="top"><img src="images/play.gif" width="23" height="23" /></td>
+        <td width="20">&nbsp;</td>
+        <td width="480" valign="top">Verifica / Compila :Verifica el c&oacute;digo del sketch.</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="images/schematics.gif" width="23" height="23" /></td>
+        <td>&nbsp;</td>
+        <td valign="top">Esquem&aacute;ticos: Abre una ventana con el esquema del circuito del sketch si est&aacute; disponible.</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="images/new.gif" width="21" height="21" /></td>
+        <td>&nbsp;</td>
+        <td valign="top">Nuevo: Crea un nuevo sketch . En Wiring, los proyectos 
+        son llamados sketches.</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="images/open.gif" width="21" height="21" /></td>
+        <td>&nbsp;</td>
+        <td valign="top">Abrir: Selecciona y carga sketch pre-existente. Un men&uacute; 
+          se abre y puede elegir su propio sketchbook, ejemplos, o 
+        puede abrir un sketch desde cualquier lugar en su computador o red.</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="images/save.gif" width="21" height="21" /></td>
+        <td>&nbsp;</td>
+        <td valign="top">Guardar: Guarda el sketch actual en la carpeta 
+          de sketches de Wiring. Si se quiere dar un nombre al skectch diferente a 
+          la fecha actual, puede escoger guardar como desde el men&uacute; Archivo.</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="images/export.gif" width="21" height="21" /></td>
+        <td>&nbsp;</td>
+        <td valign="top">Cargar al hardware Wiring: Exporta el sketch actual al sketchbook y lo carga al hardware Wiring. El directorio contenedor 
+          de archivos es abierto. Hay m&aacute;s informaci&oacute;n acerca de <a href="#Uploading">carga</a> m&aacute;s adelante. </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td valign="top"><img src="images/serial_monitor.gif" width="21" height="21" /></td>
+        <td>&nbsp;</td>
+        <td valign="top">Monitor Serial: Abre una conecci&oacute;n al puerto serial para monitorear los datos entrantes desde el hardware Wiring, esto es muy &uacute;til para hacer debug y verificar.</td>
+      </tr>
+    </table>
+<p>Comandos adicionales son encontrados en los cinco men&uacute;s: File, Edit, Sketch, Tools, Help. 
+	Los men&uacute;s son sensibles al contexto, lo que significa que solo aquellos elementos 
+      relevantes a la acci&oacute;n actual est&aacute;n disponibles.</p>
+    <h6>File</h6>
+	<ul>
+    <li><em>New (Ctrl+N)</em><br />
+      Crea un nuevo sketch en una nueva ventana, llamado con la fecha actual en el formato "sketch_AAMMDDa".</li>
+    <li><em>Open (Ctrl+O)</em><br />
+      Abre un sketch en una nueva ventana.
+    <li><em>Open Recent</em><br />
+      Muestra una lista de los sketches recientes y abre un sketch en una nueva ventana.
+    <li><em>Sketchbook</em><br />
+      Abre un sketch desde la carpeta sketchbook.</li>
+    <li><em>Close (Ctrl+W)</em><br />
+  Cierra el sketch en la ventana m&aacute;s al frente. Si es el &uacute;ltimo sketch que se abre, se preguntar&aacute; si quiere salir. Para evitar la pregunta, use Quit en vez de Close cuando quiera salir de la aplicaci&oacute;n.</li>
+    <li><em>Save (Ctrl+S)</em><br />
+      Guarda el sketch abierto en su estado actual.</li>
+    <li><em>Save as... (Ctrl+Shift+S)</em><br />
+      Guarda el sketch actual, con la opc&oacute;n de darle un nombre 
+      diferente. Esto no remplaza versiones previas del sketch.</li>
+    <li><em>Upload to wiring hardware (Ctrl+U)</em><br />
+      Carga el programa en el hardware Wiring.</li>
+    <li><em>Page Setup (Ctrl+Shift+P)</em><br />
+      (Sin funcionamiento a&uacute;n)</li>
+    <li><em>Print (Ctrl+P)</em><br />
+      (Sin funcionamiento a&uacute;n)</li>
+    <li><em>Preferences (Ctrl+,)</em><br />
+      Permite  cambiar alguno modos como funciona Wiring.</li>
+    <li><em>Quit (Ctrl+Q)</em><br />
+      Sale del Entorno Wiring y cierra todas las ventanas de Wiring.</li>
+	</ul>
+	
+<h6>Edit</h6>
+	<ul>
+    <li><em>Undo (Ctrl+Z)</em><br />
+      Devuelve el &uacute;ltimo cambio realizado o la &uacute;ltima tecla pulsada. Cancela el comando Undo
+      eligiendo Edit » Redo.</li>
+    <li><em>Redo (Ctrl+Y)</em><br />	
+      Devuelve la acci&oacute;n del &uacute;ltimo commando Deshacer. Esta opci&oacute;n est&aacute; disponible solamente 
+      si ha habido una acci&oacute;n Undo. </li>
+    <li><em>Cut (Ctrl+X)</em><br />
+      Remueve y copia el texto seleccionado al portapapeles (un buffer de texto no visible)</li>
+    <li><em>Copy (Ctrl+C)</em><br />
+      Copia un texto seleccionado al portapapeles.</li>
+    <li><em>Copy as HTML (Shift+Ctrl+C)</em><br />
+      Formatea el c&oacute;digo de tal manera que aparezca en el <a href="http://forum.wiring.co/">Foro de Wiring</a> del mismo modo que aparece en el Entorno Wiring y lo copia a la papelera de tal manera
+	  que puede ser pegado en cualquier lugar.</li>
+    <li><em>Peste (Ctrl+V)</em><br />
+      Inserta el contenido de la papelera en la ubicaci&oacute;n del cursor, y 
+      remplaza cualquier texto seleccionado.</li>
+    <li><em>Select All (Ctrl+A)</em><br />
+      Selecciona todo el texto en el archivo que est&aacute; abierto actualmente 
+      en el editor de texto.</li>
+      
+    <li><em>Comment/Uncomment (Ctrl+/)</em><br />
+      Comenta el texto seleccionado. Si el texto seleccionado est&aacute; ya comentado, ser&aacute; descomentado.</li>
+    <li><em>Increase Indent (Ctrl+])</em><br />
+      Mueve (indenta) el texto seleccionado dos espacios.</li>
+    <li><em>Decrease Indent (Ctrl+[)</em><br />
+      Si el texto fue movido, remueve los dos espacios avanzados.</li>
+      
+    <li><em>Find (Ctrl+F)</em><br />
+      Busca una aparici&oacute;n de un texto  incluido en el archivo abierto en el editor de texto 
+      y da la opci&oacute;n de reemplazarlo con un texto diferente.</li>
+    <li><em>Find Next (Ctrl+G)</em><br />
+      Busca la siguiente aparici&oacute;n de un texto string incluido en el archivo abierto 
+      en el editor de texto. </li>
+	</ul>
+
+	
+<h6>Sketch</h6>
+	<ul>
+    <li><em>Verify / Compile (Ctrl+R)</em><br />
+      Verifica el c&oacute;digo del sketch (compila el c&oacute;digo)</li>
+    <li><em>Build (Ctrl+R)</em><br />
+      Construye los archivos del sketch archivo .hex y archivos intermedios y los deja en la carpeta <em>build</em> en el folder del sketch</li>
+    <li><em>Schematics</em><br />
+      Abre una nueva ventana con el circuito esquem&aacute;tico del sketch si está disponible. </li>
+    <li><em>Show Sketch Folder</em><br />
+      Abre el directorio del sketch actual.</li>
+    <li><em>Import Library</em><br />
+      Adiciona las declaraciones import necesarias en la parte superiro del sketch actual. Por 
+      ejemplo, seleccionando Sketch » Import Library » Encoder adiciona la declaraci&oacute;n "#include &lt;Encoder.h&gt;" en la parte superior de la ventana actual. Estas declaraciones importadas son 
+      necesarias para usar las Librer&iacute;as.</li>
+    <li><em>Add File</em><br />
+  Abre el navegador de archivos. Seleccione archivos .cpp .h .c o y los mueve al directorio del sketch. </li>
+    </ul>
+	
+
+<h6>Tools</h6>
+	<ul>
+    <li><em>Auto Format (Ctrl-T)</em><br />
+      Intenta darle formato al c&oacute;digo en la disposici&oacute;n humanamente m&aacute;s legible. Auto Format 
+      fue llamada previamente Beautify.</li>
+    <li><em>Archive Sketch</em><br />
+      Archiva una copia del sketch actual en formato .zip. El archivo es ubicado 
+      en el mismo directorio como un sketch.</li>
+    <li><em>Fix Encoding and Reload</em><br />
+      Los sketches que contienen caracteres no-ASCII pueden lucir extra&ntilde;os cuando son abiertos. Textos incompletos y caracteres raros pueden aparecer donde di&eacute;resis, 
+      cedillas, y caracteres japoneses hab&iacute;an antes. Esto recargar&aacute; su sketch usando el mismo m&eacute;todo 
+      que versiones anteriores de Wiring, en determinado punto puede guardar otra vez el que este escrito en 
+      una versi&oacute;n apropiada de UTF-8.</li>
+	<li><em>Serial Monitor</em> <em>(Shift+Ctrl+M)</em><br />
+	  Abre la ventana del monitor de Serial que permite monitorear datos enviados por el hardware de Wiring.
+      Wiring detecta la velocidad del serial para usar en el  monitor serial directamente del comando Serial.begin() en el sketch. Tambi&eacute;n es posible seleccionar la velocidad manualmente del menu en la ventana del monitor serial.
+        <p><img src="images/serialmonitor.gif" width="443" height="253" /></p><p></p></li>	
+	<li><em>Board</em><br />
+	  Muestra una lista de tarjetas Wiring y otras producidas por terceros como Arduino o las que el usuario haya instalado.</li>
+	<li><em>Serial Port</em><br />
+	  Permite seleccionar cual puerto serial ser&aacute; usado por defecto para cargar un c&oacute;digo en el hardware de Wiring o monitorear datos provenientes de &eacute;l. Los datos provenientes del harware Wiring son impresos en formato caracter en el area de texto del Monitor Serial.</li>
+	<li><em>Burn Bootloader</em><br />
+Permite instalar un archivo de bootloader en una tarjeta, muestra una lista de programadores disponibles.</li>
+	</ul>
+	
+<h6>Window</h6>
+<ul>
+    <li>Menu para moverse entre los  sketches abiertos.</li>
+</ul>	  
+  
+<h6>Help</h6>
+	<ul>
+    <li><em>Getting Started</em><br />
+      Abre la referencia del Entorno Wiring en el Navegador Web por defecto.</li>
+    <li><em>Examples</em><br />
+      Abre el menú de los ejemplos incluidos con Wiring. El contenido de este menu cambia dependiendo del hardware seleccionado. Hay ejemplos B&aacute;sicos y por T&oacute;picos, que corresponden a los ejemplos del API b&aacute;sico de Wiring. Ejemplos<em> Multi-plataforma</em> los cuales son de las librer&iacute;as multi-plataforma  (librer&iacute;as que no dependen del hardware), <em>Core</em> que vienen de las librer&iacute;as Core, (librer&iacute;as para el core usado por el hardware seleccionado), y <em>Contributed</em> que son ejemplos de las librer&iacute;as instaladas en le folder libraries en su Sketchbook.</li>
+    <li><em>Environment</em><br />
+      Abre la informaci&oacute;n del entorno de Wiring en el Navegador Web por defecto.</li>
+    <li><em>Reference </em><br />
+      Abre la referencia de Wiring en el Navegador Web por defecto. Incluye la referencia del Framework de Wiring, ambiente de programaci&oacute;n, librer&iacute;as, ejemplos y hardware en el idioma seleccionado en <em>Preferences</em>.</li>
+    <li><em>Find in Reference (Ctrl+Shift+F)</em><br />
+      Seleccione una palabra en su programa presione el bot&oacute;n derecho del mouse y seleccione "Find in Reference" para abrir la 
+      referencia del comando selccionado en el Navegador Web por defecto.</li>
+	<li><em>Wiring hardware</em><br />
+	  Abre la referencia del hardware en el Navegador Web por defecto. Incluye diagramas, esquemas y comparaci&oacute;n con otros hardware.</li>
+	<li><em>Frequently Asked Questions</em><br />
+      Respuestas a algunas preguntas b&aacute;sicas sobre el proyecto Wiring.</li>
+	<li><em>Troubleshooting</em><br />
+	  Abre informaci&oacute;n troubleshooting en el Navegador Web por defecto.</li>
+	<li><em>Visit Wiring.org.co (Ctrl+5)</em><br />
+      Abre en el Navegador Web por defecto la p&aacute;gina principal de Wiring.org.co.</li>
+    <li><em>About Wiring</em><br />
+      Abre un panel con informaci&oacute;n consisa sobre Wiring.</li>
+	</ul>
+	  
+<h5 id="Preferences"><a href="#top"><img src="images/up_arrow.gif" alt="Top" /></a> 
+      Preferencias</h5>
+<p>Es posible seleccionar algunas preferencias desde el editor. La ventana de di&aacute;logo permite rapidamente cambiar algunas preferencias útiles así como un link directo para editar el archivo de preferencias y hacer cambios detallados. </p>
+<p>El di&aacute;logo de preferencias incluye estas opciones: Tamaño de la letra del editor, texto suavizado, m&aacute;xima memoria asignada a la aplicaci&oacute;n, borrar el c&oacute;digo previamente exportado cuando se carga uno nuevo, usar un editor externo, revisar si hay actualizaciones, inicio autom&aacute;tico del monitor serial despues de hacer upload, sonar un beep despues de cargar o compilar un programa (dos beeps sonar&aacute;n si se encuentra un error), seleccionar el idioma de su preferencia para la referencia y un link al archivo preferences.txt en el sistema.</p>
+<p><img src="images/preferences.gif" /></p>
+	  
+<h5 id="Sketchbook"><a href="#top"><img src="images/up_arrow.gif" alt="Top" /></a> 
+      Sketchbook</h5>
+    <p>Todos los proyectos de Wiring son llamados sketches. Cada sketch tiene su propio 
+        directorio (carpeta) y dentro de ella hay un programa principal el cual tiene 
+        el mismo nombre que el sketch. Por ejemplo, si el nombre del sketch es 
+        &quot;Sketch_123&quot;, el directorio se llamar&aacute; &quot;Sketch_123&quot; 
+      y el archivo principal se llamar&aacute; &quot;Sketch_123.wiring&quot; (o &quot;Sketch_123.pde&quot;). <br />
+        <br />
+Los Sketches necesitan otros directorios dentro para contener archivos c&oacute;digo  
+        adicionales. Cuando un sketch es cargado, todos los archivos son exportados en un archivo .hex con el mismo nombre 
+        del sketch. Por ejemplo si el sketch es nombrado &quot;Sketch_123&quot;, 
+      el archivo exportado ser&aacute; llamado &quot;Sketch_123.cpp.hex&quot;<br />
+        <br />
+Los Sketches se mantienen en el directorio Wiring, el cual estar&aacute; 
+        en una ubicaci&oacute;n diferente en su computador o red (Mis Documentos o Documentos), dependiendo si est&aacute; usando PC, Mac, o Linux 
+        y como est&aacute;n asiganadas sus preferencias. Para ubicar este directorio, seleccione 
+        la opci&oacute;n &quot;Preferences&quot; el en men&uacute; &quot;File&quot;.<br />
+        <br />
+Es posible tener multiples programas divididos en un sketch. Cada 
+        una de estas divisiones es visible con una pesta&ntilde;a en el &aacute;rea baja del men&uacute;. Cuando 
+        un programa es compilado estas divisiones son hechas en un archivo y compilado 
+        como un solo programa. Las divisiones pueden ser tambi&eacute;n separadas en archivos de C++ (la extensi&oacute;n es 
+        .cpp) los cuales son compilados junto con los archivos de Wiring. Para adicionar una 
+        nueva divisi&oacute;n, click en la flecha a la derecha de las pesta&ntilde;as. Puede escribir 
+        la funciones y clases en una nueva divisi&oacute;n y puede escribir cualquier c&oacute;digo en C o C++
+    en archivos con la extensi&oacute;n .c, .cpp y .h.</p>
+
+<h5 id="Tabs"><a href="#top"><img src="images/up_arrow.gif" alt="Top" /></a> 
+      Tabs, Archivos m&uacute;ltiples, y clases</h5>
+    <p>
+Puede ser un inconveniente escribir un programa muy largo incluido en un mismo archivo. 
+Cuando los programas crecen a cientos o miles de l&iacute;neas, dividirlos en unidades modulares ayuda a manejar las diferentes partes. 
+Wiring maneja archivos con el Sketchbook y cada sketch puede tener multiples archivos que son administrados en pesta&ntilde;as. 
+El bot&oacute;n flecha en la esquina superior derecha del Entorno de Desarrollo Wiring es usado para administrar estos archivos. 
+Click en este bot&oacute;n para revelar las opciones para crear una nueva pesta&ntilde;a, renombrar la pesta&ntilde;a actual, o borrar la pesta&ntilde;a actual. Si un proyecto tiene m&aacute;s de una pesta&ntilde;a, pueden ser ocultadas y reveladas. 
+Escondiendo una pesta&ntilde;a temporalmente remueve ese c&oacute;digo del sketch (este no ser&aacute; compilado con el programa cuando el bot&oacute;n Verify/Compile sea presionado).</p>
+	
+<p>Las pesta&ntilde;as son previstas para usuario avanzados, y por est&aacute; raz&oacute;n, el menú que controla las pesta&ntilde;as es fué hecho menos prominente. </p>
+
+<p><em>Para programadores familiarizados con C/C++</em>. 
+Cuando un programa con multiples pesta&ntilde;as es compilado, el c&oacute;digo es agrupado. Cuando un archivo .cpp .h o .c es adicionado, son copiados en la carpeta del sketch y son compilados cuando el sketch es compilado pero no son preprocesados (errores en este tipo de archivos no ser&aacute;n en algunos casos identificados claramente en la l&iacute;nea actual del archivo). Use esta caracter&iacute;stica para desarrollar nuevas librer&iacute;as o clases dentro de un proyecto y hacer una prueba inmediata.</p>
+
+<h5 id="Uploading"><a href="#top"><img src="images/up_arrow.gif" alt="Top" /></a> 
+      Application Upload</h5>
+    <p>Upload crea una versi&oacute;n del sketch que puede correr dentro del hardware de Wiring. 
+        Cuando un c&oacute;digo es cargado desde Wiring,  el preprocesador agrega los prototupis de las funciones y los includes necesarios para generar un archivo con c&oacute;digo C++ y 
+        luego es compilado. Cuando un proyecto es cargado en el hardware, una serie de
+        archivos son escritos en un directorio &quot;build&quot; el cual es creado 
+        dentro del directorio del sketch. Si el sketch es llamado &quot;Sketch_123&quot;, 
+    el directorio build contiene entre otros archivos lo siguiente: <br />
+        <br />
+        <em>Sketch_123.cpp.hex</em><br />
+El archivo binario HEX contiene todo el c&oacute;digo necesario para que el sketch corra en el hardware Wiring. Incluye 
+        el c&oacute;digo de Wiring tambi&eacute;n como las personalizaciones del sketch.<br />
+        <br />
+        <em>Sketch_123.cpp</em><br />
+El archivo de C++ genera por el pre-procesador desde el archivo PDE. Este es 
+        el archivo actual el cual es compilado en un archivo HEX por avr-g++, el compilador de C++ 
+        usado por Wiring para el core AVR8.<br />
+        <br />
+        <em>Sketch_123.wiring</em> (o <em>Sketch_123.</em>pde)<br />
+El archivo del programa original.<br />
+<br />
+<br />
+Cada vez que el sketch es cargado, todos los archivos anteriores son re-escritos.<br />
+<br />
+Cuando un sketch es cargado, todos los archivos (incluyendo aquellos en la carpeta del sketch y las librer&iacute;as del usuario del sketchbook) son empaquetadas en un archivo .hex.</p>
+      
+</p>
+</p>
+
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

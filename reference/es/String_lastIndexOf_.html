@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+	<head>
+		<title>String::lastIndexOf() \ Language (API) \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Language" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="index.html"><img src="img/wiring.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav_noSub">
+					<a href="index.html" class="active">Framework</a> (<a href="alpha.html">A-Z</a>) \ 
+					<a href="libraries/index.html">Librer&iacute;as</a> \ 
+					<a href="environment/index.html">Entorno</a> \ 
+					<a href="learning/index.html">Aprendiendo</a> \
+					<a href="hardware/index.html">Hardware</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 <p class="ref-notice">Referencia para la versi&oacute;n de Wiring 1.0 Build 0100+. Si tiene una versi&oacute;n previa, use la referencia incluida con su software. <em>Si encuentra errores o tiene comentarios, <a href="http://forum.wiring.co/index.php/board,13.0.html">no dude en contactarnos</a>.</em></p>
+
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="">
+		<th scope="row">Clase</th>
+		<td><p>String</p></td>
+	</tr>
+
+	<tr class="name-row">
+		<th scope="row">Nombre</th>
+		<td><h3>lastIndexOf()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Ejemplos</th>
+		<td><div class="example"><pre><span class='comment'>// declara s1 con un string inicial</span>
+<span class='keyword1'>String</span> s1 = <span class='keyword1'>String</span>(<span class='literal'>"string numero uno"</span>); 
+<span class='keyword1'>byte</span> bytes[20];  <span class='comment'>// arreglo de bytes</span>
+<span class='keyword1'>char</span> array[20];  <span class='comment'>// arreglo de caracteres</span>
+
+<span class='keyword1'>void</span> <span class='keyword2'>setup</span>() {
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>begin</span>(9600); 
+  <span class='comment'>// Enciende el LED de la tarjeta Wiring</span>
+  <span class='keyword2'>pinMode</span>(<span class='literal2'>WLED</span>, <span class='literal2'>OUTPUT</span>);  
+  <span class='keyword2'>digitalWrite</span>(<span class='literal2'>WLED</span>, <span class='literal2'>HIGH</span>);
+  
+  <span class='comment'>// s2 contiene <span class='literal'>"10000"</span></span>
+  <span class='keyword1'>String</span> s2 = <span class='keyword1'>String</span>(10000);  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s2 contiene: "</span> + s2);
+  
+  <span class='comment'>// s3 contiene <span class='literal'>"567000"</span></span>
+  <span class='keyword1'>String</span> s3 = <span class='keyword1'>String</span>(567000, <span class='literal2'>DEC</span>); 
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s3 contiene: "</span> + s3);
+  
+  <span class='comment'>// s4 contiene <span class='literal'>"string numero cuatro"</span></span>
+  <span class='keyword1'>String</span> s4 = <span class='literal'>"string numero cuatro"</span>;  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s4 contiene: "</span> + s4);
+  
+  <span class='comment'>// use el operador + para adicionar un string</span>
+  s4 += <span class='literal'>" mas otra parte"</span>;  
+  <span class='comment'>// use el operador + cuando imprime en el serial</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"ahora s4 contiene: "</span> + s4);  
+  
+  <span class='comment'>// tomar el caracter en la posicion 5</span>
+  <span class='keyword1'>char</span> c = s4.<span class='keyword2'>charAt</span>(5);  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"c contiene: "</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(c);  <span class='comment'>// imprime 'g'</span>
+  
+  <span class='comment'>// s5 contiene <span class='literal'>"string numero uno"</span></span>
+  <span class='keyword1'>String</span> s5 = <span class='keyword1'>String</span>(<span class='literal'>"string numero uno"</span>);  
+  
+  <span class='keyword1'>int</span> cmp = s1.<span class='keyword2'>compareTo</span>(s5);  <span class='comment'>// compara s1 y s5</span>
+  <span class='keyword1'>if</span> (cmp == 0) {
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s1 y s5 son iguales"</span>);  <span class='comment'>// imprime igual</span>
+  } <span class='keyword1'>else</span> {
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s1 y s5 son direfentes"</span>);
+  }
+  
+  <span class='comment'>// controla si s5 termina en <span class='literal'>"uno"</span></span>
+  <span class='keyword1'>if</span> (s5.<span class='keyword2'>endsWith</span>(<span class='literal'>"uno"</span>))  
+    <span class='comment'>// imprime "s5 termina con "uno""</span>
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>("s5 termina con "uno"");  
+  
+  <span class='keyword1'>if</span> (s1.<span class='keyword2'>equals</span>(s5))  <span class='comment'>// controla si s1 es igual a s5</span>
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s1 y s5 son iguales"</span>);  <span class='comment'>// imprime igual</span>
+  
+  <span class='comment'>// s6 contiene <span class='literal'>"string numero uno"</span></span>
+  <span class='keyword1'>String</span> s6 = <span class='keyword1'>String</span>(<span class='literal'>"string numero uno"</span>);  
+  <span class='comment'>// controla si s5 y s6 son iguales ignorando la diferencia entre mayusculas y minusculas</span>
+  <span class='keyword1'>if</span> (s5.<span class='keyword2'>equalsIgnoreCase</span>(s6))  
+    <span class='comment'>// imprime igual</span>
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s6 y s5 son iguales ignorando mayusculas y minusculas"</span>);  
+  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"indice del caracter R en s6 es:"</span>);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(s6.<span class='keyword2'>indexOf</span>('R'), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime -1</span>
+
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"index of <span class='keyword1'>char</span> R on s6 from index 13 is: "</span>);
+  <span class='comment'>// imprime -1, no encontrado</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(s6.<span class='keyword2'>indexOf</span>('R', 13), <span class='literal2'>DEC</span>);  
+  
+  <span class='keyword1'>String</span> s7 = s6.<span class='keyword2'>substring</span>(7, 14);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>("s7 es: "+s7);  <span class='comment'>// imprime "numero"</span>
+  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>("indice del string "numero" en s6 es: ");  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(s6.<span class='keyword2'>indexOf</span>(s7), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime 7</span>
+
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"ultimo indice del caracter 'n' en s6 es:"</span>);  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(s6.<span class='keyword2'>lastIndexOf</span>('n'), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime 15</span>
+  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"la longitud de s6 es: "</span>);  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(s6.<span class='keyword2'>length</span>(), <span class='literal2'>DEC</span>);  <span class='comment'>// imprime 17</span>
+
+  <span class='comment'>// asigna el caracter en el indice 15 como 'N'</span>
+  s6.<span class='keyword2'>setCharAt</span>(15, 'N');  
+  <span class='comment'>// omprime <span class='literal'>"string numero uNo"</span></span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s6 es: "</span>+s6);  
+  
+  <span class='comment'>// controla si s6 empieza con <span class='literal'>"string"</span></span>
+  <span class='keyword1'>if</span> (s6.<span class='keyword2'>startsWith</span>(<span class='literal'>"string"</span>))  
+    <span class='comment'>// s6 empieza con el string <span class='literal'>"string"</span></span>
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>("s6 empieza con "string""); 
+    
+  <span class='comment'>// imprime <span class='literal'>"string numero uno"</span></span>
+  s6.<span class='keyword2'>toLowerCase</span>();
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s6 en minusculas es: "</span>+s6);  
+  
+  <span class='comment'>// imprime <span class='literal'>"STRING NUMERO UNO"</span></span>
+  s6.<span class='keyword2'>toUpperCase</span>();
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s6 en mayusculas es: "</span>+s6);  
+  
+  s6.<span class='keyword2'>concat</span>(<span class='literal'>" mas espacio al <span class='keyword1'>final</span>   "</span>);  <span class='comment'>// concatena un string</span>
+  <span class='comment'>// imprime <span class='literal'>"STRING NUMERO UNO mas espacio al <span class='keyword1'>final</span>   "</span></span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s6 es: "</span>+s6);  
+ 
+  <span class='comment'>// imprime <span class='literal'>"STRING NUMERO UNO mas espacio al <span class='keyword1'>final</span>"</span> </span>
+  s6.<span class='keyword2'>trim</span>();
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"<span class='keyword2'>trim</span> de s6 es: "</span>+s6); 
+
+  <span class='comment'>// imprime <span class='literal'>"STRING NUMERO UNO mas espaci5 al <span class='keyword1'>final</span>"</span></span>
+  s6.<span class='keyword2'>replace</span>('o', '5');
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(<span class='literal'>"s6 es: "</span>+s6);  
+  
+  <span class='comment'>// toma el arreglo bytes y lo convierte en un arreglo de bytes</span>
+  s6.<span class='keyword2'>getBytes</span>(bytes, 20);  
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"arreglo bytes es: "</span>);
+  <span class='keyword1'>for</span> (<span class='keyword1'>int</span> i=0; i&lt;20; i++) {
+    <span class='comment'>// imprime <span class='literal'>"S T R I N G   N U M E R O   U N O   m"</span></span>
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>write</span>(bytes[i]);
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>" "</span>);
+  }
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>();
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(<span class='literal'>"arreglo array es: "</span>);
+  s6.<span class='keyword2'>toCharArray</span>(array, 20);
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(array);  <span class='comment'>// imprime <span class='literal'>"STRING NUMERO UNO m"</span></span>
+}
+
+<span class='keyword1'>void</span> <span class='keyword2'>loop</span>() {
+  
+}
+</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Descripci&oacute;n</th>
+		<td>Prueba si el substring o el caracter est&aacute; embebido en un string y retorna el &iacute;ndice de posici&oacute;n de la &uacute;ltima aparic&oacute;n del substring definido en el par&aacute;metro <b>str</b> o <b>c</b>. Si el par&aacute;metro <b>str</b> no es encontrado en el string, retornar&aacute; -1.</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Sintaxis</th>
+		<td><pre><span class='keyword2'>lastIndexOf</span>(<kbd>c</kbd>)
+<span class='keyword2'>lastIndexOf</span>(<kbd>c</kbd>, <kbd>&iacute;ndice</kbd>)
+<span class='keyword2'>lastIndexOf</span>(<kbd>str</kbd>)
+<span class='keyword2'>lastIndexOf</span>(<kbd>str</kbd>, <kbd>&iacute;ndice</kbd>)
+</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Par&aacute;metros</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	<tr class="">
+		<th scope="row">c</th>
+		<td>char: El caracter que se buscar&aacute;</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">str</th>
+		<td>String: El substring que se buscar&aacute;</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">&iacute;ndice</th>
+		<td>int: El &iacute;ndice desde el cual se empezar&aacute; la busqueda</td>
+	</tr>
+</table></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Retorna</th>
+		<td>int</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Uso</th>
+		<td>Application</td>
+	</tr>
+</table>
+
+Updated on July 07, 2011 11:13:48pm PDT<br /><br />
+
+<!-- Creative Commons License -->
+
+<div class="license">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a>
+</div>
+<!--
+
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+   <dc:title>Wiring.org.co Reference</dc:title>
+   <dc:date>2004</dc:date>
+   <dc:description>Reference for the Wiring.org.co programming environment and language.</dc:description>
+   <dc:creator><Agent>
+      <dc:title>Hernando Barrag&aacute;n et al.</dc:title>
+   </Agent></dc:creator>
+   <dc:rights><Agent>
+      <dc:title>Hernando Barrag&aacute;n</dc:title>
+   </Agent></dc:rights>
+   <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+   <license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/" />
+</Work>
+
+<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.0/">
+   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+   <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+   <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" />
+   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+   <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+</License>
+
+</rdf:RDF>
+
+-->
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

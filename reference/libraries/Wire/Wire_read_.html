@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<!--*-->lang<!--*-->" lang="<!--*-->lang<!--*-->">
+	<head>
+		<title>Wire::read()\ Wire \ Language (API) \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=<!--*-->charset<!--*-->" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Library-ref" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../../index.html"><img src="../../img/wiring.gif" alt="Wiring.org.co" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav_noSub">
+					<a href="../../index.html">Framework</a> (<a href="../../alpha.html">A-Z</a>) \ 
+					<a href="../../libraries/index.html" class="active">Libraries</a> \ 
+					<a href="../../environment/index.html">Environment</a> \ 
+					<a href="../../learning/index.html">Learning</a> \
+					<a href="../../hardware/index.html">Hardware</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+	<span class="lib-nav">
+		<a href="../index.html">Libraries</a>
+		 \ <a href="index.html" class="active">Wire</a>
+	</span>
+
+			 <p class="ref-notice">Reference for Wiring version 1.0 Build 0100+ If you have a previous version, use the reference included with your software. <em>If see any errors or have any comments, <a href="http://forum.wiring.co/index.php/board,13.0.html">let us know</a>.</em></p>
+
+<table cellpadding="0" cellspacing="0" border="0" class="ref-item">
+	<tr class="">
+		<th scope="row">Class</th>
+		<td><p>Wire</p></td>
+	</tr>
+
+	<tr class="name-row">
+		<th scope="row">Name</th>
+		<td><h3>read()</h3></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Examples</th>
+		<td><div class="example"><pre>#<span class='keyword1'>include</span> <span class='literal'>"Wire.h"</span>
+
+<span class='keyword1'>void</span> <span class='keyword2'>setup</span>()
+{
+  <span class='comment'>// join i2c bus (address optional <span class='keyword1'>for</span> master)</span>
+  Wire.<span class='keyword2'>begin</span>();
+  <span class='comment'>// start serial <span class='keyword1'>for</span> output  </span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>begin</span>(9600);
+}
+
+<span class='keyword1'>void</span> <span class='keyword2'>loop</span>()
+{
+  <span class='comment'>// request 6 bytes from slave device #2</span>
+  Wire.requestFrom(2, 6);    
+
+  <span class='comment'>// slave may send less than requested</span>
+  <span class='keyword1'>while</span>(Wire.<span class='keyword2'>available</span>())    
+  { 
+    <span class='comment'>// <span class='keyword2'>read</span> a <span class='keyword1'>byte</span> as character</span>
+    <span class='keyword1'>char</span> c = Wire.<span class='keyword2'>read</span>(); 
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(c);  <span class='comment'>// <span class='keyword2'>print</span> the character</span>
+  }
+
+  <span class='keyword2'>delay</span>(500);
+}
+</pre></div><hr class="noShade" noshade="noshade" size="1" /><div class="example"><pre>#<span class='keyword1'>include</span> <span class='literal'>"Wire.h"</span>
+
+<span class='keyword1'>void</span> <span class='keyword2'>setup</span>()
+{
+  <span class='comment'>// join i2c bus with address #4</span>
+  Wire.<span class='keyword2'>begin</span>(4);    
+  <span class='comment'>// register event  </span>
+  Wire.onReceive(receiveEvent); 
+  <span class='comment'>// start serial <span class='keyword1'>for</span> output</span>
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>begin</span>(9600);
+}
+
+<span class='keyword1'>void</span> <span class='keyword2'>loop</span>()
+{
+  <span class='keyword2'>delay</span>(100);
+}
+
+<span class='comment'>// function that executes whenever data is received from master</span>
+<span class='comment'>// <span class='literal2'><span class='keyword1'>this</span></span> function is registered as an event, see <span class='keyword2'>setup</span>()</span>
+<span class='keyword1'>void</span> receiveEvent(<span class='keyword1'>int</span> howMany)
+{
+  <span class='comment'>// <span class='keyword2'>loop</span> through all but the last</span>
+  <span class='keyword1'>while</span>(1 &lt; Wire.<span class='keyword2'>available</span>()) 
+  {
+    <span class='comment'>// <span class='keyword2'>read</span> <span class='keyword1'>byte</span> as a character</span>
+    <span class='keyword1'>char</span> c = Wire.<span class='keyword2'>read</span>(); 
+    <span class='keyword1'>Serial</span>.<span class='keyword2'>print</span>(c);  <span class='comment'>// <span class='keyword2'>print</span> the character</span>
+  }
+  <span class='comment'>// receive <span class='keyword1'>byte</span> as an integer</span>
+  <span class='keyword1'>int</span> x = Wire.<span class='keyword2'>read</span>();    
+  <span class='keyword1'>Serial</span>.<span class='keyword2'>println</span>(x);  <span class='comment'>// <span class='keyword2'>print</span> the integer</span>
+}
+</pre></div></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Description</th>
+		<td>The <b>read()</b> method returns a byte received from a device.</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Syntax</th>
+		<td><pre>Wire.<span class='keyword2'>read</span>()
+</pre></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Parameters</th>
+		<td><table cellpadding="0" cellspacing="0" border="0">
+	<tr class="">
+		<th scope="row">Wire</th>
+		<td>The hardware TWI port</td>
+	</tr>
+</table></td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Returns</th>
+		<td>The byte received.</td>
+	</tr>
+
+	<tr class="">
+		<th scope="row">Usage</th>
+		<td>Application</td>
+	</tr>
+</table>
+
+Updated on July 07, 2011 11:12:05pm PDT<br /><br />
+
+<!-- Creative Commons License -->
+
+<div class="license">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.0/"><img alt="Creative Commons License" border="0" src="http://creativecommons.org/images/public/somerights20.gif" /></a>
+</div>
+<!--
+
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="">
+   <dc:title>Wiring.org.co Reference</dc:title>
+   <dc:date>2004</dc:date>
+   <dc:description>Reference for the Wiring.org.co programming environment and language.</dc:description>
+   <dc:creator><Agent>
+      <dc:title>Hernando Barrag&aacute;n et al.</dc:title>
+   </Agent></dc:creator>
+   <dc:rights><Agent>
+      <dc:title>Hernando Barrag&aacute;n</dc:title>
+   </Agent></dc:rights>
+   <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text" />
+   <license rdf:resource="http://creativecommons.org/licenses/by-nc-sa/2.0/" />
+</Work>
+
+<License rdf:about="http://creativecommons.org/licenses/by-nc-sa/2.0/">
+   <permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+   <permits rdf:resource="http://web.resource.org/cc/Distribution" />
+   <requires rdf:resource="http://web.resource.org/cc/Notice" />
+   <requires rdf:resource="http://web.resource.org/cc/Attribution" />
+   <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse" />
+   <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+   <requires rdf:resource="http://web.resource.org/cc/ShareAlike" />
+</License>
+
+</rdf:RDF>
+
+-->
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

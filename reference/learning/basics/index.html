@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Examples: Basics \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Basics" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../../index.html"><img src="../../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav">
+					<a href="../../index.html">Framework</a> (<a href="../../alpha.html">A-Z</a>) \ 
+					<a href="../../libraries/index.html">Libraries</a> \ 
+					<a href="../../environment/index.html">Environment</a> \ 
+					<a href="../../learning/index.html" class="active">Learning</a> \
+					<a href="../../hardware/index.html">Hardware</a> 
+				</div>
+				<div class="navBar learning_local" id="subNav">
+					 
+ Examples: 					<a href="../../learning/basics/index.html" class="active">Basics</a>, 
+					<a href="../../learning/libraries/index.html">Library</a>, 
+					<a href="../../learning/topics/index.html">Topics</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 <h1><img src="../images/header-basics.gif" alt="Basic Examples. Short prototypical programs exploring the basics of programming with Wiring." /></h1>
+
+<div class="ref-col">
+<p><br /><b>Getting Started</b><br /><br />	<a href="blink.html">Blink</a><br />
+	<a href="digitalreadserial.html">Digital read Serial</a><br />
+	<a href="analogreadserial.html">Analog read Serial</a><br />
+	<a href="switch.html">Switch</a><br />
+	<a href="photoresistor.html">Photoresistor</a><br />
+	<a href="fade.html">Fade</a><br />
+<p><br /><b>Digital Output</b><br /><br />	<a href="ledblink.html">LED blink</a><br />
+	<a href="ledsequence.html">LED blink sequence</a><br />
+	<a href="ledswing.html">LED swing</a><br />
+	<a href="numericdisplay.html">7 Segment led numerical LED display</a><br />
+	<a href="optocoupler4n35.html">Optocoupler: 4N35</a><br />
+	<a href="relay.html">Relay</a><br />
+	<a href="lightbulb.html">120-240 VAC Light bulb: TRIAC</a><br />
+	<a href="mosfetirld024.html">MOSFET: IRLD024</a><br />
+	<a href="ledport.html">LED Port</a><br />
+	<a href="tonekeyboard.html">Tone keyboard</a><br />
+	<a href="tonemelody.html">Tone melody</a><br />
+	<a href="tonemultiple.html">Tone multiple</a><br />
+	<a href="tonepitchfollower.html">Tone pitch follower</a><br />
+<p><br /><b>Analog Input</b><br /><br />	<a href="potentiometer.html">Potentiometer</a><br />
+	<a href="calibration.html">Sensor calibration</a><br />
+	<a href="smooth.html">Smooth sensor readings</a><br />
+	<a href="forceresistor.html">Force Resistor</a><br />
+	<a href="airqualitymq135.html">Air quality sensor: MQ135</a><br />
+	<a href="rangersharp.html">Infrared ranger (distance/presence): SHARP GP2D12/120</a><br />
+	<a href="piezofilm.html">PiezoFilm (touch/vibration): MSIUSA piezo film</a><br />
+	<a href="phototransistor.html">Phototransistor</a><br />
+	<a href="microphone.html">Microphone (sound sensor)</a><br />
+	<a href="electretmicrophone.html">Electret Microphone: Sparkfun</a><br />
+	<a href="ambientlighttemt6000.html">Ambient light sensor: Sparkfun TEMT6000</a><br />
+	<a href="accelerometer.html">ADXL335 Accelerometer: Sparkfun</a><br />
+	<a href="gyroadxrs610.html">ADXRS610 Gyroscope: Sparkfun</a><br />
+	<a href="gyroidg500.html">IDG500 Gyroscope: Sparkfun</a><br />
+	<a href="gyroidg1215.html">IDG1215 Gyroscope: Sparkfun</a><br />
+	<a href="gyroixz500.html">IXZ500 Gyroscope: Sparkfun</a><br />
+	<a href="gyrolisy300al.html">LISY300AL Gyroscope: Sparkfun</a><br />
+	<a href="airpressure.html">Air pressure: Motorola</a><br />
+	<a href="rangerleds.html">Infrared ranger & LEDs</a><br />
+	<a href="potentiometerled.html">Potentiometer & LED</a><br />
+	<a href="lowcurrentacs712.html">Low current sensor: Sparkfun ACS712</a><br />
+	<a href="currentacs712.html">Current sensor: Sparkfun ACS712</a><br />
+<p><br /><b>Digital Input</b><br /><br />	<a href="switch.html">Switch (button)</a><br />
+	<a href="multipleswitches.html">Multiple switches</a><br />
+	<a href="hallsensor.html">Hall effect sensor</a><br />
+	<a href="parallaxping.html">distance (proximity) sensor: Parallax ping</a><br />
+	<a href="opticalsensor.html">Transmissive optical sensor</a><br />
+<p><br /><b>Analog Output</b><br /><br />	<a href="rgbled.html">RGB LED</a><br />
+	<a href="motorspeed.html">Motor speed</a><br />
+	<a href="stretchlight.html">Stretch sensor & LEDs</a><br />
+	<a href="inverselight.html">Light sensor & LED</a><br />
+</div><div class="ref-col"><p><br /><b>Structure</b><br /><br />	<a href="statementscomments.html">Statements and comments</a><br />
+	<a href="setuploop.html">Setup and Loop</a><br />
+	<a href="loop.html">Loop</a><br />
+	<a href="functions.html">Functions</a><br />
+<p><br /><b>Data</b><br /><br />	<a href="variables.html">Variables</a><br />
+	<a href="integersfloats.html">Integers and floats</a><br />
+	<a href="truefalse.html">True/False</a><br />
+	<a href="charactersstrings.html">Characters and Strings</a><br />
+	<a href="characterclassification.html">Character classification</a><br />
+	<a href="datatypeconversion.html">Datatype conversion</a><br />
+	<a href="variablescope.html">Variable scope</a><br />
+	<a href="arrays.html">Arrays</a><br />
+	<a href="vectors.html">Vectors</a><br />
+	<a href="splitstring.html">Split a string and convert it to numbers</a><br />
+	<a href="array2d.html">Bidimensional arrays</a><br />
+	<a href="arraypassing.html">Passing an array to a function</a><br />
+<p><br /><b>Data/Strings</b><br /><br />	<a href="stringadditionoperator.html">Add strings together</a><br />
+	<a href="stringappendoperator.html">Appending to Strings</a><br />
+	<a href="stringcasechanges.html">Change the case of a string</a><br />
+	<a href="stringcharacters.html">Characters and Strings</a><br />
+	<a href="stringcomparisonoperators.html">Compare strings</a><br />
+	<a href="stringconstructors.html">Create strings from other data types</a><br />
+	<a href="stringindexof.html">Evaluate, look for, and replace characters in a String</a><br />
+	<a href="stringlength.html">length() in a String</a><br />
+	<a href="stringlengthtrim.html">length() and trim() in a String</a><br />
+	<a href="stringreplace.html">Replace characters or substrings of a string</a><br />
+	<a href="stringstartswithendswith.html">startsWith() and endsWith() in a String</a><br />
+	<a href="stringsubstring.html">Substring in a String</a><br />
+<p><br /><b>Control</b><br /><br />	<a href="iteration.html">Iteration</a><br />
+	<a href="iterateoutputs.html">Iterate through digital outputs</a><br />
+	<a href="iterateinputs.html">Iterate through digital inputs</a><br />
+	<a href="conditionals.html">Conditionals</a><br />
+	<a href="logicaloperators.html">Logical operators</a><br />
+<p><br /><b>Math</b><br /><br />	<a href="incrementdecrement.html">Increment/Decrement</a><br />
+	<a href="operatorprecedence.html">Operator precedence</a><br />
+	<a href="modulo.html">Modulo</a><br />
+	<a href="sinecosine.html">Sine and Cosine</a><br />
+	<a href="random.html">Random</a><br />
+</div><div class="ref-col"><p><br /><b>Digital Advanced</b><br /><br />	<a href="shiftregister.html">Shift Register: 74LS595</a><br />
+	<a href="sfr0405ranger.html">Ultrasonic ranger: SFR04/SFR05</a><br />
+	<a href="magneticfield.html">Magnetic field sensor: micromag 3-axis</a><br />
+	<a href="humiditytemperaturesht15.html">Humidity & Temperature: Sparkfun SHT15</a><br />
+	<a href="humiditytemperaturesht11.html">Humidity & Temperature: Parallax SHT11</a><br />
+	<a href="rgbbackpack.html">RGB LED matrix: Sparkfun RGB LED backpack</a><br />
+<p><br /><b>Interrupts</b><br /><br />	<a href="externalinterrupts.html">Attending external interrupts</a><br />
+<p><br /><b>Timing</b><br /><br />	<a href="timer.html">Timer</a><br />
+	<a href="timerblink.html">LED blink w/timer</a><br />
+<p><br /><b>Serial</b><br /><br />	<a href="simpleread.html">Simple read</a><br />
+	<a href="simplewrite.html">Simple write</a><br />
+	<a href="simplereadwrite.html">Simple read & write</a><br />
+	<a href="advancedoutput.html">Advanced output</a><br />
+	<a href="multipleports.html">Multiple Ports</a><br />
+	<a href="photoresistorserial.html">Photoresistor & Serial</a><br />
+	<a href="readstring.html">Reading a string</a><br />
+	<a href="sendingmultipledata.html">Sending multiple values to Processing</a><br />
+	<a href="serialreadprocessing.html">Reading data from Processing</a><br />
+	<a href="serialrfid.html">RFID reader: parallax</a><br />
+	<a href="serialweather.html">Sparkfun USB weather board</a><br />
+	<a href="serialwriteprocessing.html">Writing data to Processing</a><br />
+	<a href="midi.html">Sending MIDI notes</a><br />
+</div>
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>

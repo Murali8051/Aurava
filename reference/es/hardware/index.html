@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Hardware: Res&uacute;men \ Wiring</title>
+		
+		<link rel="icon" href="img/wiring-1.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="img/wiring-1.ico" type="image/x-icon" />
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="Author" content="Hernando Barragán" />
+		<meta name="Publisher" content="Wiring" />
+		<meta name="Keywords" content="Wiring, Processing, Interactive Media, Electronic Arts, Programming, C, C++, Hernando Barragán" />
+		<meta name="Description" content="Wiring is an electronic sketchbook and hardware electronics for developing 
+				ideas. It is a context for learning fundamentals of computer programming and prototyping with electronics
+				within the context of the electronic arts." />
+		<meta name="Copyright" content="All contents copyright Hernando Barragán" />
+		
+		<script src="../javascript/MM_functions.js" type="text/javascript"></script>
+	
+		<link href="../css/style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body id="Overview" onload="" >
+		
+		<!-- ==================================== PAGE ============================ --> 
+		<div id="container">
+	
+			<!-- ==================================== HEADER ============================ --> 
+			<div id="header">
+				<a href="../index.html"><img src="../img/wiring_cover.gif" alt="Wiring cover" title="Back to the reference index." /></a>
+				<form name="search" method="get" action="http://www.google.com/search">
+				<label>Search wiring.org.co:</label> 
+				       <p><input type="hidden" name="as_sitesearch" value="wiring.org.co" />
+				       <input type="text" name="as_q" value="" size="20" class="text" /> 
+						<input type="image" src="../img/search_button.gif" value="Submit" alt="Submit" /></p>
+				</form>
+			</div> 
+						<div id="navigation">
+				<div class="navBar" id="mainnav">
+					<a href="../index.html">Framework</a> (<a href="../alpha.html">A-Z</a>) \ 
+					<a href="../libraries/index.html">Librer&iacute;as</a> \ 
+					<a href="../environment/index.html">Entorno</a> \ 
+					<a href="../learning/index.html">Aprendiendo</a> \
+					<a href="../hardware/index.html" class="active">Hardware</a> 
+				</div>
+				<div class="navBar hardware_local" id="subNav">
+					<a href="../hardware/index.html" class="active">Res&uacute;men</a> \
+					<a href="../hardware/previous.html">Anterior</a> \
+					<a href="../hardware/compare.html">Comparar</a> 
+				</div>
+			</div>
+
+		
+			<a id="TOP" name="TOP"></a>
+			
+			<!-- ==================================== CONTENT - Headers ============================ -->
+			<div class="content">
+			 
+			 <h3 id="top" class="ref-header"><img src="imgs/header.gif" width="675" height="24" alt="Frequently Asked Questions. 
+	There are many questions surrounding the Wiring project, we have a few answers." /></h3>
+<p><img src="imgs/PinsWiringS.png" width="498" height="466" /></p>
+<p>El hardware Wiring es un peque&ntilde;o circuito que incluye un diminuto computador del tama&ntilde;o de una estampilla conocido como microcontrolador. Este computador puede ser programado en el entorno de programaci&oacute;n Wiring para controlar toda clase de sensores y actuadores. Los sensores son dispositivos que permiten a la tarjeta adquirir informaci&oacute;n del ambiente alrededor (temperatura, luz, distancia a un objeto, etc.). Los actuadores son dispositivos que permiten a la tarjeta generar cambios (respuestas) en el mundo f&iacute;sico (luz, movimiento, temperatura, etc.). Esto hace posible crear todo tipo de artefactos interactivos. </p>
+<p>Un microcontrolador responde algunas de las dificultades relacionadas con la electr&oacute;nica incluyendo el concepto de ser programables. La misma unidad puede comportarse de diferentes maneras, solamente haciendo o modificando un programa de software que se adapte a los propositos espec&iacute;ficos.</p>
+      <p>Con el fin de conectar sensores y actuadores, el hardware Wiring provee un grupo de conectores conocidos como pines. Un pin puede ser ajustado como INPUT o OUTPUT si est&aacute; siendo usado para leer un sensor o para crear un respuesta en le mundo f&iacute;sico a trav&eacute;s de un actuador. Los sensores tienen varias categorias pero pueden ser agrupados en digitales o an&aacute;logos. Los digitales se refieren a se&ntilde;ales con dos posibles estados, ON o OFF, HIGH o LOW, como por ejemplo, los interruptores o protocolos especiales de comuncaci&oacute;n digital. Los an&aacute;logos se refieren a se&ntilde;ales que pueden tomar cualquier valor en un rango continuo, como luminosidad o temperatura.</p>
+      <p>Los pines pueden tener funciones alternas, revise el diagrama y la informaci&oacute;n m&aacute;s abajo. Normalmente un tipo de funci&oacute;n en un pin puede ser usada una vez.</p>
+<p>El hardware Wiring puede ser conectado al puerto USB de un computador. Esta conecci&oacute;n es para cargar un nuevo programa escrito en el entorno de programaci&oacute;n Wiring dentro del hardware Wiring y para comunicar el hardware Wiring con un computador anfitri&oacute;n (host) para otros prop&oacute;sitos, como enviar datos desde/para la tarjeta a una aplicaci&oacute;n corriendo en un PC. El PC reconoce el hardware Wiring como un puerto serial, siendo posible recibir y enviar datos desde/para &eacute;l desde las aplicaciones que est&aacute;n corriendo.</p>
+<p>Hay 3 escenarios b&aacute;sicos de prototipado para los cuales Wiring fue dise&ntilde;ado: objetos o espacios interactivos aut&oacute;nomos (sin la necesidad de estar conectado a un computador anfitri&oacute;n (host)), objetos o espacios interactivos conectados a un computador anfitri&oacute;n (host) para destacar las capacidades del prototipo, o interconectar objetos o espacios comunicando multiples dispositivos de hardware.</p>
+      <p>Hay diferentes tipos del hardware Wiring: Las tarjetas <strong>Wiring V1.0 </strong>(incluye todas las tarjetas Wiring originales despu&eacute;s de la revisi&oacute;n 004 y WiringMini con el microcontrolador atmega128), la tarjeta <strong>Wiring V1.1 Sparkfun</strong> (manufacturada y distribuida por sparkfun.com con los microcontroladores atmega1281 y atmega2561) y la nueva generaci&oacute;n de <strong>tarjetas Wiring: Wiring S</strong> (con el microcontrolador atmega644p) y distribuidas por <a href="http://roguerobotics.com">roguerobotics.com</a>, <strong>Wiring M</strong>, <strong>Wiring XS</strong> y <strong>Wiring L</strong> (las cuales estar&aacute;n disponibles pronto). </p>
+<p>El hardware Wiring puede ser usado de inmediato, provee un puerto USB el cual puede ser directamente conectado al computador para cargar programas, sin ajustes especiales o la necesidad de conecciones para empezar a trabajar con &eacute;l, por lo tanto <strong><em>es ideal en salones de clase ya que es est&aacute; lista para usar</em></strong>.</p>
+<p>Si desea adquirir el hardware original de Wiring  vaya a <a href="http://roguerobotics.com">http://roguerobotics.com</a>. Para ver tarjetas compartibles o construir su propia tarjeta, por favor revise el <a href="http://wiring.org.co/faq.html#download">FAQ</a> o <a href="http://wiring.org.co/download/">descargue</a> el EAGLE y los archivos esquem&aacute;ticos del dise&ntilde;o del hardware. Si est&aacute; buscando tutoriales para instalar el hardware y el software revise la secci&oacute;n <a href="http://wiring.org.co/learning/tutorials/">Learning / Tutorials</a>.</p>
+<p>Los temas cubiertos aqu&iacute; incluyen: <a href="#digitalpins">Pines Digitales input/output</a>, <a href="#analoginput">Pines input An&aacute;logos</a>, <a href="#analogoutput">Pines PWM (an&aacute;logos) output</a>, <a href="#serialports">Puertos Seriales</a>, <a href="#specialfunctions">Pines con funciones especiales</a>, <a href="#externalinterrupts">Pines con interrupciones externas</a>, <a href="#digitalports">Puertos Digitales input/output</a><a href="#extradigital"></a>, <a href="#indicative">LED de la tarjeta</a>, y <a href="#power">Fuente de alimentaci&oacute;n</a>.<br />
+</p>
+<h5>The Wiring S board</h5>
+<p>Es la primera tarjeta de la nueva generaci&oacute;n de hardware de Wiring. La tarjeta Wiring S est&aacute; basada en el microcontrolador atmega644p (este chip tambi&eacute;n esta disponible en formato DIP para quienes deseen armar su propio circuito). Con 32 pines de entrada/salida, 8 entradas an&aacute;logas, 2 puertos seriales de hardware, 6 salidas PWM (salidas an&aacute;logas), SPI, TWI, 3 pines de interrupci&oacute;n externa, regulaci&oacute;n de potencia con salida de 5V y 3.3V. Ver la <a href="compare.html">comparaci&oacute;n</a>.</p>
+<p>&nbsp;</p>
+<p><img src="imgs/SDimensions.png" width="482" height="389" /></p>
+<p>Wiring S dimensiones. Visite la secci&oacute;n de <a href="http://wiring.org.co/download">descargas</a> para obtener los archivos fuente y esquem&aacute;ticos completos</p>
+<p>&nbsp;</p>
+<h5 id="digitalpins"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+Pines Digitales input/output
+</h5>
+<p>El hardware Wiring tiene pines digitales que pueden ser configurados y usados individualmente como <strong><em>inputs (entradas)</em></strong> o <strong><em>outputs (salidas)</em></strong> desde el API del Wiring Framework en el entorno de programaci&oacute;n Wiring. Cuando un pin digital es configurado como <strong>INPUT</strong> puede ser usado para leer cualquier tipo de sensores que den valores <strong>HIGH</strong> (On) y <strong>LOW</strong> (Off), como presionar un bot&oacute;n, tocar un sensor, interruptores, etc. leer pulsos o conectar cualquier sensor digital en general. Cuando un pin es usado como <strong>OUTPUT</strong> puede ser usado para cambiar de <em>on (encendido)</em> o <em>off (apagado)</em> cualquier tipo de dispositivos como bombillos, motores, aparatos el&eacute;ctricos, generar pulsos, etc. </p>
+<p>Todos los hardware Wiring incluyen un LED en la tarjeta conectado a un pin digital que puede ser usado para hacer pruebas r&aacute;pidas de programas o diagn&oacute;sticos. El LED en la tarjeta se llama <strong>WLED</strong> en el API del Wiring Framework.</p>
+<p>En las tarjetas Wiring V1.x   WLED est&aacute; en el pin 48 </p>
+<p>En la tarjeta Wiring S   WLED est&aacute; en el pin 15</p>
+<h5 id="analoginput2"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a>Pines input An&aacute;logos</h5>
+<p>El hardware Wiring tiene entradas an&aacute;logas capaces de leer voltajes entre 0-5V. Internamente los voltajes estan transladados en n&uacute;meros desde 0 a 1023. Estas entradas pueden ser usadas para medir cantidades continuas como intensidad de luz, temperatura, proximidad, posici&oacute;n usando sensores an&aacute;logos, etc.</p>
+<p><strong>NOTA:</strong> Las entradas an&aacute;logas pueden ser tambi&eacute;n usadas como pines digitales si es necesario, solo use la numeraci&oacute;n continua de los pines digitales con los comandos <strong><em>pinMode</em></strong>, <strong><em>digitalRead</em></strong> o <strong><em>digitalWrite</em></strong> para acceder a ellos como pines digitales.</p>
+<h5 id="analogoutput"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a>Pines PWM (an&aacute;logos) output</h5>
+    <p>El hardware Wiring tiene pines de salida PWM (Pulse Width Modulation). PWM consiste en cambiar algo ON y OFF cientos de veces por segundo simulando el comportamiento de una salida an&aacute;loga, creando efectos como atenuacuones en la intensidad de la luz o controlar la velocidad de un motor. La funcionalidad de los PWM con disponibles en unos pines espec&iacute;ficos.</p>
+    <p>En las tarjetas Wiring V1.x los pines con posibilidades PWM son: 29, 30, 31, 35, 36 y 37 </p>
+    <p>En las tarjetas Wiring S los pines con posibilidades PWM son: 4, 5, 6, 7, 19 y 20</p>
+<h5 id="serialports"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+      Puerto seriales</h5>
+   
+     <p>El hardware Wiring tiene 2 puertos seriales. En el API del Wiring Framework uno es llamado <strong><em>Serial</em></strong> y el otro es llamado <strong><em>Serial1</em></strong>.  El puerto serial <em>Serial</em> es el mismo disponible a trav&eacute;s del conector USB y es usado para programar la tarjeta Wiring con el entorno de desarrollo Wiring, y para comunicarlo con otros dispositivos.</p>
+<p>En las tarjetas Wiring V1.x los pines del puerto serial <strong><em>Serial</em></strong> son: 32(RX0) y 33 (TX0) y los pines del puerto serial <strong><em>Serial1</em></strong> son: 2(RX1) y 3(TX1) </p>
+     <p>En las tarjetas Wiring S los pines del puerto serial <strong><em>Serial</em></strong> son: 0 (RX0) y 1 (TX0) y el puerto serial <strong><em>Serial1</em></strong> son: 2(RX1) y 3(TX1).</p>
+<h5 id="specialfunctions"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+      Pines con funciones especiales</h5>
+ 
+    <p>El hardware Wiring provee <strong>ISP</strong> y <strong>TWI</strong> (Two Wire Interface) tambi&eacute;n conocido como comunicaci&oacute;n i2c. El TWI permite conectar m&aacute;s de 128 sensores/actuadores i2c en una red usando solo dos cables para comunicarlos con todos ellos. Es tambi&eacute;n posible usar esos pines para crear una red de m&aacute;s de 127 tarjetas Wiring usando la libreria Wire. El protocolo ISP es manejado por la librer&iacute;a SPI y el protocolo TWI es manejado por la librer&iacute;a Wire.</p>
+    <p>En las tarjetas Wiring V1.x los pines ISP son: 24 (SS), 25 (MOSI), 26 (MISO) y 27 (SCK) </br>
+    En las tarjeta Wiring v1 los pines TWI son: 0 (SCL) y 1 (SDA)</p>
+    <p>En las tarjetas Wiring S los pines ISP son: 20 (SS), 21 (MOSI), 22 (MISO) y 23 (SCK) </br>
+    En las tarjetas Wiring S los pines TWI son: 8 (SCL) y 9 (SDA)</p>
+<h5 id="externalinterrupts"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+Pines con interrupciones externas
+</h5>
+<p>Es posible generar y atender interrupciones externas en el hardware Wiring. Hay pines en el hardware Wiring capaces de generar interrupciones externas</p>
+<p>En las tarjetas Wiring V1.x los pines capaces de generar <em>interrupciones externas</em> son: 0, 1, 2, 3, 36, 37, 38, y 39, nombrados como EI0..EI7. <strong>Nota:</strong> Los pines 0 y 1 son tambi&eacute;n usados por la librer&iacute;a <em><strong>Wire</strong></em> (TWI) y los pines 2 y 3 son tambi&eacute;n el puerto serial <strong><em>Serial1</em></strong>.</p>
+<p>En la tarjeta Wiring S los pines capaces de generar <em>interrupciones externas</em> son: 2, 3, y 18, nombrados como EI1, EI2 y EI3. <strong>Nota:</strong> Los pines 2 y 3 son tambi&eacute;n el puerto serial <strong><em>Serial1</em></strong>.</p>
+<h5 id="digitalports"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a>Puertos Digitales input/output</h5>
+<p>En el hardware Wiring los pines est&aacute;n agrupados en puertos. En la mayoria de los casos un puerto es un grupo de 8 pines, y pueden ser usados para enviar o recibir datos a un dispositivo en paralelo (8 bits al mismo tiempo). Son &uacute;tiles cuando se usan dispositivos como display de cristal l&iacute;quido (LCD) o impresoras. Cada puerto puede ser configurado y usado individualmente como <strong>INPUT</strong> o <strong>OUTPUT</strong> desde el API del Wiring Framework en el entorno de programaci&oacute;n Wiring a trav&eacute;s de los comandos <em><strong>portMode</strong></em>, <strong><em>portRead</em></strong> y <strong><em>portWrite</em></strong>.</p>
+<p><strong>Nota</strong>: Es posible usar la secci&oacute;n de <em>entradas an&aacute;logas</em> como digitales, en tal caso los pines individuales y el puerto seguir&aacute; siendo numerado continuamente.</p>
+<h5 id="indicative"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+      LED de la tarjeta</h5>
+	  
+    <p>El hardware Wiring tiene cuatro LEDs en la tarjeta: un LED que muestra si la tarjeta est&aacute; siendo alimentada, un LED directamente conectado a un pin digital que puede ser <em>encendido</em> o <em>apagado</em> desde el API del Wiring Framework y es conocido como <strong>WLED</strong> y los LEDs indicadores de la actividad de intercambio de datos (USB) - recepci&oacute;n (Rx) y transmisi&oacute;n (Tx) del puerto serial <em>Serial</em>. </p>
+<h5 id="power"><a href="#top"><img src="imgs/up_arrow.gif" width="26" height="19" alt="Top" /></a> 
+  Fuente de aplimentaci&oacute;n</h5>
+
+    <p>Una fuente gen&eacute;rica de alimentaci&oacute;n de 7-12 Voltios 1000mA con conector hembra y centro positivo es necesario para alimentar el hardware Wiring. Funciona bien para varias aplicaciones, pero si es necesario m&aacute;s alimentaci&oacute;n, se recomienda adquirir una fuente de corriente m&aacute;s robusta. El hardware Wiring puede ser tambi&eacute;n alimentado con baterias externas.</p>
+    
+<p> Para peque&ntilde;os experimentos, con dispositivos de poco consumo de corriente, el hardware Wiring puede ser alimentado desde el puerto USB del computador cuando la tarjeta esta conectada a un computador anfitri&oacute;n (host) usando un cable de impresora USB.</p>
+      <p>Un cable USB (cable USB gen&eacute;rico de impresora) es requerido para conectar el hardware Wiring a un computador anfitri&oacute;n (host). La WiringMini requiere un adaptador de puerto serial (como el Wiring USBAdapter) para conectarlo al computador anfitri&oacute;n (host).</p>
+      <p>&nbsp;</p>
+
+      <a href="previous.html">Versiones previas del hardware de Wiring</a>
+			
+			</div>
+
+			<!-- ==================================== FOOTER ============================ --> 
+  			<div id="footer">
+    			<div id="copyright">Wiring is an open project initiated by <a href="http://barraganstudio.com" target="_blank">Hernando Barrag&aacute;n</a>. It is developed by a <a href="http://wiring.org.co/about.html">small team of volunteers</a>.</div>  
+		  <div id="colophon">
+
+                    <a href="../copyright.html">&copy; Info</a>, Processing <a href="http://processing.org/copyright.html">&copy; Info</a></div>
+		  </div>
+  			
+		</div>
+	</body>
+</html>
